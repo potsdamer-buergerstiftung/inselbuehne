@@ -14,7 +14,7 @@ function MenuItem(props) {
   const { children, to = "/" } = props;
   return (
     <NextLink passHref href={to}>
-      <ChakraLink p="5">{children}</ChakraLink>
+      <ChakraLink mt="5">{children}</ChakraLink>
     </NextLink>
   );
 }
@@ -45,16 +45,29 @@ export default function Footer() {
             <Heading as="h6" fontSize="sm" variant="uppercase" color="white">
               Social Media
             </Heading>
+            <Flex direction="row" as="nav">
+              <MenuItem to="/">Instagram</MenuItem>
+            </Flex>
           </GridItem>
           <GridItem colSpan={2}>
             <Heading as="h6" fontSize="sm" variant="uppercase" color="white">
               Über uns
             </Heading>
+            <Flex direction="column" as="nav">
+              <MenuItem to="/">Team</MenuItem>
+              <MenuItem to="/">Bürgerstiftung</MenuItem>
+              <MenuItem to="/">Mitmachen</MenuItem>
+            </Flex>
           </GridItem>
           <GridItem colSpan={2}>
             <Heading as="h6" fontSize="sm" variant="uppercase" color="white">
               Mehr
             </Heading>
+            <Flex direction="column" as="nav">
+              <MenuItem to="/datenschutz">Datenschutz</MenuItem>
+              <MenuItem to="/impressum">Impressum</MenuItem>
+              <MenuItem to="/kontakt">Kontakt</MenuItem>
+            </Flex>
           </GridItem>
         </Grid>
       </Container>

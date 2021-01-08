@@ -1,13 +1,9 @@
-import Head from "next/head";
-import Header from "../components/Header";
+import Layout from "../components/Layout";
 
 export default function AboutUs() {
   return (
-    <div>
-      <Head>
-        <title>Über uns - Inselbühne Potsdam</title>
-      </Head>
-      <Header></Header>
-    </div>
+    <Layout title="Über uns">
+      <h1>Hallo</h1>
+    </Layout>
   );
 }

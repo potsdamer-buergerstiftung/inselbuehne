@@ -1,13 +1,9 @@
-import Head from "next/head";
-import Header from "../components/Header";
+import Layout from "../components/Layout";
 
-export default function Fortschritt() {
+export default function Progress() {
   return (
-    <div>
-      <Head>
-        <title>Fortschritt - Inselbühne Potsdam</title>
-      </Head>
-      <Header></Header>
-    </div>
+    <Layout title="Fortschritt">
+      <h1>Fortschritt</h1>
+    </Layout>
   );
 }

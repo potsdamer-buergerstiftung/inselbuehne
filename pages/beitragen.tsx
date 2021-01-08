@@ -1,13 +1,9 @@
-import Head from "next/head";
-import Header from "../components/Header";
+import Layout from "../components/Layout";
 
 export default function Contribute() {
   return (
-    <div>
-      <Head>
-        <title>Beitragen - Inselbühne Potsdam</title>
-      </Head>
-      <Header></Header>
-    </div>
+    <Layout title="Beitragen">
+      <h1>Beitragen</h1>
+    </Layout>
   );
 }

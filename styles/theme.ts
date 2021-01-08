@@ -1,10 +1,18 @@
 import { extendTheme } from "@chakra-ui/react"
 
 const components = {
-    heading: {
+    Heading: {
         baseStyle: {
             fontWeight: "normal",
         },
+        variants: {
+            "uppercase": {
+                fontWeight: "bold",
+                textTransform: "uppercase",
+                letterSpacing: "0.18em",
+                fontFamily: "body",
+            }
+        }
     }
 }
 

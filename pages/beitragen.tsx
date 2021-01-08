@@ -1,5 +1,5 @@
-import Head from 'next/head'
-import Header from '../components/Header'
+import Head from "next/head";
+import Header from "../components/Header";
 
 export default function Contribute() {
   return (
@@ -9,5 +9,5 @@ export default function Contribute() {
       </Head>
       <Header></Header>
     </div>
-  )
+  );
 }

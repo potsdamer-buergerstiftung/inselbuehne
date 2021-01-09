@@ -4,19 +4,19 @@ export interface TitleOptions {
   /**
    * The background color of the title
    */
-  color?: string
+  color?: string;
   /**
    * The text to show as title
    */
-  title: string
+  title: string;
   /**
    * The heading to show above the title
    */
-  heading?: string
+  heading?: string;
   /**
    * The elements to show below the title
    */
-  children?: any
+  children?: any;
 }
 
 export default function Title(props: TitleOptions) {

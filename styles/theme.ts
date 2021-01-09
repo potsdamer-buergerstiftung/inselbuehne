@@ -17,6 +17,7 @@ const components = {
     Button: {
         baseStyle: {
             fontWeight: "normal",
+            borderRadius: ".5rem 0 .5rem 0",
         }
     }
 }

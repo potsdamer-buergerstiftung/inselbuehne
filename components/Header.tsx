@@ -1,5 +1,6 @@
-import { Container, Flex, Link as ChakraLink, Box } from "@chakra-ui/react";
+import { Container, Flex, Link as ChakraLink, Button, Box } from "@chakra-ui/react";
 import NextLink from "next/link";
+import { useState } from "react";
 
 function MenuItem(props) {
   const { children, to = "/" } = props;
@@ -13,32 +14,46 @@ function MenuItem(props) {
 }
 
 export default function Header(props) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <Box
       as="header"
-      background={props.fluid ? "transparent" : "gray.50"}
-      position={props.fluid ? "fixed" : "relative"}
+      position={props.fluid ? "absolute" : "relative"}
       w="100%"
       zIndex="1"
+      background={{
+        base: menuOpen ? "white" : "transparent",
+        md: "transparent",
+      }}
+      boxShadow={{ base: "2xl", md: "none" }}
     >
       <Container maxW="7xl" py="5">
-        <NextLink passHref href="/">
-          <ChakraLink
-            fontSize="2xl"
-            py="5"
-            fontFamily="heading"
-            display={{ base: "block", md: "none" }}
-            whiteSpace="nowrap"
-          >
-            Inselbühne Potsdam
-          </ChakraLink>
-        </NextLink>
+        <Flex
+          as="div"
+          justify="space-between"
+          align="center"
+          display={{ base: "flex", md: "none" }}
+        >
+          <NextLink passHref href="/">
+            <ChakraLink
+              fontSize="2xl"
+              py="5"
+              fontFamily="heading"
+              whiteSpace="nowrap"
+            >
+              Inselbühne Potsdam
+            </ChakraLink>
+          </NextLink>
+          <Button onClick={() => setMenuOpen(!menuOpen)}>Menü</Button>
+        </Flex>
         <Flex
           as="div"
           align="center"
           justify="center"
           w="100%"
           direction={{ base: "column", md: "row" }}
+          display={{ base: menuOpen ? "flex" : "none", md: "flex" }}
         >
           <Flex
             as="nav"

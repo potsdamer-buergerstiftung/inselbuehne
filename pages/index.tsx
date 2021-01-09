@@ -26,8 +26,8 @@ export default function AboutOurProject() {
                 die Inselbühne beleben.
               </Heading>
               <Text mb="8" fontSize="lg">
-                Schau Dir gerne an, was wir vorhaben oder trag mit Deiner
-                Spende einfach direkt zum Projekt bei.{" "}
+                Schau Dir gerne an, was wir vorhaben oder trag mit Deiner Spende
+                einfach direkt zum Projekt bei.{" "}
               </Text>
               <NextLink passHref href="/beitragen">
                 <Button colorScheme="green" size="lg" as="a">

@@ -13,6 +13,11 @@ const components = {
                 fontFamily: "body",
             }
         }
+    },
+    Button: {
+        baseStyle: {
+            fontWeight: "normal",
+        }
     }
 }
 

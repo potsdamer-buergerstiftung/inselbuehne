@@ -16,9 +16,7 @@ export default function Progress() {
       <Box as="section" py="20">
         <Container centerContent textAlign="center">
           <Text>
-            Auch ein kleiner Geldbeutel sorgt später für viele tolle und
-            kostenlose Konzerte. Nach Deinem Beitrag kannst Du dir auch eine
-            unserer Belohnungen abholen.
+            Die aktuellen Blogbeiträge konnten leider nicht abgerufen werden.
           </Text>
         </Container>
       </Box>

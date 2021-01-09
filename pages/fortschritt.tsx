@@ -10,7 +10,7 @@ export default function Progress() {
         heading="Was schon alles passiert ist"
         color="gray.100"
       >
-        Ihr erfährst Du, was wir schon alles geschaft haben und was noch gemacht
+        Hier erfährst Du, was wir schon alles geschaft haben und was noch gemacht
         werden muss.
       </Title>
       <Box as="section" py="20">

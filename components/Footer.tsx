@@ -60,7 +60,7 @@ export default function Footer() {
               Über uns
             </Heading>
             <Flex direction="column" as="nav">
-              <MenuItem to="/team">Team</MenuItem>
+              <MenuItem to="/wir">Team</MenuItem>
               <MenuItem to="https://www.potsdamer-buergerstiftung.com">
                 Bürgerstiftung
               </MenuItem>

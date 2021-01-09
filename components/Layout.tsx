@@ -27,7 +27,7 @@ export default function Layout(props) {
       {props.children}
       <Box as="section" background="dark" color="gray.400">
         <Container maxW="7xl">
-          <Box h="8" w="100%" />
+          <Box h="10" w="100%" />
           <Flex align="center" justify="space-between">
             <GridItem colSpan={8}>
               <Heading as="h2" color="white" mb="2">
@@ -50,7 +50,7 @@ export default function Layout(props) {
               </NextLink>
             </GridItem>
           </Flex>
-          <Box h="8" w="100%" />
+          <Box h="10" w="100%" />
           <Divider colorScheme="dark" />
         </Container>
       </Box>

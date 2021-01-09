@@ -5,7 +5,7 @@ function MenuItem(props) {
   const { children, to = "/" } = props;
   return (
     <NextLink passHref href={to}>
-      <ChakraLink p="5" fontSize="lg">
+      <ChakraLink py="5" px={{ base: 0, md: 5 }} fontSize="lg">
         {children}
       </ChakraLink>
     </NextLink>
@@ -22,8 +22,30 @@ export default function Header(props) {
       zIndex="1"
     >
       <Container maxW="7xl" py="5">
-        <Flex as="div" align="center" justify="center" w="100%">
-          <Flex as="nav" w="100%" justify="end">
+        <NextLink passHref href="/">
+          <ChakraLink
+            fontSize="2xl"
+            py="5"
+            fontFamily="heading"
+            display={{ base: "block", md: "none" }}
+            whiteSpace="nowrap"
+          >
+            Inselbühne Potsdam
+          </ChakraLink>
+        </NextLink>
+        <Flex
+          as="div"
+          align="center"
+          justify="center"
+          w="100%"
+          direction={{ base: "column", md: "row" }}
+        >
+          <Flex
+            as="nav"
+            w="100%"
+            justify="flex-end"
+            direction={{ base: "column", md: "row" }}
+          >
             <MenuItem to="/">Unser Vorhaben</MenuItem>
             <MenuItem to="/fortschritt">Fortschritt</MenuItem>
           </Flex>
@@ -33,12 +55,18 @@ export default function Header(props) {
               px="7"
               py="5"
               fontFamily="heading"
-              display="ruby"
+              display={{ base: "none", md: "block" }}
+              whiteSpace="nowrap"
             >
               Inselbühne Potsdam
             </ChakraLink>
           </NextLink>
-          <Flex as="nav" w="100%" justify="start">
+          <Flex
+            as="nav"
+            w="100%"
+            justify="flex-start"
+            direction={{ base: "column", md: "row" }}
+          >
             <MenuItem to="/beitragen">Beitragen</MenuItem>
             <MenuItem to="/wir">Über uns</MenuItem>
           </Flex>

@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "format": "prettier --write ./pages ./components"
+    "format": "prettier --write ./pages ./components ./styles"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.1.2",

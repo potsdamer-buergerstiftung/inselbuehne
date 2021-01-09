@@ -21,7 +21,7 @@ function MenuItem(props) {
 
 export default function Footer() {
   return (
-    <Box as="footer" background="dark" color="gray.400" py="12">
+    <Box as="footer" background="dark" color="gray.400" py="16">
       <Container maxW="7xl" py="5">
         <Grid gap={4} templateColumns="repeat(12, 1fr)">
           <GridItem colSpan={6}>
@@ -39,6 +39,7 @@ export default function Footer() {
               >
                 Potsdamer Bürgerstiftung
               </ChakraLink>
+              .
             </Text>
           </GridItem>
           <GridItem colSpan={2}>
@@ -54,9 +55,9 @@ export default function Footer() {
               Über uns
             </Heading>
             <Flex direction="column" as="nav">
-              <MenuItem to="/">Team</MenuItem>
+              <MenuItem to="/team">Team</MenuItem>
               <MenuItem to="/">Bürgerstiftung</MenuItem>
-              <MenuItem to="/">Mitmachen</MenuItem>
+              <MenuItem to="/mitmachen">Mitmachen</MenuItem>
             </Flex>
           </GridItem>
           <GridItem colSpan={2}>

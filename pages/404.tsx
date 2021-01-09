@@ -6,8 +6,7 @@ export default function PageNotFound() {
   return (
     <Layout title="Seite nicht gefunden" fluid>
       <Title title="Seite nicht gefunden" heading="404" color="red.100">
-        Es tut uns leid, aber Deine gesuchte Seite konnte nicht gefunden
-        werden.
+        Es tut uns leid, aber Deine gesuchte Seite konnte nicht gefunden werden.
       </Title>
     </Layout>
   );

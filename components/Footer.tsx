@@ -46,8 +46,9 @@ export default function Footer() {
             <Heading as="h6" fontSize="sm" variant="uppercase" color="white">
               Social Media
             </Heading>
-            <Flex direction="row" as="nav">
-              <MenuItem to="/">Instagram</MenuItem>
+            <Flex direction="column" as="nav">
+              <MenuItem to="https://instagram.com/inselbuehne">Instagram</MenuItem>
+              <MenuItem to="https://github.com/potsdamer-buergerstiftung/inselbuehne">GitHub</MenuItem>
             </Flex>
           </GridItem>
           <GridItem colSpan={2}>
@@ -56,7 +57,7 @@ export default function Footer() {
             </Heading>
             <Flex direction="column" as="nav">
               <MenuItem to="/team">Team</MenuItem>
-              <MenuItem to="/">Bürgerstiftung</MenuItem>
+              <MenuItem to="https://www.potsdamer-buergerstiftung.com">Bürgerstiftung</MenuItem>
               <MenuItem to="/mitmachen">Mitmachen</MenuItem>
             </Flex>
           </GridItem>

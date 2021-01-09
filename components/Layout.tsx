@@ -23,7 +23,7 @@ export default function Layout(props) {
           content="Die Inselbühne auf der Freundschaftsinsel ist ein wunderbarer Ort im Dornröschenschlaf, der früher lebendiger Begegnungs- und Veranstaltungsort im Herzen der Stadt war."
         />
       </Head>
-      <Header />
+      <Header fluid={props.fluid} />
       {props.children}
       <Box as="section" background="dark" color="gray.400">
         <Container maxW="7xl">

@@ -12,20 +12,36 @@ function MenuItem(props) {
   );
 }
 
-export default function Header() {
+export default function Header(props) {
   return (
-    <Box as="header" background="gray.50">
+    <Box
+      as="header"
+      background={props.fluid ? "transparent" : "gray.50"}
+      position={props.fluid ? "fixed" : "relative"}
+      w="100%"
+      zIndex="1"
+    >
       <Container maxW="7xl" py="5">
-        <Flex as="nav" align="center" justify="center" wrap="wrap" w="100%">
-          <MenuItem to="/">Unser Vorhaben</MenuItem>
-          <MenuItem to="/fortschritt">Fortschritt</MenuItem>
+        <Flex as="div" align="center" justify="center" w="100%">
+          <Flex as="nav" w="100%" justify="end">
+            <MenuItem to="/">Unser Vorhaben</MenuItem>
+            <MenuItem to="/fortschritt">Fortschritt</MenuItem>
+          </Flex>
           <NextLink passHref href="/">
-            <ChakraLink fontSize="3xl" px="7" py="5" fontFamily="heading">
+            <ChakraLink
+              fontSize="3xl"
+              px="7"
+              py="5"
+              fontFamily="heading"
+              display="ruby"
+            >
               Inselbühne Potsdam
             </ChakraLink>
           </NextLink>
-          <MenuItem to="/beitragen">Beitragen</MenuItem>
-          <MenuItem to="/wir">Über uns</MenuItem>
+          <Flex as="nav" w="100%" justify="start">
+            <MenuItem to="/beitragen">Beitragen</MenuItem>
+            <MenuItem to="/wir">Über uns</MenuItem>
+          </Flex>
         </Flex>
       </Container>
     </Box>

@@ -26,7 +26,7 @@ export default function Header(props) {
         base: menuOpen ? "white" : "transparent",
         md: "transparent",
       }}
-      boxShadow={{ base: "2xl", md: "none" }}
+      boxShadow={{ base: menuOpen ? "2xl" : "none", md: "none" }}
     >
       <Container maxW="7xl" py="5">
         <Flex

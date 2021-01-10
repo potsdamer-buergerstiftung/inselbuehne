@@ -31,6 +31,8 @@ interface PageProps {
   setPage: Dispatch<SetStateAction<DonationProgress>>;
 }
 
+const preDefinedAmounts = [25, 50, 100, 200];
+
 interface DonationData {
   amount: number;
   details: DonationDetailsData;
@@ -56,7 +58,7 @@ const defaultDonationData: DonationData = {
     newsletter: false,
     anonymous: false,
     receipt: false,
-  }
+  },
 };
 
 function DonationModal() {
@@ -90,38 +92,19 @@ function AmountPage(props: PageProps) {
         Auch ein kleiner Geldbeutel sorgt später für viele tolle und kostenlose
         Konzerte.
       </Text>
-      <Button
-        colorScheme="gray"
-        isFullWidth
-        mb="2"
-        onClick={() => onSubmit(25)}
-      >
-        25€
-      </Button>
-      <Button
-        colorScheme="gray"
-        isFullWidth
-        mb="2"
-        onClick={() => onSubmit(50)}
-      >
-        50€
-      </Button>
-      <Button
-        colorScheme="gray"
-        isFullWidth
-        mb="2"
-        onClick={() => onSubmit(100)}
-      >
-        100€
-      </Button>
-      <Button
-        colorScheme="gray"
-        isFullWidth
-        mb="2"
-        onClick={() => onSubmit(200)}
-      >
-        200€
-      </Button>
+      {preDefinedAmounts.map((amount) => {
+        return (
+          <Button
+            colorScheme="gray"
+            isFullWidth
+            mb="2"
+            onClick={() => onSubmit(amount)}
+            key={amount.toString()}
+          >
+            {amount}€
+          </Button>
+        );
+      })}
       <Input placeholder="Dein eigener Betrag..." variant="filled" mb="10" />
       <Button
         onClick={() => {
@@ -136,12 +119,17 @@ function AmountPage(props: PageProps) {
 }
 
 function DetailsPage(props: PageProps) {
-  console.log(props.formData)
-  const { register, watch, handleSubmit, errors } = useForm<DonationDetailsData>();
+  console.log(props.formData);
+  const {
+    register,
+    watch,
+    handleSubmit,
+    errors,
+  } = useForm<DonationDetailsData>();
   const onSubmit = (data) => {
-    console.log(data)
-  }
-  console.log(watch("name"))
+    console.log(data);
+  };
+  console.log(watch("name"));
 
   return (
     <>
@@ -244,9 +232,9 @@ function PaymentPage(props: PageProps) {
             });
           }}
           onApprove={async (data, actions) => {
-            const order = await actions.order.capture()
-            console.log(order)
-            console.log(props.formData)
+            const order = await actions.order.capture();
+            console.log(order);
+            console.log(props.formData);
           }}
         />
       </Box>

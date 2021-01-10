@@ -1,5 +1,7 @@
 FROM node:lts-alpine as builder
 
+ARG NEXT_PUBLIC_PAYPAL_CLIENT_ID
+
 WORKDIR /app
 
 COPY package.json yarn.lock /app/

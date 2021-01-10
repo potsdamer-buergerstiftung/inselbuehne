@@ -23,8 +23,13 @@ export default function Footer() {
   return (
     <Box as="footer" background="dark" color="gray.400" py="16">
       <Container maxW="7xl" py="5">
-        <Grid gap={4} templateColumns="repeat(12, 1fr)">
-          <GridItem colSpan={6}>
+        <Grid
+          columnGap={6}
+          rowGap={12}
+          templateColumns="repeat(12, 1fr)"
+          textAlign={{ base: "center", md: "left" }}
+        >
+          <GridItem colSpan={{ base: 12, md: 6 }}>
             <NextLink passHref href="/">
               <Heading fontSize="4xl" color="white" mb="2">
                 Inselbühne Potsdam
@@ -42,7 +47,7 @@ export default function Footer() {
               .
             </Text>
           </GridItem>
-          <GridItem colSpan={2}>
+          <GridItem colSpan={{ base: 12, md: 2 }}>
             <Heading as="h6" fontSize="sm" variant="uppercase" color="white">
               Social Media
             </Heading>
@@ -55,7 +60,7 @@ export default function Footer() {
               </MenuItem>
             </Flex>
           </GridItem>
-          <GridItem colSpan={2}>
+          <GridItem colSpan={{ base: 12, md: 2 }}>
             <Heading as="h6" fontSize="sm" variant="uppercase" color="white">
               Über uns
             </Heading>
@@ -67,7 +72,7 @@ export default function Footer() {
               <MenuItem to="/mitmachen">Mitmachen</MenuItem>
             </Flex>
           </GridItem>
-          <GridItem colSpan={2}>
+          <GridItem colSpan={{ base: 12, md: 2 }}>
             <Heading as="h6" fontSize="sm" variant="uppercase" color="white">
               Mehr
             </Heading>

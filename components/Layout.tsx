@@ -39,7 +39,7 @@ export default function Layout(props) {
               <Heading as="h2" color="white" mb="2">
                 Lasst uns{" "}
                 <Box color="green.500" as="span">
-                  zusammen
+                  gemeinsam
                 </Box>{" "}
                 die Bühne beleben.
               </Heading>

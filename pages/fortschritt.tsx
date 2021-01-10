@@ -7,7 +7,7 @@ export default function Progress() {
     <Layout title="Fortschritt" fluid>
       <Title
         title="Fortschritt"
-        heading="Was schon alles passiert ist"
+        heading="Ein langer Weg liegt vor uns"
         color="gray.100"
       >
         Hier erfährst Du, was wir schon alles geschaft haben und was noch

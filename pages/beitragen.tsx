@@ -47,7 +47,7 @@ interface DonationDetailsData {
 }
 
 const defaultDonationData: DonationData = {
-  amount: 20,
+  amount: 1,
   details: {
     name: null,
     email: null,
@@ -200,8 +200,7 @@ function DetailsPage(props: PageProps) {
       <Button
         onClick={() => {
           handleSubmit(onSubmit);
-          console.log("Test")
-          /*  props.setPage(DonationProgress.Payment); */
+          props.setPage(DonationProgress.Payment);
         }}
         type="submit"
         colorScheme="green"

@@ -15,7 +15,12 @@ import MotionBox from "../components/MotionBox";
 export default function AboutOurProject() {
   return (
     <Layout title="Unser Vorhaben" fluid>
-      <Box as="section" background="green.50" pb="40" pt="60">
+      <Box
+        as="section"
+        background="green.50"
+        pb={{ base: "20", md: "40" }}
+        pt={{ base: "40", md: "60" }}
+      >
         <Container maxW="6xl">
           <Grid gap={6} templateColumns="repeat(12, 1fr)" alignItems="center">
             <GridItem colSpan={{ base: 12, md: 7 }}>
@@ -42,7 +47,7 @@ export default function AboutOurProject() {
           </Grid>
         </Container>
       </Box>
-      <Box as="section" pb="40" pt="20">
+      <Box as="section" pb={{ base: "20", md: "40" }} pt="20">
         <Container maxW="6xl" centerContent>
           <Grid gap={4} templateColumns="repeat(12, 1fr)" alignItems="center">
             <GridItem colSpan={{ base: 12, md: 5 }}>
@@ -52,7 +57,7 @@ export default function AboutOurProject() {
               <Heading as="h1" fontSize="4xl" mb="8">
                 Was ist die Inselbühne?
               </Heading>
-              <Grid gap={10} templateColumns="repeat(12, 1fr)">
+              <Grid columnGap={6} rowGap={12} templateColumns="repeat(12, 1fr)">
                 <GridItem colSpan={{ base: 12, md: 6 }}>
                   <Text>
                     Die Inselbühne auf der Freundschaftsinsel ist ein

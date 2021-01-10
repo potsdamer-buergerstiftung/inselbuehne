@@ -10,7 +10,7 @@ import {
   Heading,
   Text,
   Button,
-  Flex,
+  Grid,
 } from "@chakra-ui/react";
 
 export default function Layout(props) {
@@ -28,8 +28,14 @@ export default function Layout(props) {
       <Box as="section" background="dark" color="gray.400">
         <Container maxW="7xl">
           <Box h="10" w="100%" />
-          <Flex align="center" justify="space-between">
-            <GridItem colSpan={8}>
+          <Grid
+            alignItems="center"
+            justifyContent="space-between"
+            templateColumns="repeat(12, 1fr)"
+            columnGap={12}
+            rowGap={6}
+          >
+            <GridItem colSpan={{ base: 12, md: 6 }}>
               <Heading as="h2" color="white" mb="2">
                 Lasst uns{" "}
                 <Box color="green.500" as="span">
@@ -42,14 +48,14 @@ export default function Layout(props) {
                 Veranstaltungen.
               </Text>
             </GridItem>
-            <GridItem colSpan={4}>
+            <GridItem colSpan={{ base: 12, md: 4 }}>
               <NextLink passHref href="/beitragen">
                 <Button colorScheme="green" size="lg" as="a">
                   Jetzt spenden
                 </Button>
               </NextLink>
             </GridItem>
-          </Flex>
+          </Grid>
           <Box h="10" w="100%" />
           <Divider colorScheme="dark" />
         </Container>

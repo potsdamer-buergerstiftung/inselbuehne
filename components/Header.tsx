@@ -67,8 +67,8 @@ export default function Header(props) {
             justify="flex-end"
             direction={{ base: "column", md: "row" }}
           >
-            <MenuItem to="/">Unser Vorhaben</MenuItem>
             <MenuItem to="/fortschritt">Fortschritt</MenuItem>
+            <MenuItem to="/ueber-uns">Über uns</MenuItem>
           </Flex>
           <NextLink passHref href="/">
             <ChakraLink
@@ -89,7 +89,7 @@ export default function Header(props) {
             direction={{ base: "column", md: "row" }}
           >
             <MenuItem to="/beitragen">Beitragen</MenuItem>
-            <MenuItem to="/wir">Über uns</MenuItem>
+            <MenuItem to="/auftreten">Auftreten</MenuItem>
           </Flex>
         </Flex>
       </Container>

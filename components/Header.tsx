@@ -1,4 +1,10 @@
-import { Container, Flex, Link as ChakraLink, Button, Box } from "@chakra-ui/react";
+import {
+  Container,
+  Flex,
+  Link as ChakraLink,
+  Button,
+  Box,
+} from "@chakra-ui/react";
 import NextLink from "next/link";
 import { useState } from "react";
 

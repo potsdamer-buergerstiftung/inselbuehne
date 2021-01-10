@@ -1,14 +1,22 @@
 import "typeface-dm-sans";
 import "typeface-dm-serif-display";
-import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import theme from "../styles/theme";
 
-function MyApp({ Component, pageProps }) {
+function Inselbuehne({ Component, pageProps }) {
   return (
-    <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <PayPalScriptProvider
+      options={{
+        "client-id": process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID,
+        currency: "EUR",
+      }}
+    >
+      <ChakraProvider theme={theme}>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </PayPalScriptProvider>
   );
 }
 
-export default MyApp;
+export default Inselbuehne;

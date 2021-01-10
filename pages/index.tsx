@@ -22,7 +22,7 @@ export default function AboutOurProject() {
               <Heading as="h1" fontSize="5xl" mb="5">
                 Lasst uns{" "}
                 <Box as="span" color="green.300">
-                  zusammen
+                  gemeinsam
                 </Box>{" "}
                 die Inselbühne beleben.
               </Heading>

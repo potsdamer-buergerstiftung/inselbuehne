@@ -65,11 +65,11 @@ export default function Footer() {
               Über uns
             </Heading>
             <Flex direction="column" as="nav">
-              <MenuItem to="/wir">Team</MenuItem>
+              <MenuItem to="/ueber-uns">Team</MenuItem>
               <MenuItem to="https://www.potsdamer-buergerstiftung.com">
                 Bürgerstiftung
               </MenuItem>
-              <MenuItem to="/mitmachen">Mitmachen</MenuItem>
+              <MenuItem to="/presse">Presse</MenuItem>
             </Flex>
           </GridItem>
           <GridItem colSpan={{ base: 12, md: 2 }}>

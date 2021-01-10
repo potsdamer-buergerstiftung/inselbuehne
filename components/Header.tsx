@@ -51,7 +51,9 @@ export default function Header(props) {
               Inselbühne Potsdam
             </ChakraLink>
           </NextLink>
-          <Button onClick={() => setMenuOpen(!menuOpen)} colorScheme="green">Menü</Button>
+          <Button onClick={() => setMenuOpen(!menuOpen)} colorScheme="green">
+            Menü
+          </Button>
         </Flex>
         <Flex
           as="div"

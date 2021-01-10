@@ -30,12 +30,11 @@ export default function Layout(props) {
           <Box h="10" w="100%" />
           <Grid
             alignItems="center"
-            justifyContent="space-between"
             templateColumns="repeat(12, 1fr)"
-            columnGap={12}
+            columnGap={6}
             rowGap={6}
           >
-            <GridItem colSpan={{ base: 12, md: 6 }}>
+            <GridItem colSpan={{ base: 12, md: 8 }}>
               <Heading as="h2" color="white" mb="2">
                 Lasst uns{" "}
                 <Box color="green.500" as="span">

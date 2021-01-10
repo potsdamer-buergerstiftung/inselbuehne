@@ -43,7 +43,7 @@ export default function Header(props) {
         >
           <NextLink passHref href="/">
             <ChakraLink
-              fontSize="2xl"
+              fontSize={{ base: "xl", sm: "2xl" }}
               py="5"
               fontFamily="heading"
               whiteSpace="nowrap"

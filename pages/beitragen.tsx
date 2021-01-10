@@ -8,7 +8,7 @@ export default function Contribute() {
       <Title
         title="Beitragen"
         heading="Das Projekt unterstützen"
-        color="green.100"
+        color="gray.100"
       >
         Um die Bühne wieder veranstaltungsfähig zu machen, benötigen wir Eure
         Hilfe.

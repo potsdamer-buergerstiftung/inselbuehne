@@ -90,7 +90,7 @@ export default function Header(props) {
             justify="flex-start"
             direction={{ base: "column", md: "row" }}
           >
-            <MenuItem to="/beitragen">Beitragen</MenuItem>
+            <MenuItem to="/unterstuetzen">Unterstützen</MenuItem>
             <MenuItem to="/auftreten">Auftreten</MenuItem>
           </Flex>
         </Flex>

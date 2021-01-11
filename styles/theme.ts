@@ -20,6 +20,11 @@ const components = {
       borderRadius: ".5rem 0 .5rem 0",
     },
   },
+  Text: {
+    baseStyle: {
+      lineHeight: 1.75,
+    },
+  },
 };
 
 const colors = {

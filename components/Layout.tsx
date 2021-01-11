@@ -48,7 +48,7 @@ export default function Layout(props) {
               </Text>
             </GridItem>
             <GridItem colSpan={{ base: 12, md: 4 }}>
-              <NextLink passHref href="/beitragen">
+              <NextLink passHref href="/unterstuetzen">
                 <Button colorScheme="green" size="lg" as="a">
                   Jetzt spenden
                 </Button>

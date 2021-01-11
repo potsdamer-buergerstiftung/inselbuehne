@@ -37,7 +37,7 @@ export default function AboutOurProject() {
                 dabei unterstützen und wie Du die Bühne nutzen kannst, all das
                 findest Du hier.{" "}
               </Text>
-              <NextLink passHref href="/beitragen">
+              <NextLink passHref href="/unterstuetzen">
                 <Button colorScheme="green" size="lg" as="a">
                   Jetzt spenden
                 </Button>

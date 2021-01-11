@@ -10,7 +10,6 @@ import {
 import Layout from "../components/Layout";
 import Image from "next/image";
 import NextLink from "next/link";
-import MotionBox from "../components/MotionBox";
 
 export default function AboutOurProject() {
   return (
@@ -32,8 +31,11 @@ export default function AboutOurProject() {
                 die Inselbühne beleben.
               </Heading>
               <Text mb="8" fontSize="lg">
-                Schau Dir gerne an, was wir vorhaben oder trag mit Deiner Spende
-                einfach direkt zum Projekt bei.{" "}
+                Eine pandemie-taugliche, offene Bühne im Herzen Potsdams: das
+                ist die Idee hinter der neuen, alten Inselbühne auf der
+                Freundschaftsinsel. Wie wir das umsetzen wollen, wie Du uns
+                dabei unterstützen und wie Du die Bühne nutzen kannst, all das
+                findest Du hier.{" "}
               </Text>
               <NextLink passHref href="/beitragen">
                 <Button colorScheme="green" size="lg" as="a">
@@ -49,11 +51,16 @@ export default function AboutOurProject() {
       </Box>
       <Box as="section" pb={{ base: "20", md: "40" }} pt="20">
         <Container maxW="6xl" centerContent>
-          <Grid gap={4} templateColumns="repeat(12, 1fr)" alignItems="center">
-            <GridItem colSpan={{ base: 12, md: 5 }}>
+          <Grid
+            columnGap={6}
+            rowGap={6}
+            templateColumns="repeat(24, 1fr)"
+            alignItems="center"
+          >
+            <GridItem colSpan={{ base: 24, md: 9 }}>
               <Image width={400} height={300} src="/Kinder3.JPG" />
             </GridItem>
-            <GridItem colSpan={{ base: 12, md: 7 }}>
+            <GridItem colSpan={{ base: 24, md: 15 }}>
               <Heading as="h1" fontSize="4xl" mb="8">
                 Was ist die Inselbühne?
               </Heading>

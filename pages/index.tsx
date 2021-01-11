@@ -52,7 +52,7 @@ export default function AboutOurProject() {
       <Box as="section" pb={{ base: "20", md: "40" }} pt="20">
         <Container maxW="6xl" centerContent>
           <Grid
-            columnGap={6}
+            columnGap={4}
             rowGap={6}
             templateColumns="repeat(24, 1fr)"
             alignItems="center"

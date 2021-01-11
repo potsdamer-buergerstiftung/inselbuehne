@@ -228,8 +228,8 @@ function PaymentPage(props: PageProps) {
                 {
                   amount: {
                     value: props.formData.amount,
-                    description: "Spende Inselbühne",
                   },
+                  description: "Spende Inselbühne",
                 },
               ],
             });

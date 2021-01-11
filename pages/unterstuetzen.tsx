@@ -14,6 +14,7 @@ import {
   Stat,
   StatNumber,
   StatLabel,
+  Badge,
 } from "@chakra-ui/react";
 import { SetStateAction, useState, Dispatch } from "react";
 import { useForm } from "react-hook-form";
@@ -23,11 +24,13 @@ enum DonationProgress {
   Amount,
   Details,
   Payment,
+  Confirmation,
+  Error,
 }
 
 interface PageProps {
-  formData: DonationData;
-  setFormData: Dispatch<SetStateAction<DonationData>>;
+  donationData: DonationData;
+  setDonationData: Dispatch<SetStateAction<DonationData>>;
   setPage: Dispatch<SetStateAction<DonationProgress>>;
 }
 
@@ -36,6 +39,7 @@ const preDefinedAmounts = [25, 50, 100, 200];
 interface DonationData {
   amount: number;
   details: DonationDetailsData;
+  order: any;
 }
 
 interface DonationDetailsData {
@@ -49,7 +53,7 @@ interface DonationDetailsData {
 }
 
 const defaultDonationData: DonationData = {
-  amount: 1,
+  amount: null,
   details: {
     name: null,
     email: null,
@@ -59,27 +63,45 @@ const defaultDonationData: DonationData = {
     anonymous: false,
     receipt: false,
   },
+  order: null,
 };
 
 function DonationModal() {
   const [page, setPage] = useState<DonationProgress>(DonationProgress.Amount);
-  const [formData, setFormData] = useState(defaultDonationData);
+  const [donationData, setDonationData] = useState(defaultDonationData);
 
-  const props = { formData, setPage, setFormData };
+  const props = { donationData, setPage, setDonationData };
 
   switch (page) {
     case DonationProgress.Details:
       return <DetailsPage {...props} />;
     case DonationProgress.Payment:
       return <PaymentPage {...props} />;
+    case DonationProgress.Confirmation:
+      return <ConfirmationPage {...props} />;
     default:
       return <AmountPage {...props} />;
   }
 }
 
 function AmountPage(props: PageProps) {
-  const onSubmit = (amount: number) => {
-    props.setFormData({ ...props.formData, amount });
+  const [amount, setAmount] = useState(null);
+  const [customAmount, setCustomAmount] = useState("");
+
+  const onCustomAmountChange = (event) => {
+    const value = event.target.value;
+    const parsedAmount = parseInt(value);
+    if (Number.isInteger(parsedAmount)) {
+      setCustomAmount(parsedAmount.toString());
+      setAmount(parsedAmount);
+    } else {
+      setCustomAmount("");
+      setAmount(null);
+    }
+  };
+
+  const setNextPage = (amount: number) => {
+    props.setDonationData({ ...props.donationData, amount });
     props.setPage(DonationProgress.Details);
   };
 
@@ -98,18 +120,23 @@ function AmountPage(props: PageProps) {
             colorScheme="gray"
             isFullWidth
             mb="2"
-            onClick={() => onSubmit(amount)}
+            onClick={() => setNextPage(amount)}
             key={amount.toString()}
           >
             {amount}€
           </Button>
         );
       })}
-      <Input placeholder="Dein eigener Betrag..." variant="filled" mb="10" />
+      <Input
+        placeholder="Dein eigener Betrag..."
+        value={customAmount}
+        onChange={onCustomAmountChange}
+        variant="filled"
+        mb="10"
+      />
       <Button
-        onClick={() => {
-          props.setPage(DonationProgress.Details);
-        }}
+        disabled={amount ? false : true}
+        onClick={() => setNextPage(amount)}
         colorScheme="green"
       >
         Weiter
@@ -119,17 +146,10 @@ function AmountPage(props: PageProps) {
 }
 
 function DetailsPage(props: PageProps) {
-  console.log(props.formData);
-  const {
-    register,
-    watch,
-    handleSubmit,
-    errors,
-  } = useForm<DonationDetailsData>();
+  const { register, handleSubmit, errors } = useForm<DonationDetailsData>();
   const onSubmit = (data) => {
     console.log(data);
   };
-  console.log(watch("name"));
 
   return (
     <>
@@ -143,7 +163,7 @@ function DetailsPage(props: PageProps) {
           variant="filled"
           name="name"
           ref={register({ required: true })}
-          defaultValue={props.formData.details.name}
+          defaultValue={props.donationData.details.name}
         />
         {errors.name && "Dein Name ist erforderlich"}
       </FormControl>
@@ -154,7 +174,7 @@ function DetailsPage(props: PageProps) {
           variant="filled"
           name="email"
           ref={register({ required: true })}
-          defaultValue={props.formData.details.email}
+          defaultValue={props.donationData.details.email}
         />
         {errors.email && "Deine E-Mail ist erforderlich"}
       </FormControl>
@@ -182,7 +202,7 @@ function DetailsPage(props: PageProps) {
           Meine Spende anonym halten
         </Checkbox>
       </FormControl>
-      {props.formData.amount >= 200 && (
+      {props.donationData.amount >= 200 && (
         <FormControl mb="6" defaultValue="false" name="receipt" ref={register}>
           <Checkbox>Spendenquittung anfordern</Checkbox>
         </FormControl>
@@ -217,7 +237,7 @@ function PaymentPage(props: PageProps) {
       </Heading>
       <Stat mb="6">
         <StatLabel>Deine Spende</StatLabel>
-        <StatNumber>{props.formData.amount}€</StatNumber>
+        <StatNumber>{props.donationData.amount}€</StatNumber>
       </Stat>
       <Box mb="6">
         <PayPalButtons
@@ -227,7 +247,7 @@ function PaymentPage(props: PageProps) {
               purchase_units: [
                 {
                   amount: {
-                    value: props.formData.amount,
+                    value: props.donationData.amount,
                   },
                   description: "Spende Inselbühne",
                 },
@@ -236,8 +256,8 @@ function PaymentPage(props: PageProps) {
           }}
           onApprove={async (data, actions) => {
             const order = await actions.order.capture();
-            console.log(order);
-            console.log(props.formData);
+            props.setDonationData({ ...props.donationData, order });
+            props.setPage(DonationProgress.Confirmation);
           }}
         />
       </Box>
@@ -249,6 +269,26 @@ function PaymentPage(props: PageProps) {
       >
         Zurück
       </Button>
+    </>
+  );
+}
+
+function ConfirmationPage(orderData) {
+  return (
+    <>
+      <Heading as="h4" mb="6">
+        Dankeschön
+      </Heading>
+      <Badge variant="subtle" colorScheme="green" mb="2">
+        Spende erfolgreich
+      </Badge>
+      <Stat mb="6">
+        <StatLabel>
+          Vielen Dank für Deine Spende. Du hast unseren Weg damit ein kleines
+          bisschen verkürzt. Wir haben Dir als Bestätigung eine E-Mail
+          geschickt.
+        </StatLabel>
+      </Stat>
     </>
   );
 }

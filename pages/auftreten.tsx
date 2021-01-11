@@ -1,10 +1,6 @@
 import Layout from "../components/Layout";
 import Title from "../components/Title";
-import {
-  Box,
-  Container,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Container, Text } from "@chakra-ui/react";
 
 export default function Contribute() {
   return (

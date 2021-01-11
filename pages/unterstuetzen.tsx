@@ -182,9 +182,11 @@ function DetailsPage(props: PageProps) {
           Meine Spende anonym halten
         </Checkbox>
       </FormControl>
-      <FormControl mb="6" defaultValue="false" name="receipt" ref={register}>
-        <Checkbox>Spendenquittung anfordern</Checkbox>
-      </FormControl>
+      {props.formData.amount >= 200 && (
+        <FormControl mb="6" defaultValue="false" name="receipt" ref={register}>
+          <Checkbox>Spendenquittung anfordern</Checkbox>
+        </FormControl>
+      )}
       <Button
         onClick={() => {
           handleSubmit(onSubmit);
@@ -226,6 +228,7 @@ function PaymentPage(props: PageProps) {
                 {
                   amount: {
                     value: props.formData.amount,
+                    description: "Spende Inselbühne",
                   },
                 },
               ],
@@ -252,10 +255,10 @@ function PaymentPage(props: PageProps) {
 
 export default function Contribute() {
   return (
-    <Layout title="Beitragen" fluid>
+    <Layout title="Unterstützen" fluid>
       <Title
-        title="Beitragen"
-        heading="Das Projekt unterstützen"
+        title="Unterstützen"
+        heading="Zum Projekt beitragen"
         color="gray.100"
       >
         Um die Bühne wieder veranstaltungsfähig zu machen, benötigen wir Eure
@@ -263,7 +266,13 @@ export default function Contribute() {
       </Title>
       <Box as="section" py="20">
         <Container centerContent>
-          <Box as="div" boxShadow="base" p="5" rounded="lg" maxW="sm">
+          <Box
+            as="div"
+            boxShadow="base"
+            p="5"
+            rounded="lg"
+            width={{ base: "auto", md: "xs" }}
+          >
             <DonationModal />
           </Box>
         </Container>

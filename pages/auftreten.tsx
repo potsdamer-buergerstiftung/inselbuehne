@@ -1,6 +1,7 @@
 import Layout from "../components/Layout";
 import Title from "../components/Title";
 import { Box, Container, Text } from "@chakra-ui/react";
+import Link from "next/link";
 
 export default function Contribute() {
   return (
@@ -27,6 +28,12 @@ export default function Contribute() {
             Wir planen auch, Dir eine (diese!) Website und
             Social-Media-Auftritte zur Verfügung zu stellen, über die Du Deine
             Veranstaltung zusätzlich bewerben kannst.
+          </Text>
+          <Text mb="8">
+            Sende Deine Anfragen bitte an <Link href="mailto://kve@potsdamer-buergerstiftung.com">kve@potsdamer-buergerstiftung.com</Link>. Je
+            exakter Du uns sagen kannst, was Du für Deine Veranstaltung
+            benötigst, desto schneller können wir Dich bei der Umsetzung auf der
+            Inselbühne unterstützen.
           </Text>
         </Container>
       </Box>

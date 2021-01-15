@@ -111,8 +111,8 @@ function AmountPage(props: PageProps) {
         Spenden
       </Heading>
       <Text mb="10">
-        Auch ein kleiner Geldbeutel sorgt später für viele tolle und kostenlose
-        Konzerte.
+        Auch ein kleiner Geldbeutel kann zu tollen Kulturerlebnissen auf der
+        Inselbühne beitragen.
       </Text>
       {preDefinedAmounts.map((amount) => {
         return (
@@ -298,14 +298,31 @@ export default function Contribute() {
     <Layout title="Unterstützen" fluid>
       <Title
         title="Unterstützen"
-        heading="Zum Projekt beitragen"
+        heading="Das Projekt fördern"
         color="gray.100"
       >
-        Um die Bühne wieder veranstaltungsfähig zu machen, benötigen wir Eure
-        Hilfe.
+        Hilf uns, die Inselbühne wieder veranstaltungsfähig zu machen.
       </Title>
       <Box as="section" py="20">
         <Container centerContent>
+          <Text mb="10" textAlign="center">
+            Wir benötigen Deine Hilfe, um die Inselbühne zu realisieren. Die
+            positive Resonanz der öffentlichen Hand freut uns, das wird uns
+            sicher helfen. Als Bürgerstiftung setzen wir aber darauf, dass auch
+            die breite Stadtgemeinschaft so eine Idee unterstützt.
+          </Text>
+          <Text mb="10" textAlign="center">
+            Für den provisorischen Spielbetrieb im 2021 benötigen wir rund
+            €50.000. Weitere €80.000 werden wir brauchen, um die derzeit
+            ungenutze Freilichtbühne so zu ertüchtigen, dass sie wieder eine
+            Betriebsgenehmigung erhält.
+          </Text>
+          <Text mb="10" textAlign="center">
+            Hier setzen wir auf DICH: helf uns mit Deiner Spende! Ermögliche
+            eine pandemie-konforme Bühne für Livemusik, Theaterstücke,
+            Tanzshows, Chorkonzerte. Jeder Euro zählt und kommt zu 100 % dem
+            Projekt Inselbühne zugute!
+          </Text>
           <Box
             as="div"
             boxShadow="base"

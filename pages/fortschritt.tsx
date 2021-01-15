@@ -21,7 +21,7 @@ export default function Progress() {
             wiederbeleben können, steht noch in den Sternen. Es hängt zum Einen
             daran, ob wir die Finanzierung für Spielbetrieb und bauliche
             Ertüchtigung zusammen bekommen. Wir reden von ca. 50.000€ für den
-            Veranstaltungsbetrieb von Mai bis Oktober und ca. 80.000 € knapp
+            Veranstaltungsbetrieb von Mai bis Oktober und ca. 80.000€ knapp
             kalkuliert, für die provisorische Bespielbarkeit. Zum Anderen
             benötigen wir viele Mitstreiter*innen, um die vielfältigen Aufgaben
             dieses großen Projekts zu bewältigen.

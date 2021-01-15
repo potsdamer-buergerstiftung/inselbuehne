@@ -30,8 +30,11 @@ export default function Contribute() {
             Veranstaltung zusätzlich bewerben kannst.
           </Text>
           <Text mb="8">
-            Sende Deine Anfragen bitte an <Link href="mailto://kve@potsdamer-buergerstiftung.com">kve@potsdamer-buergerstiftung.com</Link>. Je
-            exakter Du uns sagen kannst, was Du für Deine Veranstaltung
+            Sende Deine Anfragen bitte an{" "}
+            <Link href="mailto://kve@potsdamer-buergerstiftung.com">
+              kve@potsdamer-buergerstiftung.com
+            </Link>
+            . Je exakter Du uns sagen kannst, was Du für Deine Veranstaltung
             benötigst, desto schneller können wir Dich bei der Umsetzung auf der
             Inselbühne unterstützen.
           </Text>

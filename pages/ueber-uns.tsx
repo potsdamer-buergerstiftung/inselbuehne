@@ -19,7 +19,22 @@ interface TeamMember {
 
 const team: TeamMember[] = [
   {
+    name: "Kaspar von Erffa",
+    role: "Projektleiter",
+    details: "",
+  },
+  {
     name: "Marie-Luise Glahr",
+    role: "Vorsitzende",
+    details: "",
+  },
+  {
+    name: "Johannes Götzke",
+    role: "Vorsitzende",
+    details: "",
+  },
+  {
+    name: "Stephan Heinlein",
     role: "Vorsitzende",
     details: "",
   },
@@ -40,17 +55,19 @@ export default function AboutUst() {
             templateColumns="repeat(12, 1fr)"
             alignItems="center"
           >
-            <GridItem colSpan={{ base: 12, md: 3 }}>
-              <Link>
-                <AspectRatio mb="5" ratio={1 / 1}>
-                  <Box background="gray.100"></Box>
-                </AspectRatio>
-              </Link>
-              <Text align="center" fontWeight={500}>
-                Marie-Luise Glahr
-              </Text>
-              <Text align="center">Vorsitzende</Text>
-            </GridItem>
+            {team.map((member) => (
+              <GridItem colSpan={{ base: 12, sm: 6, md: 4, lg: 3 }}>
+                <Link>
+                  <AspectRatio mb="5" ratio={1 / 1}>
+                    <Box background="gray.100"></Box>
+                  </AspectRatio>
+                </Link>
+                <Text align="center" fontWeight={500}>
+                  {member.name}
+                </Text>
+                <Text align="center">{member.role}</Text>
+              </GridItem>
+            ))}
           </Grid>
         </Container>
       </Box>

@@ -32,6 +32,10 @@ const colors = {
   dark: "#0d0221",
 };
 
+const radii = {
+  default: ".5rem 0 .5rem 0",
+}
+
 const fonts = {
   body: "'DM Sans', sans-serif",
   heading: "'DM Serif Display', serif",
@@ -40,6 +44,7 @@ const fonts = {
 const overrides = {
   colors,
   fonts,
+  radii,
   components,
 };
 

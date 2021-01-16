@@ -3,7 +3,7 @@ import Title from "../components/Title";
 import { Box, Container, Text } from "@chakra-ui/react";
 import Link from "next/link";
 
-export default function Contribute() {
+export default function Perform() {
   return (
     <Layout title="Auftreten" fluid>
       <Title title="Auftreten" heading="Bühne frei" color="gray.100">

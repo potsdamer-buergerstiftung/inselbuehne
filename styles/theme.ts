@@ -17,7 +17,6 @@ const components = {
   Button: {
     baseStyle: {
       fontWeight: "normal",
-      borderRadius: ".5rem 0 .5rem 0",
     },
   },
   Text: {
@@ -36,8 +35,7 @@ const radii = {
   sm: ".25rem 0 .25rem 0",
   md: ".5rem 0 .5rem 0",
   lg: "1rem 0 1rem 0",
-  xl: "1.5rem 0 1.5rem 0",
-}
+};
 
 const fonts = {
   body: "'DM Sans', sans-serif",

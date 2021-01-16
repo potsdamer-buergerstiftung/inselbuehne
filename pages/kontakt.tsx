@@ -15,8 +15,40 @@ import {
 import Link from "next/link";
 import EmailIcon from "../components/icons/email";
 import useSWR from "swr";
+import { useState } from "react";
+
+const mutation = `
+mutation {
+  contactRequest(input: {name: "", message: "", email:"" })
+}
+`
+
+const fetcher = (query) =>
+  fetch('/api/graphql', {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify({ query }),
+  })
+    .then((res) => res.json())
+    .then((json) => json.data)
+
+function SuccessBox(props) {
+  return (
+    <Box as="section" pb="20">
+      <Container centerContent>
+        <Text>Deine Nachricht wurde erfolgreich versandt.</Text>
+      </Container>
+    </Box>
+  )
+}
 
 function ContactForm(props) {
+
+  const [submitted, setSubmitted] = useState(false)
+  const { data, error } = useSWR(submitted ? mutation : null, fetcher)
+
   return (
     <Box as="section" pb="20">
       <Container centerContent>
@@ -54,7 +86,7 @@ function ContactForm(props) {
             </FormControl>
           </GridItem>
           <GridItem colSpan={2}>
-            <Button colorScheme="green" size="lg" isFullWidth>
+            <Button colorScheme="green" size="lg" isFullWidth onClick={() => setSubmitted(true)}>
               Nachricht senden
             </Button>
           </GridItem>

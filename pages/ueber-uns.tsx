@@ -59,7 +59,7 @@ export default function AboutUst() {
               <GridItem colSpan={{ base: 12, sm: 6, md: 4, lg: 3 }}>
                 <Link>
                   <AspectRatio mb="5" ratio={1 / 1}>
-                    <Box background="gray.100"></Box>
+                    <Box background="gray.100" rounded="lg"></Box>
                   </AspectRatio>
                 </Link>
                 <Text align="center" fontWeight={500}>

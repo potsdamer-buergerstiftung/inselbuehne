@@ -1,4 +1,9 @@
 import nodemailer from "nodemailer";
+import Handlebars from "handlebars";
+import * as fs from "fs";
+import { dirname, join } from "path";
+import getConfig from "next/config";
+const { serverRuntimeConfig } = getConfig();
 
 interface ContactRequest {
   name: string;
@@ -20,18 +25,19 @@ export default async (req, res) => {
     },
   });
 
-  const text = (data: ContactRequest) => `
-  Name des Absenders: ${data.message}
-  E-Mail-Adresse: ${data.email}
-  
-  ${data.message}
-  `;
+  const data = fs.readFileSync(
+    join(serverRuntimeConfig.PROJECT_ROOT, "templates", "contact.hbs"),
+    "utf-8"
+  );
+  const template = Handlebars.compile(data);
+
+  const formContent: ContactRequest = req.body;
 
   const content = {
     from: `"Inselbühne Potsdam" <${process.env.SMTP_USER}>`,
-    to: `${process.env.SMTP_USER}`,
+    to: process.env.SMTP_USER,
     subject: "Website Inselbühne: Neue Nachricht",
-    text: text(req.body),
+    html: template(formContent),
   };
 
   try {

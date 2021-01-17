@@ -3,4 +3,7 @@ module.exports = {
         locales: ['de'],
         defaultLocale: 'de',
     },
+    serverRuntimeConfig: {
+        PROJECT_ROOT: __dirname
+    },
 }

@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "format": "prettier --write ./pages ./components ./styles"
+    "format": "prettier --write ./pages ./components ./styles ./templates"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.1.2",
@@ -15,6 +15,7 @@
     "@paypal/react-paypal-js": "^3.0.3",
     "axios": "^0.21.1",
     "framer-motion": "^3.1.4",
+    "handlebars": "^4.7.6",
     "next": "10.0.4",
     "nodemailer": "^6.4.17",
     "react": "17.0.1",

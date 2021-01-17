@@ -20,6 +20,7 @@ import DoneIcon from "../components/icons/done";
 import ErrorIcon from "../components/icons/error";
 import { useForm } from "react-hook-form";
 import { Dispatch, SetStateAction, useState } from "react";
+import axios from "axios";
 
 enum FormState {
   Initial,
@@ -57,7 +58,9 @@ function FormFailed(props: FormProps) {
   return (
     <Box textAlign="center">
       <ErrorIcon boxSize={24} color="red.500" />
-      <Text>Beim Senden Deiner Nachricht ist ein Fehler aufgetreten.</Text>
+      <Text mb="5">
+        Beim Senden Deiner Nachricht ist ein Fehler aufgetreten.
+      </Text>
       <Button onClick={() => props.setState(FormState.Initial)}>
         Erneut versuchen
       </Button>
@@ -71,16 +74,10 @@ function FormInitial(props: FormProps) {
   const onSubmit = async (data) => {
     props.setState(FormState.Submitted);
 
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    };
-    const response = await fetch(
-      "/api/contact",
-      requestOptions
-    ).then((response) => response.json());
-    props.setState(FormState.Successful);
+    axios
+      .post("/api/contact", data)
+      .then(() => props.setState(FormState.Successful))
+      .catch((error) => props.setState(FormState.Failed));
   };
 
   return (

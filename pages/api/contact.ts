@@ -1,13 +1,12 @@
 import nodemailer from "nodemailer";
 
 interface ContactRequest {
-    name: string;
-    email: string;
-    message: string;
+  name: string;
+  email: string;
+  message: string;
 }
 
 export default async (req, res) => {
-
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: Number.parseInt(process.env.SMTP_PORT),
@@ -26,17 +25,19 @@ export default async (req, res) => {
   E-Mail-Adresse: ${data.email}
   
   ${data.message}
-  `
+  `;
 
-  const info = await transporter.sendMail({
-    from: '"Inselbühne Potsdam" <hallo@inselbuehne-potsdam.de>',
-    to: "hallo@inselbuehne-potsdam.de",
+  const content = {
+    from: `"Inselbühne Potsdam" <${process.env.SMTP_USER}>`,
+    to: `${process.env.SMTP_USER}`,
     subject: "Website Inselbühne: Neue Nachricht",
     text: text(req.body),
-  });
+  };
 
-  console.log(info)
-
-  res.statusCode = 200;
-  res.json(req.body);
+  try {
+    const info = await transporter.sendMail(content);
+    return res.status(200).json(info);
+  } catch (error) {
+    return res.status(422).json(error);
+  }
 };

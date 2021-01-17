@@ -26,7 +26,7 @@ export default async (req, res) => {
   });
 
   const data = fs.readFileSync(
-    join(serverRuntimeConfig.PROJECT_ROOT, "templates", "contact.hbs"),
+    join(serverRuntimeConfig.PROJECT_ROOT, "templates", "contact.html"),
     "utf-8"
   );
   const template = Handlebars.compile(data);

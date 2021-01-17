@@ -1,7 +1,7 @@
 import Layout from "../components/Layout";
 import Title from "../components/Title";
-import { Box, Container, Text } from "@chakra-ui/react";
-import Link from "next/link";
+import { Box, Container, Text, Button } from "@chakra-ui/react";
+import NextLink from "next/link";
 
 export default function Perform() {
   return (
@@ -9,7 +9,7 @@ export default function Perform() {
       <Title title="Auftreten" heading="Bühne frei" color="gray.100">
         Melde Dich bei uns, wenn Du die Inselbühne bespielen willst!
       </Title>
-      <Box as="section" pt="20" pb="10">
+      <Box as="section" pt="20" pb="20">
         <Container centerContent textAlign="center">
           <Text mb="8">
             Du bist Kulturschaffende/r in Potsdam und suchst nach einer
@@ -30,14 +30,15 @@ export default function Perform() {
             Veranstaltung zusätzlich bewerben kannst.
           </Text>
           <Text mb="8">
-            Sende Deine Anfragen bitte an{" "}
-            <Link href="mailto://kve@potsdamer-buergerstiftung.com">
-              kve@potsdamer-buergerstiftung.com
-            </Link>
-            . Je exakter Du uns sagen kannst, was Du für Deine Veranstaltung
+            Je exakter Du uns sagen kannst, was Du für Deine Veranstaltung
             benötigst, desto schneller können wir Dich bei der Umsetzung auf der
             Inselbühne unterstützen.
           </Text>
+          <NextLink passHref href="/kontakt">
+            <Button colorScheme="green" size="lg" as="a">
+              Anfrage senden
+            </Button>
+          </NextLink>
         </Container>
       </Box>
     </Layout>

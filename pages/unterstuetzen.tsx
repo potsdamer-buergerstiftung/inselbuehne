@@ -1,3 +1,11 @@
+import { useForm } from "react-hook-form";
+import React, {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useState,
+} from "react";
 import Layout from "../components/Layout";
 import Title from "../components/Title";
 import {
@@ -14,99 +22,75 @@ import {
   Stat,
   StatNumber,
   StatLabel,
-  Badge,
+  NumberInputField,
+  NumberInput,
+  Stack,
 } from "@chakra-ui/react";
-import { SetStateAction, useState, Dispatch } from "react";
-import { useForm } from "react-hook-form";
-import { PayPalButtons } from "@paypal/react-paypal-js";
+import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
+import DoneIcon from "../components/icons/done";
 
-enum DonationProgress {
+enum FormSteps {
   Amount,
   Details,
   Payment,
-  Confirmation,
-  Error,
+  Failed,
+  Completed,
 }
 
-interface PageProps {
-  donationData: DonationData;
-  setDonationData: Dispatch<SetStateAction<DonationData>>;
-  setPage: Dispatch<SetStateAction<DonationProgress>>;
-}
-
-const preDefinedAmounts = [25, 50, 100, 200];
-
-interface DonationData {
-  amount: number;
-  details: DonationDetailsData;
-  order: any;
-}
-
-interface DonationDetailsData {
+interface FormDetailsInput {
   name: string;
   email: string;
-  organisation: string;
   message: string;
   newsletter: boolean;
   anonymous: boolean;
   receipt: boolean;
 }
 
-const defaultDonationData: DonationData = {
+interface FormState {
+  amount: number;
+  details: FormDetailsInput;
+  step: FormSteps;
+}
+
+const predefinedAmounts = [25, 50, 100, 200];
+
+interface FormContext {
+  state: FormState;
+  setState: Dispatch<SetStateAction<FormState>>;
+}
+
+const formStateDefaults = {
   amount: null,
   details: {
-    name: null,
-    email: null,
-    organisation: null,
-    message: null,
+    name: "",
+    email: "",
+    message: "",
     newsletter: false,
     anonymous: false,
     receipt: false,
   },
-  order: null,
+  step: FormSteps.Amount,
 };
 
-function DonationModal() {
-  const [page, setPage] = useState<DonationProgress>(DonationProgress.Amount);
-  const [donationData, setDonationData] = useState(defaultDonationData);
+function FormAmount() {
+  const { state, setState } = useContext<FormContext>(FormContext);
 
-  const props = { donationData, setPage, setDonationData };
+  const formatAmount = (val: string) => "€" + val;
+  const parseAmount = (val: string) => val.replace(/^\€/, "");
 
-  switch (page) {
-    case DonationProgress.Details:
-      return <DetailsPage {...props} />;
-    case DonationProgress.Payment:
-      return <PaymentPage {...props} />;
-    case DonationProgress.Confirmation:
-      return <ConfirmationPage {...props} />;
-    default:
-      return <AmountPage {...props} />;
-  }
-}
+  const [amount, setAmount] = useState("40");
 
-function AmountPage(props: PageProps) {
-  const [amount, setAmount] = useState(null);
-  const [customAmount, setCustomAmount] = useState("");
-
-  const onCustomAmountChange = (event) => {
-    const value = event.target.value;
-    const parsedAmount = parseInt(value);
-    if (Number.isInteger(parsedAmount)) {
-      setCustomAmount(parsedAmount.toString());
-      setAmount(parsedAmount);
-    } else {
-      setCustomAmount("");
-      setAmount(null);
-    }
+  const onSubmit = () => {
+    const numberValue = parseInt(amount);
+    setState({ ...state, amount: numberValue, step: FormSteps.Details });
   };
 
-  const setNextPage = (amount: number) => {
-    props.setDonationData({ ...props.donationData, amount });
-    props.setPage(DonationProgress.Details);
+  const onPredefinedAmountClick = (amount: number) => {
+    setState({ ...state, amount, step: FormSteps.Details });
   };
 
   return (
-    <>
+    <Box>
       <Heading as="h4" mb="6">
         Spenden
       </Heading>
@@ -114,226 +98,273 @@ function AmountPage(props: PageProps) {
         Auch ein kleiner Geldbeutel kann zu tollen Kulturerlebnissen auf der
         Inselbühne beitragen.
       </Text>
-      {preDefinedAmounts.map((amount) => {
-        return (
+      <Stack spacing={2} mb="10">
+        {predefinedAmounts.map((amount) => (
           <Button
             colorScheme="gray"
-            isFullWidth
-            mb="2"
-            onClick={() => setNextPage(amount)}
-            key={amount.toString()}
+            size="lg"
+            onClick={() => onPredefinedAmountClick(amount)}
           >
             {amount}€
           </Button>
-        );
-      })}
-      <Input
-        placeholder="Dein eigener Betrag..."
-        value={customAmount}
-        onChange={onCustomAmountChange}
-        variant="filled"
-        mb="10"
-      />
-      <Button
-        disabled={amount ? false : true}
-        onClick={() => setNextPage(amount)}
-        colorScheme="green"
-      >
-        Weiter
-      </Button>
-    </>
+        ))}
+      </Stack>
+      <form onSubmit={onSubmit}>
+        <FormControl mb="5">
+          <FormLabel>Dein eigener Betrag</FormLabel>
+          <NumberInput
+            onChange={(valueString) => setAmount(parseAmount(valueString))}
+            value={formatAmount(amount)}
+            min={1}
+            max={100000}
+            variant="filled"
+            size="lg"
+          >
+            <NumberInputField />
+          </NumberInput>
+        </FormControl>
+        <Button colorScheme="green" isFullWidth type="submit" size="lg">
+          Weiter
+        </Button>
+      </form>
+    </Box>
   );
 }
 
-function DetailsPage(props: PageProps) {
-  const { register, handleSubmit, errors } = useForm<DonationDetailsData>();
-  const onSubmit = (data) => {
-    console.log(data);
+function FormDetails() {
+  const { state, setState } = useContext<FormContext>(FormContext);
+  const { register, handleSubmit } = useForm<FormDetailsInput>();
+
+  const onSubmit = (data: FormDetailsInput) => {
+    setState({ ...state, details: data, step: FormSteps.Payment });
   };
 
   return (
-    <>
-      <Heading as="h4" mb="6">
+    <Box>
+      <Heading as="h4" mb="10">
         Details
       </Heading>
-      <FormControl isRequired mb="4">
-        <FormLabel>Name</FormLabel>
-        <Input
-          placeholder="Name"
-          variant="filled"
-          name="name"
-          ref={register({ required: true })}
-          defaultValue={props.donationData.details.name}
-        />
-        {errors.name && "Dein Name ist erforderlich"}
-      </FormControl>
-      <FormControl isRequired mb="4">
-        <FormLabel>E-Mail-Adresse</FormLabel>
-        <Input
-          placeholder="name@email.com"
-          variant="filled"
-          name="email"
-          ref={register({ required: true })}
-          defaultValue={props.donationData.details.email}
-        />
-        {errors.email && "Deine E-Mail ist erforderlich"}
-      </FormControl>
-      <FormControl mb="4">
-        <FormLabel>Organisation</FormLabel>
-        <Input
-          placeholder="Organisation"
-          variant="filled"
-          name="organisation"
-        />
-      </FormControl>
-      <FormControl mb="4">
-        <FormLabel>Mitteilung</FormLabel>
-        <Textarea
-          placeholder="Deine Grußnachricht..."
-          variant="filled"
-          name="message"
-        />
-      </FormControl>
-      <FormControl mb="4" defaultValue="false" name="newsletter" ref={register}>
-        <Checkbox>Updates der Inselbühne erhalten</Checkbox>
-      </FormControl>
-      <FormControl mb="4">
-        <Checkbox defaultValue="false" name="anonymous" ref={register}>
-          Meine Spende anonym halten
-        </Checkbox>
-      </FormControl>
-      {props.donationData.amount >= 200 && (
-        <FormControl mb="6" defaultValue="false" name="receipt" ref={register}>
-          <Checkbox>Spendenquittung anfordern</Checkbox>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <FormControl mb="5" isRequired>
+          <FormLabel>Dein Name / Organisation</FormLabel>
+          <Input
+            variant="filled"
+            ref={register({ required: true })}
+            size="lg"
+            name="name"
+            defaultValue={state.details.name}
+          />
         </FormControl>
-      )}
-      <Button
-        onClick={() => {
-          handleSubmit(onSubmit);
-          props.setPage(DonationProgress.Payment);
-        }}
-        type="submit"
-        colorScheme="green"
-      >
-        Weiter
-      </Button>
-      <Button
-        variant="ghost"
-        onClick={() => {
-          props.setPage(DonationProgress.Amount);
-        }}
-      >
-        Zurück
-      </Button>
-    </>
+        <FormControl mb="5" isRequired>
+          <FormLabel>Deine E-Mail</FormLabel>
+          <Input
+            variant="filled"
+            ref={register({ required: true })}
+            size="lg"
+            name="email"
+            type="email"
+            defaultValue={state.details.email}
+          />
+        </FormControl>
+        <FormControl mb="5">
+          <FormLabel>Deine Grußnachricht</FormLabel>
+          <Textarea
+            variant="filled"
+            ref={register}
+            size="lg"
+            name="message"
+            defaultValue={state.details.message}
+          />
+        </FormControl>
+        <FormControl mb="4">
+          <Checkbox
+            name="newsletter"
+            ref={register}
+            defaultChecked={state.details.newsletter}
+            size="lg"
+          >
+            Updates der Inselbühne erhalten
+          </Checkbox>
+        </FormControl>
+        <FormControl mb="4">
+          <Checkbox
+            name="anonymous"
+            ref={register}
+            defaultChecked={state.details.anonymous}
+            size="lg"
+          >
+            Meine Spende anonym halten
+          </Checkbox>
+        </FormControl>
+        {state.amount >= 200 && (
+          <FormControl mb="6">
+            <Checkbox
+              name="receipt"
+              ref={register}
+              defaultChecked={state.details.receipt}
+              size="lg"
+            >
+              Spendenquittung anfordern
+            </Checkbox>
+          </FormControl>
+        )}
+        <Box mt="10">
+          <FormBackButton step={FormSteps.Amount} />
+          <Button colorScheme="green" isFullWidth type="submit" size="lg">
+            Weiter
+          </Button>
+        </Box>
+      </form>
+    </Box>
   );
 }
 
-function PaymentPage(props: PageProps) {
+function FormPayment() {
+  const { state, setState } = useContext<FormContext>(FormContext);
+  const purchase_units = [
+    {
+      amount: {
+        value: state.amount,
+      },
+      description: "Spende Inselbühne",
+    },
+  ];
+
   return (
-    <>
-      <Heading as="h4" mb="6">
+    <Box>
+      <Heading as="h4" mb="10">
         Zahlung
       </Heading>
       <Stat mb="6">
         <StatLabel>Deine Spende</StatLabel>
-        <StatNumber>{props.donationData.amount}€</StatNumber>
+        <StatNumber>{state.amount}€</StatNumber>
       </Stat>
-      <Box mb="6">
+      <Box>
         <PayPalButtons
           style={{ layout: "vertical" }}
           createOrder={(data, actions) => {
             return actions.order.create({
-              purchase_units: [
-                {
-                  amount: {
-                    value: props.donationData.amount,
-                  },
-                  description: "Spende Inselbühne",
-                },
-              ],
+              purchase_units,
             });
           }}
           onApprove={async (data, actions) => {
             const order = await actions.order.capture();
-            props.setDonationData({ ...props.donationData, order });
-            props.setPage(DonationProgress.Confirmation);
+            setState({ ...state, step: FormSteps.Completed });
           }}
         />
       </Box>
-      <Button
-        variant="ghost"
-        onClick={() => {
-          props.setPage(DonationProgress.Details);
-        }}
-      >
-        Zurück
-      </Button>
-    </>
+      <Box mt="10">
+        <FormBackButton step={FormSteps.Details} />
+      </Box>
+    </Box>
   );
 }
 
-function ConfirmationPage(orderData) {
+function FormCompleted() {
   return (
-    <>
-      <Heading as="h4" mb="6">
-        Dankeschön
+    <Box textAlign="center">
+      <Heading as="h4" mb="10">
+        Vielen Dank
       </Heading>
-      <Badge variant="subtle" colorScheme="green" mb="2">
-        Spende erfolgreich
-      </Badge>
-      <Stat mb="6">
-        <StatLabel>
-          Vielen Dank für Deine Spende. Du hast unseren Weg damit ein kleines
-          bisschen verkürzt. Wir haben Dir als Bestätigung eine E-Mail
-          geschickt.
-        </StatLabel>
-      </Stat>
-    </>
+      <DoneIcon boxSize={24} color="green.500" />
+      <Text>
+        Deine Spende ist bei uns eingegangen. Mit ihr wird Großartiges
+        passieren. Wir haben dir als Bestätigung eine E-Mail geschickt.
+      </Text>
+    </Box>
+  );
+}
+
+function FormBackButton({ step }: { step: FormSteps }) {
+  const { state, setState } = useContext<FormContext>(FormContext);
+
+  return (
+    <Button
+      variant="link"
+      isFullWidth
+      mb="4"
+      onClick={() => setState({ ...state, step })}
+    >
+      Zurück
+    </Button>
+  );
+}
+
+const FormContext = createContext<FormContext>(null);
+
+function FormSection() {
+  const [state, setState] = useState<FormState>(formStateDefaults);
+
+  const FormPages = () => {
+    switch (state.step) {
+      case FormSteps.Details:
+        return <FormDetails />;
+      case FormSteps.Payment:
+        return <FormPayment />;
+      case FormSteps.Completed:
+        return <FormCompleted />;
+      default:
+        return <FormAmount />;
+    }
+  };
+
+  return (
+    <FormContext.Provider value={{ state, setState }}>
+      <FormPages />
+    </FormContext.Provider>
   );
 }
 
 export default function Contribute() {
   return (
-    <Layout title="Unterstützen" fluid>
-      <Title
-        title="Unterstützen"
-        heading="Das Projekt fördern"
-        color="gray.100"
-      >
-        Hilf uns, die Inselbühne wieder veranstaltungsfähig zu machen.
-      </Title>
-      <Box as="section" py="20">
-        <Container centerContent>
-          <Text mb="10" textAlign="center">
-            Wir benötigen Deine Hilfe, um die Inselbühne zu realisieren. Die
-            positive Resonanz der öffentlichen Hand freut uns, das wird uns
-            sicher helfen. Als Bürgerstiftung setzen wir aber darauf, dass auch
-            die breite Stadtgemeinschaft so eine Idee unterstützt.
-          </Text>
-          <Text mb="10" textAlign="center">
-            Für den provisorischen Spielbetrieb im 2021 benötigen wir rund
-            €50.000. Weitere €80.000 werden wir brauchen, um die derzeit
-            ungenutze Freilichtbühne so zu ertüchtigen, dass sie wieder eine
-            Betriebsgenehmigung erhält.
-          </Text>
-          <Text mb="10" textAlign="center">
-            Hier setzen wir auf DICH: helf uns mit Deiner Spende! Ermögliche
-            eine pandemie-konforme Bühne für Livemusik, Theaterstücke,
-            Tanzshows, Chorkonzerte. Jeder Euro zählt und kommt zu 100 % dem
-            Projekt Inselbühne zugute!
-          </Text>
-          <Box
-            as="div"
-            boxShadow="base"
-            p="5"
-            rounded="lg"
-            width={{ base: "auto", md: "xs" }}
-          >
-            <DonationModal />
-          </Box>
-        </Container>
-      </Box>
-    </Layout>
+    <PayPalScriptProvider
+      options={{
+        "client-id": process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID,
+        currency: "EUR",
+        locale: "de_DE",
+      }}
+    >
+      <Layout title="Unterstützen" fluid>
+        <Title
+          title="Unterstützen"
+          heading="Das Projekt fördern"
+          color="gray.100"
+        >
+          Hilf uns, die Inselbühne wieder veranstaltungsfähig zu machen.
+        </Title>
+        <Box as="section" py="20">
+          <Container centerContent>
+            <Text mb="10" textAlign="center">
+              Wir benötigen Deine Hilfe, um die Inselbühne zu realisieren. Die
+              positive Resonanz der öffentlichen Hand freut uns, das wird uns
+              sicher helfen. Als Bürgerstiftung setzen wir aber darauf, dass
+              auch die breite Stadtgemeinschaft so eine Idee unterstützt.
+            </Text>
+            <Text mb="10" textAlign="center">
+              Für den provisorischen Spielbetrieb im 2021 benötigen wir rund
+              €50.000. Weitere €80.000 werden wir brauchen, um die derzeit
+              ungenutze Freilichtbühne so zu ertüchtigen, dass sie wieder eine
+              Betriebsgenehmigung erhält.
+            </Text>
+            <Text mb="20" textAlign="center">
+              Hier setzen wir auf DICH: helf uns mit Deiner Spende! Ermögliche
+              eine pandemie-konforme Bühne für Livemusik, Theaterstücke,
+              Tanzshows, Chorkonzerte. Jeder Euro zählt und kommt zu 100 % dem
+              Projekt Inselbühne zugute!
+            </Text>
+            <Box
+              as="div"
+              boxShadow="base"
+              px="5"
+              py="10"
+              rounded="lg"
+              width={{ base: "auto", md: "md" }}
+            >
+              <FormSection />
+            </Box>
+          </Container>
+        </Box>
+      </Layout>
+    </PayPalScriptProvider>
   );
 }

@@ -30,7 +30,7 @@ export default function Title(props: TitleOptions) {
     >
       <Container>
         {props.heading && (
-          <Heading as="h6" variant="uppercase" fontSize="sm" mb="5">
+          <Heading as="h6" variant="uppercase" fontSize="sm" mb="5" color="green.500">
             {props.heading}
           </Heading>
         )}
@@ -38,7 +38,7 @@ export default function Title(props: TitleOptions) {
           {props.title}
         </Heading>
         {props.children && (
-          <Text mt="3" fontSize="xl">
+          <Text mt="3" fontSize="xl" color="gray.700">
             {props.children}
           </Text>
         )}

@@ -44,7 +44,12 @@ export default function AboutOurProject() {
               </NextLink>
             </GridItem>
             <GridItem colSpan={{ base: 12, md: 5 }}>
-              <Image width={500} height={300} src="/Babelsberg+Rock+2.jpg" alt="Band auf der Inselbühne" />
+              <Image
+                width={500}
+                height={300}
+                src="/Babelsberg+Rock+2.jpg"
+                alt="Band auf der Inselbühne"
+              />
             </GridItem>
           </Grid>
         </Container>
@@ -58,7 +63,12 @@ export default function AboutOurProject() {
             alignItems="center"
           >
             <GridItem colSpan={{ base: 24, md: 9 }}>
-              <Image width={400} height={300} src="/Kinder3.JPG" alt="Kinder auf der Inselbühne"/>
+              <Image
+                width={400}
+                height={300}
+                src="/Kinder3.JPG"
+                alt="Kinder auf der Inselbühne"
+              />
             </GridItem>
             <GridItem colSpan={{ base: 24, md: 15 }}>
               <Heading as="h1" fontSize="4xl" mb="8">

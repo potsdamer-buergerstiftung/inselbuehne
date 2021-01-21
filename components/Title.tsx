@@ -28,7 +28,7 @@ export default function Title(props: TitleOptions) {
       textAlign="center"
       background={props.color ? props.color : "green.50"}
     >
-      <Container>
+      <Container maxW="6xl">
         {props.heading && (
           <Heading as="h6" variant="uppercase" fontSize="sm" mb="5" color="green.500">
             {props.heading}

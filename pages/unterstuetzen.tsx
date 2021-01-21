@@ -104,6 +104,7 @@ function FormAmount() {
             colorScheme="gray"
             size="lg"
             onClick={() => onPredefinedAmountClick(amount)}
+            key={amount}
           >
             {amount}€
           </Button>

@@ -6,6 +6,7 @@ import {
   Heading,
   Text,
   Button,
+  AspectRatio,
 } from "@chakra-ui/react";
 import Layout from "../components/Layout";
 import Image from "next/image";
@@ -21,8 +22,8 @@ export default function AboutOurProject() {
         pt={{ base: "40", md: "60" }}
       >
         <Container maxW="6xl">
-          <Grid gap={6} templateColumns="repeat(12, 1fr)" alignItems="center">
-            <GridItem colSpan={{ base: 12, md: 7 }}>
+          <Grid gap={8} templateColumns="repeat(5, 1fr)" alignItems="center">
+            <GridItem colSpan={{ base: 5, md: 3 }}>
               <Heading as="h1" fontSize="5xl" mb="5">
                 Lasst uns{" "}
                 <Box as="span" color="green.300">
@@ -43,13 +44,17 @@ export default function AboutOurProject() {
                 </Button>
               </NextLink>
             </GridItem>
-            <GridItem colSpan={{ base: 12, md: 5 }}>
-              <Image
-                width={500}
-                height={300}
-                src="/Babelsberg+Rock+2.jpg"
-                alt="Band auf der Inselbühne"
-              />
+            <GridItem colSpan={{ base: 5, md: 2 }}>
+              <AspectRatio ratio={3 / 2}>
+                <Image
+                  sizes="400px"
+                  src="/Babelsberg+Rock+2.jpg"
+                  alt="Band auf der Inselbühne"
+                  layout="fill"
+                  objectFit="cover"
+                  quality={50}
+                />
+              </AspectRatio>
             </GridItem>
           </Grid>
         </Container>
@@ -57,25 +62,29 @@ export default function AboutOurProject() {
       <Box as="section" pb={{ base: "20", md: "40" }} pt="20">
         <Container maxW="6xl" centerContent>
           <Grid
-            columnGap={4}
-            rowGap={6}
-            templateColumns="repeat(24, 1fr)"
+            columnGap={8}
+            rowGap={8}
+            templateColumns="repeat(3, 1fr)"
             alignItems="center"
           >
-            <GridItem colSpan={{ base: 24, md: 9 }}>
-              <Image
-                width={400}
-                height={300}
-                src="/Kinder3.JPG"
-                alt="Kinder auf der Inselbühne"
-              />
+            <GridItem colSpan={{ base: 3, md: 1 }}>
+              <AspectRatio ratio={3 / 2}>
+                <Image
+                  sizes="400px"
+                  src="/Kinder3.JPG"
+                  alt="Band auf der Inselbühne"
+                  layout="fill"
+                  objectFit="cover"
+                  quality={50}
+                />
+              </AspectRatio>
             </GridItem>
-            <GridItem colSpan={{ base: 24, md: 15 }}>
+            <GridItem colSpan={{ base: 3, md: 2 }}>
               <Heading as="h1" fontSize="4xl" mb="8">
                 Was ist die Inselbühne?
               </Heading>
-              <Grid columnGap={6} rowGap={12} templateColumns="repeat(12, 1fr)">
-                <GridItem colSpan={{ base: 12, md: 6 }}>
+              <Grid columnGap={8} rowGap={8} templateColumns="repeat(2, 1fr)">
+                <GridItem colSpan={{ base: 2, md: 1 }}>
                   <Text>
                     Inselbühne haben wir die 1974 errichtete Freilichtbühne auf
                     der Freundschaftsinsel neu benannt. Seit 2012 wird sie nicht
@@ -85,7 +94,7 @@ export default function AboutOurProject() {
                     eine Freilichtbühne, vor allem in Zeiten einer Pandemie.{" "}
                   </Text>
                 </GridItem>
-                <GridItem colSpan={{ base: 12, md: 6 }}>
+                <GridItem colSpan={{ base: 2, md: 1 }}>
                   <Text>
                     Lass uns die Inselbühne gemeinsam wiederbeleben, zunächst
                     provisorisch im Sommer 2021, als nicht-kommerzielle

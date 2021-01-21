@@ -347,7 +347,7 @@ export default function Contribute() {
               Betriebsgenehmigung erhält.
             </Text>
             <Text mb="20" textAlign="center">
-              Hier setzen wir auf DICH: helf uns mit Deiner Spende! Ermögliche
+              Hier setzen wir auf DICH: Hilf uns mit Deiner Spende! Ermögliche
               eine pandemie-konforme Bühne für Livemusik, Theaterstücke,
               Tanzshows, Chorkonzerte. Jeder Euro zählt und kommt zu 100 % dem
               Projekt Inselbühne zugute!

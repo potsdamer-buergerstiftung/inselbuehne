@@ -30,7 +30,13 @@ export default function Title(props: TitleOptions) {
     >
       <Container maxW="6xl">
         {props.heading && (
-          <Heading as="h6" variant="uppercase" fontSize="sm" mb="5" color="green.500">
+          <Heading
+            as="h6"
+            variant="uppercase"
+            fontSize="sm"
+            mb="5"
+            color="green.500"
+          >
             {props.heading}
           </Heading>
         )}

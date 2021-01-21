@@ -43,8 +43,8 @@ export default function Layout(props) {
                 die Bühne beleben.
               </Heading>
               <Text>
-                Auch ein kleiner Beitrag sorgt später für viele kostenlose
-                Veranstaltungen.
+                Auch ein kleiner Geldbeutel kann zu tollen Kulturerlebnissen auf
+                der Inselbühne beitragen.
               </Text>
             </GridItem>
             <GridItem colSpan={{ base: 12, md: 4 }}>

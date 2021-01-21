@@ -24,12 +24,12 @@ export default function Footer() {
     <Box as="footer" background="dark" color="gray.400" py="16">
       <Container maxW="6xl" py="5">
         <Grid
-          columnGap={6}
+          columnGap={8}
           rowGap={12}
-          templateColumns="repeat(12, 1fr)"
+          templateColumns="repeat(6, 1fr)"
           textAlign={{ base: "center", md: "left" }}
         >
-          <GridItem colSpan={{ base: 12, md: 6 }}>
+          <GridItem colSpan={{ base: 6, md: 3 }}>
             <NextLink passHref href="/">
               <Heading fontSize="4xl" color="white" mb="2">
                 Inselbühne Potsdam
@@ -44,10 +44,9 @@ export default function Footer() {
               >
                 Potsdamer Bürgerstiftung
               </ChakraLink>
-              .
             </Text>
           </GridItem>
-          <GridItem colSpan={{ base: 12, md: 2 }}>
+          <GridItem colSpan={{ base: 6, md: 1 }}>
             <Heading as="h6" fontSize="sm" variant="uppercase" color="white">
               Social Media
             </Heading>
@@ -60,7 +59,7 @@ export default function Footer() {
               </MenuItem>
             </Flex>
           </GridItem>
-          <GridItem colSpan={{ base: 12, md: 2 }}>
+          <GridItem colSpan={{ base: 6, md: 1 }}>
             <Heading as="h6" fontSize="sm" variant="uppercase" color="white">
               Über uns
             </Heading>
@@ -72,7 +71,7 @@ export default function Footer() {
               <MenuItem to="/presse">Presse</MenuItem>
             </Flex>
           </GridItem>
-          <GridItem colSpan={{ base: 12, md: 2 }}>
+          <GridItem colSpan={{ base: 6, md: 1 }}>
             <Heading as="h6" fontSize="sm" variant="uppercase" color="white">
               Mehr
             </Heading>

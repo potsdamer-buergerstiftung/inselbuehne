@@ -26,7 +26,7 @@ export default function Layout(props) {
       <Header fluid={props.fluid} />
       {props.children}
       <Box as="section" background="dark" color="gray.400">
-        <Container maxW="7xl">
+        <Container maxW="6xl">
           <Box h="10" w="100%" />
           <Grid
             alignItems="center"

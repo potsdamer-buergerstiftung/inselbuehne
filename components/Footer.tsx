@@ -22,7 +22,7 @@ function MenuItem(props) {
 export default function Footer() {
   return (
     <Box as="footer" background="dark" color="gray.400" py="16">
-      <Container maxW="7xl" py="5">
+      <Container maxW="6xl" py="5">
         <Grid
           columnGap={6}
           rowGap={12}

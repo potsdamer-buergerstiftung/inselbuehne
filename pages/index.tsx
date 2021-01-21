@@ -26,7 +26,7 @@ export default function AboutOurProject() {
             <GridItem colSpan={{ base: 5, md: 3 }}>
               <Heading as="h1" fontSize="5xl" mb="5">
                 Lasst uns{" "}
-                <Box as="span" color="green.300">
+                <Box as="span" color="green.500">
                   gemeinsam
                 </Box>{" "}
                 die Inselbühne beleben.

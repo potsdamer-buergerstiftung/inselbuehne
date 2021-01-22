@@ -6,11 +6,12 @@ import {
   Heading,
   Text,
   AspectRatio,
-  Link,
+  Button,
 } from "@chakra-ui/react";
 import Layout from "../components/Layout";
 import Title from "../components/Title";
 import Image from "next/image";
+import NextLink from "next/link";
 
 interface TeamMember {
   name: string;
@@ -105,9 +106,9 @@ export default function AboutUst() {
         heading="Unsere Mission"
         color="green.50"
       ></Title>
-      <Box as="section" py="20" background="dark" color="white">
+      <Box as="section" py="20" background="green.50">
         <Container maxW="6xl">
-          <Heading as="h1" pb="16" color="white">
+          <Heading as="h1" pb="16">
             Unser Team
           </Heading>
           <Grid columnGap={4} rowGap={12} templateColumns="repeat(12, 1fr)">
@@ -118,7 +119,7 @@ export default function AboutUst() {
               >
                 <AspectRatio mb="5" ratio={1 / 1} rounded="lg">
                   {member.image ? (
-                    <Box rounded="lg" background="gray.200">
+                    <Box rounded="lg" background="teal.100">
                       <Image
                         src={`/team/${member.image}`}
                         alt={`Bild von ${member.name}`}
@@ -129,18 +130,50 @@ export default function AboutUst() {
                       />
                     </Box>
                   ) : (
-                    <Box background="gray.200" rounded="lg"></Box>
+                    <Box background="teal.700" rounded="lg"></Box>
                   )}
                 </AspectRatio>
                 <Text align="center" fontWeight={500}>
                   {member.name}
                 </Text>
-                <Text align="center" color="gray.500">
+                <Text align="center" color="gray.600">
                   {member.role}
                 </Text>
               </GridItem>
             ))}
           </Grid>
+        </Container>
+      </Box>
+      <Box
+        as="section"
+        pt="20"
+        pb="40"
+        background="green.50"
+        textAlign="center"
+      >
+        <Container maxW="3xl">
+          <Heading
+            as="h6"
+            variant="uppercase"
+            fontSize="sm"
+            mb="5"
+            color="green.500"
+          >
+            Werde Teil des Teams
+          </Heading>
+          <Heading as="h1" fontSize="6xl">
+            Wir brauchen Dich
+          </Heading>
+          <Text mt="3" fontSize="xl" color="gray.700" mb="10">
+            Ohne ein persönliches Engagement der Potsdamer Stadtgesellschaft
+            wird eine Belebung der Inselbühne ein Traum bleiben. Packen wir’s an
+            – Du bist herzlich willkommen, mitzumachen!
+          </Text>
+          <NextLink passHref href="/kontakt">
+            <Button colorScheme="green" size="lg" as="a" shadow="base">
+              Schreib uns
+            </Button>
+          </NextLink>
         </Container>
       </Box>
     </Layout>

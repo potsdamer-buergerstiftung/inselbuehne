@@ -79,6 +79,7 @@ const team: TeamMember[] = [
     role: "Veranstaltungstechnik und Betrieb, Bauliche Ertüchtigung",
     details:
       "Johannes Götzke, Ingenieur für Veranstaltungstechnik, bringt sein geballtes Know-How im Bereich Technik, Sicherheit, Brand- und Lärmschutz, Auflagen, Konzeption von Events und Veranstaltungsorten mit ein.",
+    image: "johannes-goetzke.jpg",
   },
   {
     name: "Juliane Prokop",

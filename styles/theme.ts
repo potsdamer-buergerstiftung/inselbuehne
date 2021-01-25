@@ -37,6 +37,10 @@ const radii = {
   lg: "1rem 0 1rem 0",
 };
 
+const shadows = {
+  outline: "0 0 0 3px rgba(47, 133, 90, 0.6)",
+};
+
 const fonts = {
   body: "'DM Sans', sans-serif",
   heading: "'DM Serif Display', serif",
@@ -46,6 +50,7 @@ const overrides = {
   colors,
   fonts,
   radii,
+  shadows,
   components,
 };
 

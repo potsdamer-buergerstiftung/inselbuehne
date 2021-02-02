@@ -6,11 +6,20 @@ import {
   Heading,
   Text,
   AspectRatio,
-  Link,
+  Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
 } from "@chakra-ui/react";
 import Layout from "../components/Layout";
 import Title from "../components/Title";
 import Image from "next/image";
+import NextLink from "next/link";
+import React from "react";
 
 interface TeamMember {
   name: string;
@@ -23,65 +32,67 @@ const team: TeamMember[] = [
   {
     name: "Kaspar von Erffa",
     role: "Projektleitung, Finanzierung und Veranstaltungsbetrieb",
-    details: "",
+    details:
+      "Kaspar von Erffa, freier Theaterregisseur, u.a. Leiter des Integrationstheaters „Sanssouci avec Shakespeare“. Er hat die Fäden des Projekts in der Hand und kümmert sich insbesondere um die Planung des zukünftigen Veranstaltungsbetriebs, Programmgestaltung, und die dafür notwendigen Förderanträge/Finanzierung.",
     image: "kaspar-von-erffa.jpg",
   },
   {
     name: "Marie-Luise Glahr",
     role: "Projektleitung, Finanzierung, Öffentlichkeitsarbeit",
-    details: "",
+    details:
+      "Marie-Luise Glahr ist Vorsitzende des Vorstands der Potsdamer Bürgerstiftung und schon seit Jahren ein Fan der Freilichtbühne als offene Spielstätte für Potsdams Bürgerinnen und Bürger. Seit 2014 wirbt die Bürgerstiftung beharrlich hinter den Kulissen dafür, zuerst beim KIS und dann bei der Stadt Potsdam, dass die Freilichtbühne als wertvoller Begegnungs- und Traditionsort wiederbelebt werden sollte…",
     image: "marie-luise-glahr.jpg",
   },
   {
     name: "Gert Groppel",
     role: "Finanzierung, Rechtliches",
-    details: "",
     image: "gert-groppel.jpg",
   },
   {
     name: "Stephan Heinlein",
     role: "Bauliche Ertüchtigung",
-    details: "",
+    details:
+      "Stephan Heinlein, Architekt, ist derjenige, der die bauliche Instandsetzung plant. Dabei geht es um die Fragen von baulichen und betrieblichen Genehmigungen, Herstellung der Verkehrssicherheit, konkrete Maßnahmen vor Ort…",
     image: "stephan-heinlein.jpg",
   },
   {
-    name: "Steven O’Verna",
+    name: "Steven O’Fearna",
     role: "Programmgestaltung",
-    details: "",
-    image: "steven-overna.jpg",
+    details:
+      "Steven O’Fearna, organisiert mit seinem Team von „tanguito“ Tangokultur in Potsdam. Seit März 2020 ist  kaum noch was möglich. Die Inselbühne ist eine großartige Chance, einen Ort mit zu schaffen, wo  auch getanzt werden kann. „Tanguito“ bringt eine Tanzfläche mit, Tango-DJs und Erfahrung bei der Organisation von Tanzveranstaltungen. Mit Tango wollen wir gerne dabei sein wenn die Inselbühne zum Leben erwacht.",
+    image: "steven-ofearna.jpg",
   },
   {
     name: "Gabi Zimmermann",
     role: "Kommunikation & Künstleransprache",
-    details: "",
+    details:
+      "Gabi Zimmermann, hatte viele Jahre eine Musikschule im Holländer Viertel, mit der sie heute in Werder ist. Als Betreiberin einer „Kulturgarage“ mit Live-Auftritten und gut vernetzt in Potsdams Kulturszene, trägt sie dazu bei, in Potsdam wieder einen öffentlichen Ort für Gesang und Musik herzustellen, indem sie für das Projekt wirbt und sowohl Menschen anspricht, die die Bühnen nutzen wollen und solche, die bereit sind, für deren Erhalt zu spenden.",
     image: "gabi-zimmermann.jpg",
   },
   {
     name: "Mareike Schmidt",
     role: "Kommunikation & Organisation",
-    details: "",
     image: "mareike-schmidt.jpg",
   },
   {
     name: "Johannes Götzke",
-    role: "Veranstaltungsbetrieb",
-    details: "",
+    role: "Veranstaltungstechnik und Betrieb, Bauliche Ertüchtigung",
+    details:
+      "Johannes Götzke, Ingenieur für Veranstaltungstechnik, bringt sein geballtes Know-How im Bereich Technik, Sicherheit, Brand- und Lärmschutz, Auflagen, Konzeption von Events und Veranstaltungsorten mit ein.",
+    image: "johannes-goetzke.jpg",
   },
   {
     name: "Juliane Prokop",
     role: "Kommunikation & Organisation",
-    details: "",
   },
   {
     name: "Martin Suchanek",
     role: "Bauliche Ertüchtigung",
-    details: "",
     image: "martin-suchanek.jpg",
   },
   {
     name: "Jonas Neugebauer",
     role: "Kommunikation",
-    details: "",
   },
 ];
 
@@ -97,7 +108,61 @@ function sortByName(a: TeamMember, b: TeamMember) {
   return 0;
 }
 
-export default function AboutUst() {
+interface TeamMemberItemProps {
+  member: TeamMember;
+}
+
+function TeamMemberItem(props: TeamMemberItemProps) {
+  const { member } = props;
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  return (
+    <>
+      <AspectRatio
+        mb="5"
+        ratio={1 / 1}
+        rounded="lg"
+        onClick={member.details ? onOpen : null}
+        _hover={{ cursor: member.details ? "pointer" : "auto" }}
+      >
+        {member.image ? (
+          <Box rounded="lg" background="green.100">
+            <Image
+              src={`/team/${member.image}`}
+              alt={`Bild von ${member.name}`}
+              objectFit="cover"
+              layout="fill"
+              quality={50}
+              sizes="300px"
+            />
+          </Box>
+        ) : (
+          <Box background="green.100" rounded="lg"></Box>
+        )}
+      </AspectRatio>
+      <Text align="center" fontWeight={500}>
+        {member.name}
+      </Text>
+      <Text align="center" color="gray.600">
+        {member.role}
+      </Text>
+      {member.details && (
+        <Modal isOpen={isOpen} onClose={onClose} size="xl" isCentered>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>{member.name}</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              <Text mb="6">{member.details}</Text>
+            </ModalBody>
+          </ModalContent>
+        </Modal>
+      )}
+    </>
+  );
+}
+
+export default function AboutUs() {
   return (
     <Layout title="Über uns" fluid>
       <Title
@@ -105,9 +170,9 @@ export default function AboutUst() {
         heading="Unsere Mission"
         color="green.50"
       ></Title>
-      <Box as="section" py="20" background="dark" color="white">
+      <Box as="section" py="20" background="green.50">
         <Container maxW="6xl">
-          <Heading as="h1" pb="16" color="white">
+          <Heading as="h1" pb="16">
             Unser Team
           </Heading>
           <Grid columnGap={4} rowGap={12} templateColumns="repeat(12, 1fr)">
@@ -116,31 +181,42 @@ export default function AboutUst() {
                 colSpan={{ base: 12, sm: 6, md: 4, lg: 3 }}
                 key={member.name}
               >
-                <AspectRatio mb="5" ratio={1 / 1} rounded="lg">
-                  {member.image ? (
-                    <Box rounded="lg" background="gray.200">
-                      <Image
-                        src={`/team/${member.image}`}
-                        alt={`Bild von ${member.name}`}
-                        objectFit="cover"
-                        layout="fill"
-                        quality={50}
-                        sizes="300px"
-                      />
-                    </Box>
-                  ) : (
-                    <Box background="gray.200" rounded="lg"></Box>
-                  )}
-                </AspectRatio>
-                <Text align="center" fontWeight={500}>
-                  {member.name}
-                </Text>
-                <Text align="center" color="gray.500">
-                  {member.role}
-                </Text>
+                <TeamMemberItem member={member} />
               </GridItem>
             ))}
           </Grid>
+        </Container>
+      </Box>
+      <Box
+        as="section"
+        pt="20"
+        pb="40"
+        background="green.50"
+        textAlign="center"
+      >
+        <Container maxW="3xl">
+          <Heading
+            as="h6"
+            variant="uppercase"
+            fontSize="sm"
+            mb="5"
+            color="green.500"
+          >
+            Werde Teil des Teams
+          </Heading>
+          <Heading as="h1" fontSize="6xl">
+            Wir brauchen Dich
+          </Heading>
+          <Text mt="3" fontSize="xl" color="gray.700" mb="10">
+            Ohne ein persönliches Engagement der Potsdamer Stadtgesellschaft
+            wird eine Belebung der Inselbühne ein Traum bleiben. Packen wir’s an
+            – Du bist herzlich willkommen, mitzumachen!
+          </Text>
+          <NextLink passHref href="/kontakt">
+            <Button colorScheme="green" size="lg" as="a" shadow="base">
+              Schreib uns
+            </Button>
+          </NextLink>
         </Container>
       </Box>
     </Layout>

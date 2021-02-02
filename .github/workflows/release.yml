@@ -27,7 +27,11 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ghcr.io/potsdamer-buergerstiftung/inselbuehne:latest
+          tags: |
+            ${{ env.IMAGE }}:latest
+            ${{ env.IMAGE }}:${{ env.GIT_REF }}
+            ${{ env.IMAGE }}:${{ env.GIT_SHA }}
+            ${{ env.IMAGE }}:${{ env.BUILD_VER }}
           build-args: |
             paypal_client_id=${{ secrets.PAYPAL_CLIENT_ID }}
       - name: Image digest

@@ -8,7 +8,7 @@ export default function Perform() {
   return (
     <>
       <NextSeo title="Bühne frei" />
-      <Title title="Auftreten" heading="Bühne frei" color="gray.100">
+      <Title title="Bühne frei" heading="Auftreten" color="gray.100">
         Melde Dich bei uns, wenn Du die Inselbühne bespielen willst!
       </Title>
       <Box as="section" pt="20" pb="20">

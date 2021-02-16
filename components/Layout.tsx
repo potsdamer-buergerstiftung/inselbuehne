@@ -11,8 +11,9 @@ import {
   Button,
   Grid,
 } from "@chakra-ui/react";
+import { FC } from "react";
 
-export default function Layout(props) {
+const Layout: FC = (props) => {
   return (
     <>
       <Header fluid />
@@ -54,4 +55,6 @@ export default function Layout(props) {
       <Footer />
     </>
   );
-}
+};
+
+export default Layout;

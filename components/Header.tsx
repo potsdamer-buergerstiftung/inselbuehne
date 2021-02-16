@@ -6,26 +6,38 @@ import {
   Box,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
-import { useState } from "react";
+import { useState, FC } from "react";
+import { useRouter } from "next/router";
 
-function MenuItem(props) {
-  const { children, to = "/" } = props;
+interface MenuItem {
+  to: string;
+}
+
+const MenuItem: FC<MenuItem> = ({ children, to = "/" }) => {
+  const router = useRouter();
+  const textDecoration = router.pathname == to ? "underline" : "none";
+
   return (
     <NextLink passHref href={to}>
-      <ChakraLink py="5" px={{ base: 0, md: 5 }} fontSize="lg">
+      <ChakraLink
+        py="5"
+        px={{ base: 0, md: 5 }}
+        fontSize="lg"
+        textDecoration={textDecoration}
+      >
         {children}
       </ChakraLink>
     </NextLink>
   );
-}
+};
 
-export default function Header(props) {
+const Header: FC<{ fluid: boolean }> = ({ children, fluid }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <Box
       as="header"
-      position={props.fluid ? "absolute" : "relative"}
+      position={fluid ? "absolute" : "relative"}
       w="100%"
       zIndex="1"
       background={{
@@ -97,4 +109,6 @@ export default function Header(props) {
       </Container>
     </Box>
   );
-}
+};
+
+export default Header;

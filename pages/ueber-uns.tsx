@@ -15,11 +15,12 @@ import {
   ModalCloseButton,
   useDisclosure,
 } from "@chakra-ui/react";
-import Layout from "../components/Layout";
-import Title from "../components/Title";
+import Layout from "@components/Layout";
+import Title from "@components/Title";
 import Image from "next/image";
 import NextLink from "next/link";
 import React from "react";
+import { NextSeo } from "next-seo";
 
 interface TeamMember {
   name: string;
@@ -164,7 +165,8 @@ function TeamMemberItem(props: TeamMemberItemProps) {
 
 export default function AboutUs() {
   return (
-    <Layout title="Über uns" fluid>
+    <>
+      <NextSeo title="Über uns" />
       <Title
         title="Eine pandemie-taugliche, offene Bühne im Herzen Potsdams"
         heading="Unsere Mission"
@@ -219,6 +221,8 @@ export default function AboutUs() {
           </NextLink>
         </Container>
       </Box>
-    </Layout>
+    </>
   );
 }
+
+AboutUs.Layout = Layout;

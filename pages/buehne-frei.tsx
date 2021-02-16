@@ -2,10 +2,12 @@ import Layout from "../components/Layout";
 import Title from "../components/Title";
 import { Box, Container, Text, Button } from "@chakra-ui/react";
 import NextLink from "next/link";
+import { NextSeo } from "next-seo";
 
 export default function Perform() {
   return (
-    <Layout title="Auftreten" fluid>
+    <>
+      <NextSeo title="Bühne frei" />
       <Title title="Auftreten" heading="Bühne frei" color="gray.100">
         Melde Dich bei uns, wenn Du die Inselbühne bespielen willst!
       </Title>
@@ -41,6 +43,8 @@ export default function Perform() {
           </NextLink>
         </Container>
       </Box>
-    </Layout>
+    </>
   );
 }
+
+Perform.Layout = Layout;

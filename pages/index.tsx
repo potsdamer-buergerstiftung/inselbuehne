@@ -8,13 +8,14 @@ import {
   Button,
   AspectRatio,
 } from "@chakra-ui/react";
-import Layout from "../components/Layout";
 import Image from "next/image";
 import NextLink from "next/link";
+import { NextSeo } from "next-seo";
+import Layout from "@components/Layout";
 
-export default function AboutOurProject() {
+export default function Home() {
   return (
-    <Layout title="Unser Vorhaben" fluid>
+    <>
       <Box
         as="section"
         background="green.50"
@@ -109,6 +110,8 @@ export default function AboutOurProject() {
           </Grid>
         </Container>
       </Box>
-    </Layout>
+    </>
   );
 }
+
+Home.Layout = Layout;

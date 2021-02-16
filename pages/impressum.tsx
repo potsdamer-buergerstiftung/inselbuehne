@@ -1,10 +1,12 @@
 import Layout from "../components/Layout";
 import Title from "../components/Title";
 import { Box, Container, Text } from "@chakra-ui/react";
+import { NextSeo } from "next-seo";
 
 export default function Impress() {
   return (
-    <Layout title="Impressum" fluid>
+    <>
+      <NextSeo title="Impressum" />
       <Title title="Impressum" color="gray.100"></Title>
       <Box as="section" py="20">
         <Container centerContent textAlign="center">
@@ -20,6 +22,8 @@ export default function Impress() {
           </Text>
         </Container>
       </Box>
-    </Layout>
+    </>
   );
 }
+
+Impress.Layout = Layout;

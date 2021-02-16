@@ -91,7 +91,7 @@ export default function Header(props) {
             direction={{ base: "column", md: "row" }}
           >
             <MenuItem to="/unterstuetzen">Unterstützen</MenuItem>
-            <MenuItem to="/auftreten">Auftreten</MenuItem>
+            <MenuItem to="/buehne-frei">Bühne frei</MenuItem>
           </Flex>
         </Flex>
       </Container>

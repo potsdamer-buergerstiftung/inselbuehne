@@ -105,11 +105,7 @@ export default function Home() {
           </Grid>
         </Container>
       </Box>
-      <Box
-        as="section"
-        pb={{ base: "20", md: "40" }}
-        textAlign="center"
-      >
+      <Box as="section" pb={{ base: "20", md: "40" }} textAlign="center">
         <Container maxW="3xl">
           <Heading
             as="h6"

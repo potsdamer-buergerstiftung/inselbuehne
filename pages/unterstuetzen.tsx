@@ -28,6 +28,8 @@ import {
 } from "@chakra-ui/react";
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import DoneIcon from "../components/icons/done";
+import Head from "@components/Head";
+import { NextSeo } from "next-seo";
 
 enum FormSteps {
   Amount,
@@ -318,14 +320,15 @@ function FormSection() {
 
 export default function Contribute() {
   return (
-    <PayPalScriptProvider
-      options={{
-        "client-id": process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID,
-        currency: "EUR",
-        locale: "de_DE",
-      }}
-    >
-      <Layout title="Unterstützen" fluid>
+    <>
+      <NextSeo title="Unterstützen" />
+      <PayPalScriptProvider
+        options={{
+          "client-id": process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID,
+          currency: "EUR",
+          locale: "de_DE",
+        }}
+      >
         <Title
           title="Unterstützen"
           heading="Das Projekt fördern"
@@ -365,7 +368,9 @@ export default function Contribute() {
             </Box>
           </Container>
         </Box>
-      </Layout>
-    </PayPalScriptProvider>
+      </PayPalScriptProvider>
+    </>
   );
 }
+
+Contribute.Layout = Layout;

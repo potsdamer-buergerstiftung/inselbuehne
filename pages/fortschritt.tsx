@@ -1,10 +1,12 @@
 import Layout from "../components/Layout";
 import Title from "../components/Title";
 import { Box, Container, Text } from "@chakra-ui/react";
+import { NextSeo } from "next-seo";
 
 export default function Progress() {
   return (
-    <Layout title="Fortschritt" fluid>
+    <>
+      <NextSeo title="Fortschritt" />
       <Title
         title="Fortschritt"
         heading="Ein langer Weg liegt vor uns"
@@ -39,6 +41,8 @@ export default function Progress() {
           </Text>
         </Container>
       </Box>
-    </Layout>
+    </>
   );
 }
+
+Progress.Layout = Layout;

@@ -1,4 +1,3 @@
-import Layout from "../components/Layout";
 import Title from "../components/Title";
 import {
   Box,
@@ -21,6 +20,8 @@ import ErrorIcon from "../components/icons/error";
 import { useForm } from "react-hook-form";
 import { Dispatch, SetStateAction, useState } from "react";
 import axios from "axios";
+import { NextSeo } from "next-seo";
+import Layout from "@components/Layout";
 
 enum FormState {
   Initial,
@@ -149,7 +150,8 @@ function FormSection() {
 
 export default function Contact() {
   return (
-    <Layout title="Kontakt" fluid>
+    <>
+      <NextSeo title="Kontakt" />
       <Title title="Wie können wir helfen?" heading="Kontakt" color="white">
         Hast Du Fragen bezüglich der Inselbühne? Dann kontaktiere uns doch
         einfach!
@@ -174,6 +176,8 @@ export default function Contact() {
           <FormSection />
         </Container>
       </Box>
-    </Layout>
+    </>
   );
 }
+
+Contact.Layout = Layout;

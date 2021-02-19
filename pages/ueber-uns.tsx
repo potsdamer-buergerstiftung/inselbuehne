@@ -85,6 +85,7 @@ const team: TeamMember[] = [
   {
     name: "Juliane Prokop",
     role: "Kommunikation & Organisation",
+    image: "juliane-prokop.jpg",
   },
   {
     name: "Martin Suchanek",
@@ -94,6 +95,11 @@ const team: TeamMember[] = [
   {
     name: "Jonas Neugebauer",
     role: "Kommunikation",
+  },
+  {
+    name: "Pawel Prokop",
+    role: "Junge Bühne",
+    image: "pawel-prokop.jpg",
   },
 ];
 

@@ -125,9 +125,9 @@ export default function Home() {
             pandemie-taugliche Auftrittsmöglichkeit dringend benötigen. Und wenn
             die Reaktionen positiv genug sind, machen wir auch nach 2021 weiter.{" "}
           </Text>
-          <NextLink passHref href="/kontakt">
+          <NextLink passHref href="/fortschritt">
             <Button colorScheme="green" size="lg" as="a" shadow="base">
-              Schreib uns
+              Schau Dir den Fortschritt an
             </Button>
           </NextLink>
         </Container>

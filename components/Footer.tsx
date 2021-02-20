@@ -89,7 +89,7 @@ export default function Footer() {
       </Box>
       <Box bg="dark" py={16} color="gray.400">
         <Container maxW="6xl">
-          <Text>&copy; {year} Potsdamer Bürgerstiftung</Text>
+          <Text>&copy; {year} Potsdamer Bürgerstiftung & Mitwirkende</Text>
         </Container>
       </Box>
     </>

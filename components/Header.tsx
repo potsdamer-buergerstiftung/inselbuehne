@@ -31,13 +31,15 @@ const MenuItem: FC<MenuItem> = ({ children, to = "/" }) => {
   );
 };
 
-const Header: FC<{ fluid: boolean }> = ({ children, fluid }) => {
+interface Header {}
+
+const Header: FC<Header> = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <Box
       as="header"
-      position={fluid ? "absolute" : "relative"}
+      position="absolute"
       w="100%"
       zIndex="1"
       background={{
@@ -45,6 +47,7 @@ const Header: FC<{ fluid: boolean }> = ({ children, fluid }) => {
         md: "transparent",
       }}
       boxShadow={{ base: menuOpen ? "2xl" : "none", md: "none" }}
+      color="dark"
     >
       <Container maxW="7xl" py="5">
         <Flex

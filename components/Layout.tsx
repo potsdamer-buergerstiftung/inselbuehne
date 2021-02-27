@@ -15,10 +15,12 @@ import {
 } from "@chakra-ui/react";
 import { FC } from "react";
 
-const Layout: FC = (props) => {
+interface Layout {}
+
+const Layout: FC<Layout> = (props) => {
   return (
     <>
-      <Header fluid />
+      <Header />
       {props.children}
       <Box as="section" background="dark" color="gray.400">
         <Container maxW="6xl">

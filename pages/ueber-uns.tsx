@@ -14,6 +14,7 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import Layout from "@components/Layout";
 import Title from "@components/Title";
@@ -122,6 +123,7 @@ interface TeamMemberItemProps {
 function TeamMemberItem(props: TeamMemberItemProps) {
   const { member } = props;
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const bg = useColorModeValue("green.200", "purple.900");
 
   return (
     <>
@@ -133,7 +135,7 @@ function TeamMemberItem(props: TeamMemberItemProps) {
         _hover={{ cursor: member.details ? "pointer" : "auto" }}
       >
         {member.image ? (
-          <Box rounded="lg" background="green.100">
+          <Box rounded="lg" bg={bg}>
             <Image
               src={`/team/${member.image}`}
               alt={`Bild von ${member.name}`}
@@ -144,13 +146,13 @@ function TeamMemberItem(props: TeamMemberItemProps) {
             />
           </Box>
         ) : (
-          <Box background="green.100" rounded="lg"></Box>
+          <Box bg={bg} rounded="lg"></Box>
         )}
       </AspectRatio>
       <Text align="center" fontWeight={500}>
         {member.name}
       </Text>
-      <Text align="center" color="gray.600">
+      <Text align="center" variant="light">
         {member.role}
       </Text>
       {member.details && (
@@ -170,15 +172,16 @@ function TeamMemberItem(props: TeamMemberItemProps) {
 }
 
 export default function AboutUs() {
+  const bg = useColorModeValue("green.100", "purple.800");
+
   return (
     <>
       <NextSeo title="Über uns" />
       <Title
         title="Eine pandemie-taugliche, offene Bühne im Herzen Potsdams"
         heading="Unsere Mission"
-        color="green.50"
       ></Title>
-      <Box as="section" py="20" background="green.50">
+      <Box as="section" py="20" bg={bg}>
         <Container maxW="6xl">
           <Heading as="h1" pb="16">
             Unser Team
@@ -195,13 +198,7 @@ export default function AboutUs() {
           </Grid>
         </Container>
       </Box>
-      <Box
-        as="section"
-        pt="20"
-        pb="40"
-        background="green.50"
-        textAlign="center"
-      >
+      <Box as="section" pt="20" pb="40" bg={bg} textAlign="center">
         <Container maxW="3xl">
           <Heading
             as="h6"
@@ -215,7 +212,7 @@ export default function AboutUs() {
           <Heading as="h1" fontSize="6xl">
             Wir brauchen Dich
           </Heading>
-          <Text mt="3" fontSize="xl" color="gray.700" mb="10">
+          <Text mt="3" fontSize="xl" mb="10">
             Ohne ein persönliches Engagement der Potsdamer Stadtgesellschaft
             wird eine Belebung der Inselbühne ein Traum bleiben. Packen wir’s an
             – Du bist herzlich willkommen, mitzumachen!

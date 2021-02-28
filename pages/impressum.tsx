@@ -7,7 +7,7 @@ export default function Impress() {
   return (
     <>
       <NextSeo title="Impressum" />
-      <Title title="Impressum" color="gray.100"></Title>
+      <Title title="Impressum"></Title>
       <Box as="section" py="20">
         <Container centerContent textAlign="center">
           <Text>

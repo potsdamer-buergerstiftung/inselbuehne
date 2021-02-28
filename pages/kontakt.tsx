@@ -12,6 +12,7 @@ import {
   Text,
   Textarea,
   Spinner,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import EmailIcon from "../components/icons/email";
@@ -149,14 +150,17 @@ function FormSection() {
 }
 
 export default function Contact() {
+  const bg = useColorModeValue("white", "purple.800");
+  const color = useColorModeValue("gray.600", "white");
+
   return (
     <>
       <NextSeo title="Kontakt" />
-      <Title title="Wie können wir helfen?" heading="Kontakt" color="white">
+      <Title title="Wie können wir helfen?" heading="Kontakt" bg={bg}>
         Hast Du Fragen bezüglich der Inselbühne? Dann kontaktiere uns doch
         einfach!
       </Title>
-      <Box as="section" pb="20">
+      <Box as="section" pb="20" bg={bg}>
         <Container centerContent>
           <Box as="div" pb="5">
             <EmailIcon boxSize={12} color="green.500" />
@@ -164,14 +168,14 @@ export default function Contact() {
           <Heading as="h6" variant="uppercase" fontSize="sm">
             E-Mail
           </Heading>
-          <Text color="gray.600">
+          <Text color={color}>
             <Link href="mailto:hallo@inselbuehne-potsdam.de">
               hallo@inselbuehne-potsdam.de
             </Link>
           </Text>
         </Container>
       </Box>
-      <Box as="section" pb="20">
+      <Box as="section" pb="20" bg={bg}>
         <Container centerContent>
           <FormSection />
         </Container>

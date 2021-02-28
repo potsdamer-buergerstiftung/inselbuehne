@@ -1,6 +1,7 @@
-import { Icon } from "@chakra-ui/react";
+import { Icon, IconProps } from "@chakra-ui/react";
+import { FC } from "react";
 
-const DoneIcon = (props) => (
+const DoneIcon: FC<IconProps> = (props) => (
   <Icon viewBox="0 0 24 24" {...props}>
     <circle fill="currentColor" opacity=".3" cx="12" cy="12" r="10"></circle>
     <path

@@ -1,10 +1,15 @@
-import { Container, Box, Heading, Text } from "@chakra-ui/react";
+import {
+  Container,
+  Box,
+  Heading,
+  Text,
+  ColorProps,
+  BackgroundProps,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import { FC } from "react";
 
-export interface TitleOptions {
-  /**
-   * The background color of the title
-   */
-  color?: string;
+export interface Title {
   /**
    * The text to show as title
    */
@@ -17,19 +22,20 @@ export interface TitleOptions {
    * The elements to show below the title
    */
   children?: any;
+  /**
+   * The background of the title
+   */
+  bg?: string;
 }
 
-export default function Title(props: TitleOptions) {
+const Title: FC<Title> = ({ bg, heading, title, children }) => {
+  const defaultBg = useColorModeValue("green.100", "purple.800");
+  const background = bg || defaultBg;
+
   return (
-    <Box
-      as="section"
-      pt="60"
-      pb="20"
-      textAlign="center"
-      background={props.color ? props.color : "green.50"}
-    >
+    <Box as="section" pt="60" pb="20" textAlign="center" bg={background}>
       <Container maxW="6xl">
-        {props.heading && (
+        {heading && (
           <Heading
             as="h6"
             variant="uppercase"
@@ -37,18 +43,20 @@ export default function Title(props: TitleOptions) {
             mb="5"
             color="green.500"
           >
-            {props.heading}
+            {heading}
           </Heading>
         )}
         <Heading as="h1" fontSize="6xl">
-          {props.title}
+          {title}
         </Heading>
-        {props.children && (
-          <Text mt="3" fontSize="xl" color="gray.700">
-            {props.children}
+        {children && (
+          <Text mt="3" fontSize="xl">
+            {children}
           </Text>
         )}
       </Container>
     </Box>
   );
-}
+};
+
+export default Title;

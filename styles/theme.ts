@@ -1,4 +1,14 @@
 import { extendTheme } from "@chakra-ui/react";
+import { mode } from "@chakra-ui/theme-tools";
+
+const styles = {
+  global: (props) => ({
+    body: {
+      color: mode("purple.900", "white")(props),
+      background: mode("white", "purple.900")(props),
+    },
+  }),
+};
 
 const components = {
   Heading: {
@@ -23,18 +33,54 @@ const components = {
     baseStyle: {
       lineHeight: 1.75,
     },
+    variants: {
+      light: (props) => ({
+        color: mode("gray.600", "gray.400")(props),
+      }),
+    },
+  },
+  Link: {
+    variants: {
+      light: (props) => ({
+        color: mode("gray.600", "gray.400")(props),
+      }),
+    },
   },
 };
 
 const colors = {
   brand: {},
-  dark: "#0d0221",
+  purple: {
+    50: "#e0f4ff",
+    100: "#b8dcfa",
+    200: "#8ec4f1",
+    300: "#63ace8",
+    400: "#3994e0",
+    500: "#1f7bc6",
+    600: "#135f9b",
+    700: "#084470",
+    800: "#031c2d",
+    900: "#000f1d",
+  },
+  dark: {
+    50: "#e0f4ff",
+    100: "#b8dcfa",
+    200: "#8ec4f1",
+    300: "#63ace8",
+    400: "#3994e0",
+    500: "#1f7bc6",
+    600: "#135f9b",
+    700: "#084470",
+    800: "#031c2d",
+    900: "#000f1d",
+  },
 };
 
 const radii = {
   sm: ".25rem 0 .25rem 0",
   md: ".5rem 0 .5rem 0",
   lg: "1rem 0 1rem 0",
+  xl: "2rem 0 2rem 0",
 };
 
 const shadows = {
@@ -46,12 +92,19 @@ const fonts = {
   heading: "'DM Serif Display', serif",
 };
 
+const config = {
+  initialColorMode: "light",
+  useSystemColorMode: false,
+};
+
 const overrides = {
   colors,
   fonts,
   radii,
   shadows,
   components,
+  config,
+  styles,
 };
 
 export default extendTheme(overrides);

@@ -1,17 +1,25 @@
 import Layout from "../components/Layout";
 import Title from "../components/Title";
-import { Box, Container, Text, Button } from "@chakra-ui/react";
+import {
+  Box,
+  Container,
+  Text,
+  Button,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import NextLink from "next/link";
 import { NextSeo } from "next-seo";
 
 export default function Perform() {
+  const bg = useColorModeValue("gray.50", "purple.800");
+
   return (
     <>
       <NextSeo title="Bühne frei" />
-      <Title title="Bühne frei" heading="Auftreten" color="gray.100">
+      <Title title="Bühne frei" heading="Auftreten">
         Melde Dich bei uns, wenn Du die Inselbühne bespielen willst!
       </Title>
-      <Box as="section" pt="20" pb="20">
+      <Box as="section" pt="20" pb="20" bg={bg}>
         <Container centerContent textAlign="center">
           <Text mb="8">
             Du bist Kulturschaffende/r in Potsdam und suchst nach einer

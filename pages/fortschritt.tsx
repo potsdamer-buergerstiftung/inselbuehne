@@ -20,27 +20,27 @@ interface Milestone {
 const milestones: Milestone[] = [
   {
     title: "Abschluss des Nutzervertrags",
-    date: "2021/04",
+    date: "KW 12",
   },
   {
     title: "Start der Sanierungsarbeiten",
-    date: "2021/04",
+    date: "KW 13",
   },
   {
     title: "Anmeldestart für Kulturschaffende",
-    date: "2021/05",
+    date: "KW 14",
   },
   {
     title: '"Sobotnik" - Aktionstag vor Ort',
-    date: "2021/06",
+    date: "KW 15",
   },
   {
     title: "Buchungsstart für das Publikum",
-    date: "2021/07",
+    date: "KW 16",
   },
   {
     title: "Bühne frei! (Eröffnung)",
-    date: "2021/07",
+    date: "1. Mai",
   },
 ];
 

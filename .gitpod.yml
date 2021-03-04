@@ -1,5 +1,8 @@
+image: gitpod/workspace-postgres
 tasks:
   - init: yarn install
     command: yarn dev
+  - command: |
+      pg_start
 ports:
   - port: 3000

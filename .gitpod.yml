@@ -1,9 +1,9 @@
-image: gitpod/workspace-postgres
-
+image:
+  file: .gitpod.Dockerfile
 tasks:
   - init: yarn install
     command: yarn dev
   - command: |
-      echo DATABASE_URL=$DATABASE_URL >> .env.local
+      pg_start
 ports:
   - port: 3000

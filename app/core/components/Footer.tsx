@@ -8,7 +8,6 @@ import {
   Heading,
   DarkMode,
   VStack,
-  LightMode,
 } from "@chakra-ui/react"
 import { Link } from "blitz"
 

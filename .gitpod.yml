@@ -7,3 +7,6 @@ tasks:
       pg_start
 ports:
   - port: 3000
+vscode:
+  extensions:
+    - prisma.prisma

@@ -1,4 +1,18 @@
-import { Box, Container, Text, Heading, Flex, Square, useColorModeValue, Grid, GridItem, AspectRatio, Wrap, WrapItem, Avatar } from "@chakra-ui/react"
+import {
+  Box,
+  Container,
+  Text,
+  Heading,
+  Flex,
+  Square,
+  useColorModeValue,
+  Grid,
+  GridItem,
+  AspectRatio,
+  Wrap,
+  WrapItem,
+  Avatar,
+} from "@chakra-ui/react"
 import { FC, useState } from "react"
 import { BlitzPage, Image, Link } from "blitz"
 import Title from "app/core/components/Title"
@@ -34,7 +48,7 @@ const milestones: Milestone[] = [
     title: "Bühne frei! (Eröffnung)",
     date: "1. Mai",
   },
-];
+]
 
 const posts = [0, 1, 2, 3, 4, 5]
 
@@ -111,7 +125,14 @@ const Section2: FC = () => {
           {posts.map((_, index) => (
             <GridItem colSpan={{ base: 6, md: 3, lg: 2 }} key={index}>
               <Link href="/kontakt">
-                <Box shadow="lg" rounded="lg" position="relative" overflow="hidden" bg="white" cursor="pointer">
+                <Box
+                  shadow="lg"
+                  rounded="lg"
+                  position="relative"
+                  overflow="hidden"
+                  bg="white"
+                  cursor="pointer"
+                >
                   <AspectRatio ratio={3 / 2}>
                     <Image
                       sizes="400px"
@@ -123,8 +144,13 @@ const Section2: FC = () => {
                     />
                   </AspectRatio>
                   <Box p={{ base: 5, md: 8 }}>
-                    <Heading size="lg" mb={3}>Sed ut perspiciatis unde omnis</Heading>
-                    <Text>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam...</Text>
+                    <Heading size="lg" mb={3}>
+                      Sed ut perspiciatis unde omnis
+                    </Heading>
+                    <Text>
+                      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                      doloremque laudantium, totam rem aperiam...
+                    </Text>
                     <Wrap align="center" mt={5} spacing={3}>
                       <WrapItem>
                         <Avatar />

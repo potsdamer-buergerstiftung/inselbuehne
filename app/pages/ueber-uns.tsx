@@ -94,7 +94,7 @@ const team: TeamMember[] = [
   {
     name: "Jonas Neugebauer",
     role: "Kommunikation & Organisation",
-    image: "jonas-neugebauer.jpg"
+    image: "jonas-neugebauer.jpg",
   },
   {
     name: "Pawel Prokop",

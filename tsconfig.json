@@ -17,5 +17,5 @@
     "jsx": "preserve"
   },
   "exclude": ["node_modules", "**/*.e2e.ts", "cypress"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "server.js"]
 }

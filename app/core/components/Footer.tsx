@@ -56,9 +56,13 @@ export default function Footer() {
                 </Heading>
                 <VStack as="nav" spacing={5} align="left">
                   <ChakraLink variant="light" isExternal href="https://instagram.com/inselbuehne">
-                  Instagram
+                    Instagram
                   </ChakraLink>
-                  <ChakraLink variant="light" isExternal href="https://github.com/potsdamer-buergerstiftung">
+                  <ChakraLink
+                    variant="light"
+                    isExternal
+                    href="https://github.com/potsdamer-buergerstiftung"
+                  >
                     GitHub
                   </ChakraLink>
                 </VStack>

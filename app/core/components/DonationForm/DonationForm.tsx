@@ -4,6 +4,7 @@ import { useState, FC, Dispatch, SetStateAction } from "react"
 import { createContext } from "react"
 import { Payment } from "./Payment"
 import { PayPalScriptProvider } from "@paypal/react-paypal-js"
+import Completion from "./Completion"
 
 export enum Steps {
   Amount,
@@ -24,12 +25,21 @@ export interface ProgressContext {
 
 export const ProgressContext = createContext<ProgressContext>({
   progress: Steps.Amount,
-  setProgress: () => {},
+  setProgress: () => { },
 })
+
+const defaultDetailsFormInput: DetailsFormInput = {
+  name: "",
+  email: "",
+  message: "",
+  anonymous: false,
+  newsletter: false,
+  receipt: false,
+}
 
 const DonationForm: FC<DonationForm> = ({ amounts }) => {
   const [amount, setAmount] = useState<number>(0)
-  const [details, setDetails] = useState<DetailsFormInput>()
+  const [details, setDetails] = useState<DetailsFormInput>(defaultDetailsFormInput)
   const [progress, setProgress] = useState<Steps>(Steps.Amount)
 
   const PAYMENT_DESCRIPTION = "Inselbühne Potsdam Spende"
@@ -47,9 +57,13 @@ const DonationForm: FC<DonationForm> = ({ amounts }) => {
   const FormPages = () => {
     switch (progress) {
       case Steps.Details:
-        return <DetailsForm onSubmit={onDetailsFormSubmit} chosenAmount={amount} />
+        return <DetailsForm onSubmit={onDetailsFormSubmit} chosenAmount={amount} data={details} />
       case Steps.Payment:
-        return <Payment amount={amount} description={PAYMENT_DESCRIPTION}></Payment>
+        return <Payment amount={amount} description={PAYMENT_DESCRIPTION} onApprove={async () => {
+          setProgress(Steps.Completed)
+        }}></Payment>
+      case Steps.Completed:
+        return <Completion />
       default:
         return <AmountSelection amounts={amounts} onSubmit={onAmountSelect} />
     }

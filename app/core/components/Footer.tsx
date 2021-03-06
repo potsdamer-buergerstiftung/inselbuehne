@@ -55,10 +55,12 @@ export default function Footer() {
                   Social Media
                 </Heading>
                 <VStack as="nav" spacing={5} align="left">
-                  <MenuItem to="https://instagram.com/inselbuehne">Instagram</MenuItem>
-                  <MenuItem to="https://github.com/potsdamer-buergerstiftung/inselbuehne">
+                  <ChakraLink variant="light" isExternal href="https://instagram.com/inselbuehne">
+                  Instagram
+                  </ChakraLink>
+                  <ChakraLink variant="light" isExternal href="https://github.com/potsdamer-buergerstiftung">
                     GitHub
-                  </MenuItem>
+                  </ChakraLink>
                 </VStack>
               </GridItem>
               <GridItem colSpan={{ base: 6, md: 1 }}>

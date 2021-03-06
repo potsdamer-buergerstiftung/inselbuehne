@@ -7,7 +7,7 @@ module.exports = {
     }),
   ],
   env: {
-    PAYPAL_CLIENT_ID: process.env.PBS_PAYPAL_CLIENT_ID,
+    PAYPAL_CLIENT_ID: process.env.PAYPAL_CLIENT_ID,
   },
   i18n: {
     locales: ["de"],

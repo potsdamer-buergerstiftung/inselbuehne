@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { Dispatch, FC } from "react"
 import {
   Box,
   Heading,
@@ -23,13 +23,12 @@ export interface DetailsFormInput {
 }
 
 interface DetailsForm {
-  onSubmit: DetailsFormSubmitHandler
+  onSubmit: Dispatch<DetailsFormInput>
   chosenAmount: number
+  data: DetailsFormInput
 }
 
-type DetailsFormSubmitHandler = (data: DetailsFormInput) => void
-
-export const DetailsForm: FC<DetailsForm> = ({ onSubmit, chosenAmount }) => {
+export const DetailsForm: FC<DetailsForm> = ({ onSubmit, chosenAmount, data }) => {
   const { register, handleSubmit } = useForm<DetailsFormInput>()
 
   return (
@@ -40,7 +39,13 @@ export const DetailsForm: FC<DetailsForm> = ({ onSubmit, chosenAmount }) => {
       <form onSubmit={handleSubmit((data) => onSubmit(data))}>
         <FormControl mb="5" isRequired>
           <FormLabel>Dein Name / Organisation</FormLabel>
-          <Input variant="filled" ref={register({ required: true })} size="lg" name="name" />
+          <Input
+            variant="filled"
+            ref={register({ required: true })}
+            size="lg"
+            name="name"
+            defaultValue={data.name}
+          />
         </FormControl>
         <FormControl mb="5" isRequired>
           <FormLabel>Deine E-Mail</FormLabel>
@@ -50,19 +55,26 @@ export const DetailsForm: FC<DetailsForm> = ({ onSubmit, chosenAmount }) => {
             size="lg"
             name="email"
             type="email"
+            defaultValue={data.email}
           />
         </FormControl>
         <FormControl mb="5">
           <FormLabel>Deine Grußnachricht</FormLabel>
-          <Textarea variant="filled" ref={register} size="lg" name="message" />
+          <Textarea
+            variant="filled"
+            ref={register}
+            size="lg"
+            name="message"
+            defaultValue={data.message}
+          />
         </FormControl>
         <FormControl mb="4">
-          <Checkbox name="newsletter" ref={register} size="lg">
+          <Checkbox name="newsletter" ref={register} size="lg" defaultChecked={data.newsletter}>
             Updates der Inselbühne erhalten
           </Checkbox>
         </FormControl>
         <FormControl mb="4">
-          <Checkbox name="anonymous" ref={register} size="lg">
+          <Checkbox name="anonymous" ref={register} size="lg" defaultChecked={data.anonymous}>
             Meine Spende anonym halten
           </Checkbox>
         </FormControl>

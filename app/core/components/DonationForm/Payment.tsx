@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { Dispatch, DispatchWithoutAction, FC } from "react"
 import { Box, Heading, Stat, StatLabel, StatNumber, Center, Spinner } from "@chakra-ui/react"
 import {
   PayPalButtons,
@@ -11,14 +11,10 @@ import { Steps } from "./DonationForm"
 interface Payment {
   amount: number
   description: string
-  onApprove?: PaymentOnApproveAction
-  onError?: PaymentOnErrorAction
-  onCancel?: PaymentOnCancelAction
+  onApprove?: () => Promise<void>
+  onError?: DispatchWithoutAction
+  onCancel?: DispatchWithoutAction
 }
-
-type PaymentOnApproveAction = () => Promise<void>
-type PaymentOnErrorAction = () => Promise<void>
-type PaymentOnCancelAction = () => Promise<void>
 
 export const Payment: FC<Payment> = (props) => {
   const { amount, description, onApprove, onError, onCancel } = props
@@ -56,8 +52,8 @@ export const Payment: FC<Payment> = (props) => {
             })
           }}
           onApprove={onApprove}
-          onError={onError}
-          onCancel={onCancel}
+          onError={() => onError}
+          onCancel={() => onCancel}
         />
       </Box>
       <Box mt="10">

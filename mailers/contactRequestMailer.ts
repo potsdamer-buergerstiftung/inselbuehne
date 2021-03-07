@@ -1,9 +1,4 @@
-/* TODO - You need to add a mailer integration in `integrations/` and import here.
- *
- * The integration file can be very simple. Instantiate the email client
- * and then export it. That way you can import here and anywhere else
- * and use it straight away.
- */
+import { sendOfficeMail } from "integrations/officeMailer"
 import previewEmail from "preview-email"
 
 type ContactRequestMailer = {
@@ -14,8 +9,8 @@ type ContactRequestMailer = {
 
 export function contactRequestMailer({ name, email, message }: ContactRequestMailer) {
   const msg = {
-    from: "hello@inselbuhne-potsdam.de",
-    to: "hello@inselbuehne-potsdam.de",
+    from: "hallo@inselbuehne-potsdam.de",
+    to: "noel@sigmunczyk.de",
     subject: "Kontaktanfrage Inselbühne",
     html: `
       <h1>Kontaktanfrage Inselbühne</h1>
@@ -29,11 +24,8 @@ export function contactRequestMailer({ name, email, message }: ContactRequestMai
   return {
     async send() {
       if (process.env.NODE_ENV === "production") {
-        // TODO - send the production email, like this:
-        // await postmark.sendEmail(msg)
-        throw new Error("No production email implementation in mailers/forgotPasswordMailer")
+        await sendOfficeMail(msg)
       } else {
-        console.log(msg)
         await previewEmail(msg)
       }
     },

@@ -25,7 +25,7 @@ export interface ProgressContext {
 
 export const ProgressContext = createContext<ProgressContext>({
   progress: Steps.Amount,
-  setProgress: () => { },
+  setProgress: () => {},
 })
 
 const defaultDetailsFormInput: DetailsFormInput = {
@@ -59,9 +59,15 @@ const DonationForm: FC<DonationForm> = ({ amounts }) => {
       case Steps.Details:
         return <DetailsForm onSubmit={onDetailsFormSubmit} chosenAmount={amount} data={details} />
       case Steps.Payment:
-        return <Payment amount={amount} description={PAYMENT_DESCRIPTION} onApprove={async () => {
-          setProgress(Steps.Completed)
-        }}></Payment>
+        return (
+          <Payment
+            amount={amount}
+            description={PAYMENT_DESCRIPTION}
+            onApprove={async () => {
+              setProgress(Steps.Completed)
+            }}
+          ></Payment>
+        )
       case Steps.Completed:
         return <Completion />
       default:

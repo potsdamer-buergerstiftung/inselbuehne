@@ -16,46 +16,6 @@ import {
   Text,
 } from "@chakra-ui/react"
 
-const UserInfo = () => {
-  const currentUser = useCurrentUser()
-  const [logoutMutation] = useMutation(logout)
-
-  if (currentUser) {
-    return (
-      <>
-        <button
-          className="button small"
-          onClick={async () => {
-            await logoutMutation()
-          }}
-        >
-          Logout
-        </button>
-        <div>
-          User id: <code>{currentUser.id}</code>
-          <br />
-          User role: <code>{currentUser.role}</code>
-        </div>
-      </>
-    )
-  } else {
-    return (
-      <>
-        <Link href="/signup">
-          <a className="button small">
-            <strong>Sign Up</strong>
-          </a>
-        </Link>
-        <Link href="/login">
-          <a className="button small">
-            <strong>Login</strong>
-          </a>
-        </Link>
-      </>
-    )
-  }
-}
-
 const Section1: FC = () => {
   const bg = useColorModeValue("green.100", "purple.900")
 
@@ -174,9 +134,6 @@ const Home: BlitzPage = () => {
       <Section1 />
       <Section2 />
       <Section3 />
-      <Suspense fallback={<Text>Loading</Text>}>
-        <UserInfo />
-      </Suspense>
     </>
   )
 }

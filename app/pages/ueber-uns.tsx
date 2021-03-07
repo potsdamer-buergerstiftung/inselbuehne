@@ -106,6 +106,11 @@ const team: TeamMember[] = [
     role: "Junge Bühne",
     image: "felicitas-schober.jpg",
   },
+  {
+    name: "Lisa-Marie Riemer",
+    role: "Projektkoordination",
+    image: "lisa-marie-riemer.jpg",
+  },
 ]
 
 function sortByName(a: TeamMember, b: TeamMember) {

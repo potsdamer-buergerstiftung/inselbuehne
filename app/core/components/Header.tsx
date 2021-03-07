@@ -8,24 +8,57 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react"
 import { MoonIcon, SunIcon } from "@chakra-ui/icons"
-import NextLink from "next/link"
-import { useState, FC } from "react"
-import { useRouter } from "next/router"
+import { Link, useRouter } from "blitz"
+import { useState, FC, Dispatch, SetStateAction } from "react"
+
+const menuItems = [
+  {
+    label: "Fortschritt",
+    to: "/fortschritt",
+  },
+  {
+    label: "Über uns",
+    to: "/ueber-uns",
+  },
+  {
+    label: "Bühne frei",
+    to: "/buehne-frei",
+  },
+  {
+    label: "Unterstützen",
+    to: "/unterstuetzen",
+  },
+  {
+    label: "Kontakt",
+    to: "/kontakt",
+  },
+  {
+    label: "Presse",
+    to: "/presse",
+  },
+]
 
 interface MenuItem {
-  to: string
+  to?: string
+  setMenuOpen: Dispatch<SetStateAction<boolean>>
 }
 
-const MenuItem: FC<MenuItem> = ({ children, to = "/" }) => {
+const MenuItem: FC<MenuItem> = ({ children, to = "/", setMenuOpen }) => {
   const router = useRouter()
   const textDecoration = router.pathname == to ? "underline" : "none"
 
   return (
-    <NextLink passHref href={to}>
-      <ChakraLink py="5" px={{ base: 0, md: 4 }} fontSize="lg" textDecoration={textDecoration}>
+    <Link href={to}>
+      <ChakraLink
+        py="5"
+        px={{ base: 0, md: 4 }}
+        fontSize="lg"
+        textDecoration={textDecoration}
+        onClick={() => setMenuOpen(false)}
+      >
         {children}
       </ChakraLink>
-    </NextLink>
+    </Link>
   )
 }
 
@@ -56,7 +89,7 @@ const Header: FC<Header> = () => {
           align="center"
           display={{ base: "flex", lg: "none" }}
         >
-          <NextLink passHref href="/">
+          <Link href="/">
             <ChakraLink
               fontSize={{ base: "xl", sm: "2xl" }}
               py="5"
@@ -65,7 +98,7 @@ const Header: FC<Header> = () => {
             >
               Inselbühne Potsdam
             </ChakraLink>
-          </NextLink>
+          </Link>
           <Button onClick={() => setMenuOpen(!menuOpen)} colorScheme="green">
             Menü
           </Button>
@@ -79,11 +112,15 @@ const Header: FC<Header> = () => {
           display={{ base: menuOpen ? "flex" : "none", lg: "flex" }}
         >
           <Flex as="nav" w="100%" justify="flex-end" direction={{ base: "column", lg: "row" }}>
-            <MenuItem to="/fortschritt">Fortschritt</MenuItem>
-            <MenuItem to="/ueber-uns">Über uns</MenuItem>
-            <MenuItem to="/buehne-frei">Bühne frei</MenuItem>
+            {menuItems
+              .filter((_, i) => i <= 2)
+              .map((item, i) => (
+                <MenuItem to={item.to} setMenuOpen={setMenuOpen} key={i}>
+                  {item.label}
+                </MenuItem>
+              ))}
           </Flex>
-          <NextLink passHref href="/">
+          <Link href="/">
             <ChakraLink
               fontSize={{ lg: "2xl", xl: "3xl" }}
               px="6"
@@ -94,11 +131,15 @@ const Header: FC<Header> = () => {
             >
               Inselbühne Potsdam
             </ChakraLink>
-          </NextLink>
+          </Link>
           <Flex as="nav" w="100%" justify="flex-start" direction={{ base: "column", lg: "row" }}>
-            <MenuItem to="/unterstuetzen">Unterstützen</MenuItem>
-            <MenuItem to="/kontakt">Kontakt</MenuItem>
-            <MenuItem to="/presse">Presse</MenuItem>
+            {menuItems
+              .filter((_, i) => i >= 3)
+              .map((item, i) => (
+                <MenuItem to={item.to} setMenuOpen={setMenuOpen} key={i}>
+                  {item.label}
+                </MenuItem>
+              ))}
             <Button
               py="5"
               px={{ base: 0, lg: 2 }}

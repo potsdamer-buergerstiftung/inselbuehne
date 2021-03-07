@@ -10,9 +10,10 @@ export interface ContactFormInput {
 
 interface ContactFormInitial {
   onSubmit: Dispatch<ContactFormInput>
+  data?: ContactFormInput
 }
 
-const ContactFormInitial: FC<ContactFormInitial> = ({ onSubmit }) => {
+const ContactFormInitial: FC<ContactFormInitial> = ({ onSubmit, data }) => {
   const { register, handleSubmit } = useForm<ContactFormInput>()
 
   return (
@@ -26,6 +27,7 @@ const ContactFormInitial: FC<ContactFormInitial> = ({ onSubmit }) => {
               size="lg"
               name="name"
               ref={register}
+              defaultValue={data?.name}
             />
           </FormControl>
         </GridItem>
@@ -37,6 +39,7 @@ const ContactFormInitial: FC<ContactFormInitial> = ({ onSubmit }) => {
               size="lg"
               name="email"
               ref={register}
+              defaultValue={data?.email}
             />
           </FormControl>
         </GridItem>
@@ -48,6 +51,7 @@ const ContactFormInitial: FC<ContactFormInitial> = ({ onSubmit }) => {
               placeholder="Deine Nachricht"
               name="message"
               ref={register}
+              defaultValue={data?.message}
             />
           </FormControl>
         </GridItem>

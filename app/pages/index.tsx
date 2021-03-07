@@ -16,11 +16,6 @@ import {
   Text,
 } from "@chakra-ui/react"
 
-/*
- * This file is just for a pleasant getting started page for your new app.
- * You can delete everything in here and start from scratch if you like.
- */
-
 const UserInfo = () => {
   const currentUser = useCurrentUser()
   const [logoutMutation] = useMutation(logout)
@@ -174,7 +169,6 @@ const Section3: FC = () => {
 }
 
 const Home: BlitzPage = () => {
-  console.log(process.env.NEXT_PUBLIC_DATABASE_URL)
   return (
     <>
       <Section1 />

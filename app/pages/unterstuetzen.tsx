@@ -1,7 +1,7 @@
 import { useColorModeValue, Box, Grid, Container, GridItem, Text } from "@chakra-ui/react"
 import { BlitzPage } from "blitz"
 import Title from "app/core/components/Title"
-import DonationForm from "app/core/components/DonationForm"
+import DonationForm from "app/donation/components/DonationForm"
 import Layout from "app/core/layouts/Layout"
 
 const AMOUNTS = [10, 20, 50, 100]

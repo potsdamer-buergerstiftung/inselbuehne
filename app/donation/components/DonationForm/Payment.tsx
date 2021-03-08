@@ -1,10 +1,6 @@
 import { Dispatch, DispatchWithoutAction, FC } from "react"
 import { Box, Heading, Stat, StatLabel, StatNumber, Center, Spinner } from "@chakra-ui/react"
-import {
-  PayPalButtons,
-  PayPalScriptProvider,
-  usePayPalScriptReducer,
-} from "@paypal/react-paypal-js"
+import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js"
 import BackButton from "./BackButton"
 import { Steps } from "./DonationForm"
 

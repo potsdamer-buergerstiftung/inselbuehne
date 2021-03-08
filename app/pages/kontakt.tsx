@@ -1,4 +1,4 @@
-import ContactForm from "app/inquiry/components/ContactForm.tsx/ContactForm"
+import ContactForm from "app/inquiry/components/ContactForm/ContactForm"
 import contactInquiry from "app/inquiry/mutations/contactInquiry"
 import Layout from "app/core/layouts/Layout"
 import { BlitzPage, useMutation } from "blitz"

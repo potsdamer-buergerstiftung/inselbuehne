@@ -1,6 +1,6 @@
 import { FC } from "react"
 import { Box, Heading, Text } from "@chakra-ui/react"
-import DoneIcon from "../icons/done"
+import DoneIcon from "../../../core/components/icons/done"
 
 const Completion: FC = () => {
   return (

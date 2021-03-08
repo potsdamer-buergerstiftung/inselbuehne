@@ -1,10 +1,14 @@
 import { DetailsFormInput, DetailsForm } from "./DetailsForm"
 import { AmountSelection } from "./AmountSelection"
-import { useState, FC, Dispatch, SetStateAction } from "react"
+import { useState, FC, Dispatch, SetStateAction, Suspense } from "react"
 import { createContext } from "react"
 import { Payment } from "./Payment"
 import { PayPalScriptProvider } from "@paypal/react-paypal-js"
 import Completion from "./Completion"
+import { useQuery } from "blitz"
+import getPayPalClientId from "app/donation/queries/getPayPalClientId"
+import Error from "./Error"
+import Loading from "./Loading"
 
 export enum Steps {
   Amount,
@@ -35,6 +39,25 @@ const defaultDetailsFormInput: DetailsFormInput = {
   anonymous: false,
   newsletter: false,
   receipt: false,
+}
+
+const DonationFormPayPalProvier: FC = ({ children }) => {
+  const [clientId] = useQuery(getPayPalClientId, undefined)
+
+  if (clientId) {
+    return (
+      <PayPalScriptProvider
+        options={{
+          "client-id": clientId || "",
+          currency: "EUR",
+          locale: "de_DE",
+        }}
+      >
+        {children}
+      </PayPalScriptProvider>
+    )
+  }
+  return <Error />
 }
 
 const DonationForm: FC<DonationForm> = ({ amounts }) => {
@@ -76,17 +99,13 @@ const DonationForm: FC<DonationForm> = ({ amounts }) => {
   }
 
   return (
-    <PayPalScriptProvider
-      options={{
-        "client-id": process.env.PAYPAL_CLIENT_ID || "",
-        currency: "EUR",
-        locale: "de_DE",
-      }}
-    >
-      <ProgressContext.Provider value={{ setProgress, progress }}>
-        <FormPages />
-      </ProgressContext.Provider>
-    </PayPalScriptProvider>
+    <Suspense fallback={<Loading />}>
+      <DonationFormPayPalProvier>
+        <ProgressContext.Provider value={{ setProgress, progress }}>
+          <FormPages />
+        </ProgressContext.Provider>
+      </DonationFormPayPalProvier>
+    </Suspense>
   )
 }
 

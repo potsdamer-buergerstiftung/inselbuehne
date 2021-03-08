@@ -12,11 +12,14 @@ import {
   Wrap,
   WrapItem,
   Avatar,
+  Spinner,
+  Center,
 } from "@chakra-ui/react"
-import { FC, useState } from "react"
-import { BlitzPage, Image, Link } from "blitz"
+import { FC, Suspense, useState } from "react"
+import { BlitzPage, Image, Link, useQuery } from "blitz"
 import Title from "app/core/components/Title"
 import Layout from "app/core/layouts/Layout"
+import getAllPosts from "app/posts/queries/getAllPosts"
 
 interface Milestone {
   title: string
@@ -49,8 +52,6 @@ const milestones: Milestone[] = [
     date: "1. Mai",
   },
 ]
-
-const posts = [0, 1, 2, 3, 4, 5]
 
 const Section1: FC = () => {
   const bg = useColorModeValue("green.100", "purple.800")
@@ -114,7 +115,21 @@ const Section1: FC = () => {
   )
 }
 
-const Section2: FC = () => {
+interface Post {
+  title: string;
+  author: {
+    name: string;
+  };
+  date: Date;
+  excerpt: string;
+  slug: string;
+}
+
+interface Section2 {
+  posts: Post[];
+}
+
+const Section2: FC<Section2> = ({ posts }) => {
   const bg = useColorModeValue("gray.50", "purple.800")
 
   return (
@@ -122,9 +137,9 @@ const Section2: FC = () => {
       <Container maxW="6xl">
         <Heading mb={10}>Aktuelles</Heading>
         <Grid columnGap={8} rowGap={16} templateColumns="repeat(6, 1fr)">
-          {posts.map((_, index) => (
+          {posts.map((post, index) => (
             <GridItem colSpan={{ base: 6, md: 3, lg: 2 }} key={index}>
-              <Link href="/kontakt">
+              <Link href={`/fortschritt/${post.slug}`}>
                 <Box
                   shadow="lg"
                   rounded="lg"
@@ -145,11 +160,10 @@ const Section2: FC = () => {
                   </AspectRatio>
                   <Box p={{ base: 5, md: 8 }}>
                     <Heading size="lg" mb={3}>
-                      Sed ut perspiciatis unde omnis
+                      {post.title}
                     </Heading>
                     <Text>
-                      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                      doloremque laudantium, totam rem aperiam...
+                      {post.excerpt}
                     </Text>
                     <Wrap align="center" mt={5} spacing={3}>
                       <WrapItem>
@@ -157,7 +171,7 @@ const Section2: FC = () => {
                       </WrapItem>
                       <WrapItem>
                         <Box>
-                          <Text lineHeight="normal">Marie-Luise Glahr</Text>
+                          <Text lineHeight="normal">{post.author.name}</Text>
                           <Text variant="light">5. März 2021</Text>
                         </Box>
                       </WrapItem>
@@ -173,7 +187,7 @@ const Section2: FC = () => {
   )
 }
 
-const ProgressPage: BlitzPage = () => {
+const ProgressPage: BlitzPage<any> = ({ posts }) => {
   const bg = useColorModeValue("green.100", "purple.800")
 
   return (
@@ -182,11 +196,18 @@ const ProgressPage: BlitzPage = () => {
         Hier erfährst Du, was wir schon alles geschaft haben und was noch gemacht werden muss.
       </Title>
       <Section1 />
-      <Section2 />
+      <Suspense fallback={<Center py={20}><Spinner /></Center>}>
+        <Section2 posts={posts} />
+      </Suspense>
     </>
   )
 }
 
 ProgressPage.getLayout = (page) => <Layout title="Fortschritt">{page}</Layout>
+
+export const getStaticProps = async (context) => {
+  const posts = await getAllPosts({ fields: ["slug", "title", "excerpt", "author", "slug"] })
+  return { props: { posts } }
+}
 
 export default ProgressPage

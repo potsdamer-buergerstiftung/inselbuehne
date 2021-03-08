@@ -4,6 +4,7 @@ import getPostBySlug from "app/posts/queries/getPostBySlug";
 import { BlitzPage, Head } from "blitz";
 import Layout from "app/core/layouts/Layout"
 import Title from "app/core/components/Title";
+import { stringDateToFormatted } from "app/helper/dateFormat";
 
 const PostPage: BlitzPage<{ post: any }> = ({ post }) => {
     return (
@@ -11,7 +12,9 @@ const PostPage: BlitzPage<{ post: any }> = ({ post }) => {
             <Head>
                 <title>{post.title}</title>
             </Head>
-            <Title title={post.title} heading={`Ein Beitrag von ${post.author.name}`}>{post.date}</Title>
+            <Title title={post.title} heading={`Ein Beitrag von ${post.author.name}`}>
+                {stringDateToFormatted(post.date)}
+            </Title>
 
         </>
     )

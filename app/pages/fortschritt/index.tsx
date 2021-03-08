@@ -20,6 +20,9 @@ import { BlitzPage, Image, Link, useQuery } from "blitz"
 import Title from "app/core/components/Title"
 import Layout from "app/core/layouts/Layout"
 import getAllPosts from "app/posts/queries/getAllPosts"
+import { format, parseISO } from "date-fns"
+import { de } from "date-fns/locale"
+import { stringDateToFormatted } from "app/helper/dateFormat"
 
 interface Milestone {
   title: string
@@ -120,7 +123,7 @@ interface Post {
   author: {
     name: string;
   };
-  date: Date;
+  date: string;
   excerpt: string;
   slug: string;
 }
@@ -172,7 +175,7 @@ const Section2: FC<Section2> = ({ posts }) => {
                       <WrapItem>
                         <Box>
                           <Text lineHeight="normal">{post.author.name}</Text>
-                          <Text variant="light">5. März 2021</Text>
+                          <Text variant="light">{stringDateToFormatted(post.date)}</Text>
                         </Box>
                       </WrapItem>
                     </Wrap>
@@ -206,7 +209,7 @@ const ProgressPage: BlitzPage<any> = ({ posts }) => {
 ProgressPage.getLayout = (page) => <Layout title="Fortschritt">{page}</Layout>
 
 export const getStaticProps = async (context) => {
-  const posts = await getAllPosts({ fields: ["slug", "title", "excerpt", "author", "slug"] })
+  const posts = await getAllPosts({ fields: ["slug", "title", "excerpt", "author", "slug", "date"] })
   return { props: { posts } }
 }
 

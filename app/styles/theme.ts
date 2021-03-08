@@ -92,19 +92,19 @@ const fonts = {
   heading: "'DM Serif Display', serif",
 }
 
-const config = {
-  initialColorMode: "light",
-  useSystemColorMode: false,
-}
-
 const overrides = {
   colors,
   fonts,
   radii,
   shadows,
   components,
-  config,
   styles,
 }
 
-export default extendTheme(overrides)
+export default extendTheme({
+  config: {
+    initialColorMode: "light",
+    useSystemColorMode: false,
+  },
+  ...overrides,
+})

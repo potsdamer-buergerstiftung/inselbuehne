@@ -1,8 +1,8 @@
-import { join } from "path"
+import path from "path"
 import fs from "fs"
 
-const postsDirectory = join(process.cwd(), '_posts')
+const postsDirectory = path.join(process.cwd(), '_posts')
 
-export default function getPostSlugs() {
+export default function getPostSlugs(): string[] {
     return fs.readdirSync(postsDirectory)
 }

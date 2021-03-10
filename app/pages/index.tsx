@@ -1,8 +1,6 @@
 import { Suspense } from "react"
 import { Link, BlitzPage, useMutation, Image } from "blitz"
 import Layout from "app/core/layouts/Layout"
-import { useCurrentUser } from "app/core/hooks/useCurrentUser"
-import logout from "app/auth/mutations/logout"
 import { FC } from "react"
 import {
   Box,

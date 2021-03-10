@@ -2,13 +2,11 @@ import {
   AppProps,
   ErrorComponent,
   useRouter,
-  AuthenticationError,
   AuthorizationError,
   ErrorFallbackProps,
 } from "blitz"
 import { ErrorBoundary } from "react-error-boundary"
 import { queryCache } from "react-query"
-import LoginForm from "app/auth/components/LoginForm"
 
 import { ChakraProvider } from "@chakra-ui/react"
 import theme from "app/styles/theme"
@@ -38,9 +36,7 @@ export default function App({ Component, pageProps }: AppProps) {
 }
 
 function RootErrorFallback({ error, resetErrorBoundary }: ErrorFallbackProps) {
-  if (error instanceof AuthenticationError) {
-    return <LoginForm onSuccess={resetErrorBoundary} />
-  } else if (error instanceof AuthorizationError) {
+  if (error instanceof AuthorizationError) {
     return (
       <ErrorComponent
         statusCode={error.statusCode}

@@ -7,10 +7,6 @@ module.exports = {
       // sessionExpiryMinutes: 4,
     }),
   ],
-  i18n: {
-    locales: ["de"],
-    defaultLocale: "de",
-  },
   /* Uncomment this to customize the webpack config
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     // Note: we provide webpack above so you should not `require` it

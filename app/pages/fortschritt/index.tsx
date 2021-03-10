@@ -209,7 +209,7 @@ const ProgressPage: BlitzPage<any> = ({ posts }) => {
 ProgressPage.getLayout = (page) => <Layout title="Fortschritt">{page}</Layout>
 
 export const getStaticProps = async (context) => {
-  const posts = await getAllPosts({ fields: ["slug", "title", "excerpt", "author", "slug", "date"] })
+  const posts = await getAllPosts({ fields: ["slug", "title", "excerpt", "author", "slug", "date"] }, context)
   return { props: { posts } }
 }
 

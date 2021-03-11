@@ -1,25 +1,25 @@
-FROM node:stretch as builder
+FROM mhart/alpine-node:14 as builder
 WORKDIR /app
 
-COPY package.json /app
-COPY yarn.lock /app
+RUN apk --update add --no-cache curl git python alpine-sdk \
+  bash autoconf libtool automake
 
-RUN yarn install --pure-lockfile --production
-RUN cp -R node_modules /tmp/node_modules
-
+COPY package.json yarn.lock ./
 RUN yarn install --pure-lockfile
-COPY . .
 
-ENV NODE_ENV production
+COPY . .
 RUN yarn build
 
-FROM node:slim
-WORKDIR /app
-COPY --from=builder /tmp/node_modules ./node_modules
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/package.json ./
+COPY package.json yarn.lock ./
+RUN yarn install --pure-lockfile --production
 
-ENV PORT 3000
+FROM mhart/alpine-node:slim-14
+WORKDIR /app
+
+COPY . . 
+COPY --from=production /app/node_modules ./node_modules
+COPY --from=builder /app/.next ./.next
+
 EXPOSE 3000
 
-CMD [ "yarn", "start" ]
+CMD ["./node_modules/.bin/blitz", "start", "--production"]

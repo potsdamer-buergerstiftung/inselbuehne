@@ -1,4 +1,5 @@
 FROM node:alpine as builder
+RUN apk add --no-cache libtool
 WORKDIR /app
 
 COPY package.json /app

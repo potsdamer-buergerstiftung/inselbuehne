@@ -1,5 +1,5 @@
 FROM node:alpine as builder
-RUN apk add --no-cache libtool autoconf
+RUN apk add --no-cache libtool autoconf automake
 WORKDIR /app
 
 COPY package.json /app

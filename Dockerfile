@@ -16,8 +16,7 @@ WORKDIR /app
 COPY package.json yarn.lock ./
 RUN yarn install --pure-lockfile --production
 
-# Copy the above into a slim container
-FROM mhart/alpine-node:slim-12
+FROM mhart/alpine-node:slim-14
 WORKDIR /app
 
 COPY . . 

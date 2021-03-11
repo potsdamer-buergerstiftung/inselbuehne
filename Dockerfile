@@ -1,5 +1,4 @@
-FROM node:alpine as builder
-RUN apk add --no-cache libtool autoconf automake gcc
+FROM node:stretch as builder
 WORKDIR /app
 
 COPY package.json /app

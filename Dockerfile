@@ -1,5 +1,4 @@
-FROM node:stretch as builder
-RUN apk add --no-cache libc6-compat
+FROM node:alpine as builder
 WORKDIR /app
 
 COPY package.json /app

@@ -13,6 +13,9 @@ RUN yarn build
 FROM mhart/alpine-node:14 as production
 WORKDIR /app
 
+RUN apk --update add --no-cache curl git python alpine-sdk \
+  bash autoconf libtool automake
+
 COPY package.json yarn.lock ./
 RUN yarn install --pure-lockfile --production
 

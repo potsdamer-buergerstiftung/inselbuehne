@@ -10,10 +10,14 @@ RUN yarn install --pure-lockfile
 COPY . .
 RUN yarn build
 
+FROM mhart/alpine-node:14 as production
+WORKDIR /app
+
 COPY package.json yarn.lock ./
 RUN yarn install --pure-lockfile --production
 
-FROM mhart/alpine-node:slim-14
+# Copy the above into a slim container
+FROM mhart/alpine-node:slim-12
 WORKDIR /app
 
 COPY . . 

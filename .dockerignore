@@ -1,4 +1,5 @@
-node_modules
-.next
-.git
-.github
+.git/
+.github/
+.next/
+node_modules/
+Dockerfile

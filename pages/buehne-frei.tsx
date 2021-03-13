@@ -9,12 +9,14 @@ import NextLink from "next/link";
 import { PageTitle } from "@components/core";
 import { Default } from "@components/layouts";
 import { MotionPageTransition } from "@components/motion";
+import { NextSeo } from "next-seo";
 
 const PerformPage = () => {
   const bg = useColorModeValue("gray.50", "purple.800");
 
   return (
     <MotionPageTransition>
+      <NextSeo title="Bühne frei" />
       <PageTitle title="Bühne frei" heading="Auftreten">
         Melde Dich bei uns, wenn Du die Inselbühne bespielen willst!
       </PageTitle>

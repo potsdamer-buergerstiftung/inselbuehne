@@ -16,6 +16,6 @@ const MotionPageTransition = ({ children }) => (
   <MotionBox initial="exit" animate="enter" exit="exit" overflow="hidden">
     <MotionBox variants={backVariants}>{children}</MotionBox>
   </MotionBox>
-)
+);
 
 export default MotionPageTransition;

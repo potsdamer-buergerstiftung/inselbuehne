@@ -45,10 +45,12 @@ const PageTitle: FC<Title> = ({ bg, heading, title, children }) => {
           {title}
         </MotionHeading>
         {children && (
-          <MotionBox initial={{ opacity: 0 }}
+          <MotionBox
+            initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, transition: { duration: 0.15 } }}
-            transition={{ duration: 0.5, delay: 1 }}>
+            transition={{ duration: 0.5, delay: 1 }}
+          >
             <Text mt="3" fontSize="xl">
               {children}
             </Text>

@@ -1,2 +1,2 @@
-import InquiryForm from "./InquiryForm"
-export { InquiryForm }
+import InquiryForm from "./InquiryForm";
+export { InquiryForm };

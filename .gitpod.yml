@@ -3,4 +3,3 @@ tasks:
     command: yarn dev
 ports:
   - port: 3000
-  

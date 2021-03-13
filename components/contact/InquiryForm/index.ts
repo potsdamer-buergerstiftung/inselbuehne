@@ -1,2 +1,2 @@
-import InquiryForm from "./InquiryForm"
-export default InquiryForm
+import InquiryForm from "./InquiryForm";
+export default InquiryForm;

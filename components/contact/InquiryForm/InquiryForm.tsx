@@ -1,11 +1,11 @@
-import { FC, useState } from "react"
-import ContactFormFailed from "./Failed"
-import ContactFormInitial, { ContactFormInput } from "./Initial"
-import ContactFormLoading from "./Loading"
-import ContactFormSucceeded from "./Succeeded"
+import { FC, useState } from "react";
+import ContactFormFailed from "./Failed";
+import ContactFormInitial, { ContactFormInput } from "./Initial";
+import ContactFormLoading from "./Loading";
+import ContactFormSucceeded from "./Succeeded";
 
 interface ContactForm {
-  onSubmit: (data: ContactFormInput) => Promise<any>
+  onSubmit: (data: ContactFormInput) => Promise<any>;
 }
 
 enum ContactFormProgress {
@@ -16,44 +16,44 @@ enum ContactFormProgress {
 }
 
 const ContactForm: FC<ContactForm> = ({ onSubmit }) => {
-  const [progress, setProgress] = useState<ContactFormProgress>()
-  const [formData, setFormData] = useState<ContactFormInput>()
+  const [progress, setProgress] = useState<ContactFormProgress>();
+  const [formData, setFormData] = useState<ContactFormInput>();
 
   const FormSteps = () => {
     switch (progress) {
       case ContactFormProgress.Succeeded:
-        return <ContactFormSucceeded />
+        return <ContactFormSucceeded />;
       case ContactFormProgress.Failed:
         return (
           <ContactFormFailed
             onClick={() => {
-              setProgress(ContactFormProgress.Initial)
+              setProgress(ContactFormProgress.Initial);
             }}
           />
-        )
+        );
       case ContactFormProgress.Submitted:
-        return <ContactFormLoading />
+        return <ContactFormLoading />;
       default:
         return (
           <ContactFormInitial
             data={formData}
             onSubmit={(data) => {
-              setProgress(ContactFormProgress.Submitted)
-              setFormData(data)
+              setProgress(ContactFormProgress.Submitted);
+              setFormData(data);
               onSubmit(data)
                 .then(() => {
-                  setProgress(ContactFormProgress.Succeeded)
+                  setProgress(ContactFormProgress.Succeeded);
                 })
                 .catch(() => {
-                  setProgress(ContactFormProgress.Failed)
-                })
+                  setProgress(ContactFormProgress.Failed);
+                });
             }}
           />
-        )
+        );
     }
-  }
+  };
 
-  return <FormSteps />
-}
+  return <FormSteps />;
+};
 
-export default ContactForm
+export default ContactForm;

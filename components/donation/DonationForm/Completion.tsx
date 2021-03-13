@@ -1,6 +1,6 @@
-import { FC } from "react"
-import { Box, Heading, Text } from "@chakra-ui/react"
-import { DoneIcon } from "@components/icons"
+import { FC } from "react";
+import { Box, Heading, Text } from "@chakra-ui/react";
+import { DoneIcon } from "@components/icons";
 
 const Completion: FC = () => {
   return (
@@ -10,11 +10,11 @@ const Completion: FC = () => {
       </Heading>
       <DoneIcon boxSize={24} color="green.500" />
       <Text>
-        Deine Spende ist bei uns eingegangen. Mit ihr wird Großartiges passieren. Wir haben dir als
-        Bestätigung eine E-Mail geschickt.
+        Deine Spende ist bei uns eingegangen. Mit ihr wird Großartiges
+        passieren. Wir haben dir als Bestätigung eine E-Mail geschickt.
       </Text>
     </Box>
-  )
-}
+  );
+};
 
-export default Completion
+export default Completion;

@@ -11,16 +11,14 @@ import {
 } from "@chakra-ui/react";
 import { EmailIcon } from "@components/icons";
 import { MotionPageTransition } from "@components/motion";
-import { InquiryForm } from "@components/contact"
+import { InquiryForm } from "@components/contact";
 import axios from "axios";
 
 const ContactPage = () => {
   const bg = useColorModeValue("white", "purple.800");
   const color = useColorModeValue("gray.600", "white");
 
-  const onSubmit = async (data) =>
-    axios
-      .post("/api/contact_inquiry", data)
+  const onSubmit = async (data) => axios.post("/api/contact_inquiry", data);
 
   return (
     <MotionPageTransition>

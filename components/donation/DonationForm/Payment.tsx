@@ -1,20 +1,28 @@
-import { DispatchWithoutAction, FC } from "react"
-import { Box, Heading, Stat, StatLabel, StatNumber, Center, Spinner } from "@chakra-ui/react"
-import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js"
-import BackButton from "./BackButton"
-import { Steps } from "./DonationForm"
+import { DispatchWithoutAction, FC } from "react";
+import {
+  Box,
+  Heading,
+  Stat,
+  StatLabel,
+  StatNumber,
+  Center,
+  Spinner,
+} from "@chakra-ui/react";
+import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
+import BackButton from "./BackButton";
+import { Steps } from "./DonationForm";
 
 interface Payment {
-  amount: number
-  description: string
-  onApprove?: () => Promise<void>
-  onError?: DispatchWithoutAction
-  onCancel?: DispatchWithoutAction
+  amount: number;
+  description: string;
+  onApprove?: () => Promise<void>;
+  onError?: DispatchWithoutAction;
+  onCancel?: DispatchWithoutAction;
 }
 
 export const Payment: FC<Payment> = (props) => {
-  const { amount, description, onApprove, onError, onCancel } = props
-  const [{ isPending }] = usePayPalScriptReducer()
+  const { amount, description, onApprove, onError, onCancel } = props;
+  const [{ isPending }] = usePayPalScriptReducer();
 
   const purchase_units = [
     {
@@ -23,7 +31,7 @@ export const Payment: FC<Payment> = (props) => {
       },
       description,
     },
-  ]
+  ];
 
   return (
     <Box>
@@ -45,7 +53,7 @@ export const Payment: FC<Payment> = (props) => {
           createOrder={(_, actions) => {
             return actions.order.create({
               purchase_units,
-            })
+            });
           }}
           onApprove={onApprove}
           onError={() => onError}
@@ -56,5 +64,5 @@ export const Payment: FC<Payment> = (props) => {
         <BackButton to={Steps.Details} />
       </Box>
     </Box>
-  )
-}
+  );
+};

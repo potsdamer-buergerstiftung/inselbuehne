@@ -1,4 +1,4 @@
-import { Dispatch, FC } from "react"
+import { Dispatch, FC } from "react";
 import {
   Box,
   Heading,
@@ -8,28 +8,32 @@ import {
   Textarea,
   Checkbox,
   Button,
-} from "@chakra-ui/react"
-import { useForm } from "react-hook-form"
-import BackButton from "./BackButton"
-import { Steps } from "./DonationForm"
+} from "@chakra-ui/react";
+import { useForm } from "react-hook-form";
+import BackButton from "./BackButton";
+import { Steps } from "./DonationForm";
 
 export interface DetailsFormInput {
-  name: string
-  email: string
-  message: string
-  newsletter: boolean
-  anonymous: boolean
-  receipt: boolean
+  name: string;
+  email: string;
+  message: string;
+  newsletter: boolean;
+  anonymous: boolean;
+  receipt: boolean;
 }
 
 interface DetailsForm {
-  onSubmit: Dispatch<DetailsFormInput>
-  chosenAmount: number
-  data: DetailsFormInput
+  onSubmit: Dispatch<DetailsFormInput>;
+  chosenAmount: number;
+  data: DetailsFormInput;
 }
 
-export const DetailsForm: FC<DetailsForm> = ({ onSubmit, chosenAmount, data }) => {
-  const { register, handleSubmit } = useForm<DetailsFormInput>()
+export const DetailsForm: FC<DetailsForm> = ({
+  onSubmit,
+  chosenAmount,
+  data,
+}) => {
+  const { register, handleSubmit } = useForm<DetailsFormInput>();
 
   return (
     <Box>
@@ -69,12 +73,22 @@ export const DetailsForm: FC<DetailsForm> = ({ onSubmit, chosenAmount, data }) =
           />
         </FormControl>
         <FormControl mb="4">
-          <Checkbox name="newsletter" ref={register} size="lg" defaultChecked={data.newsletter}>
+          <Checkbox
+            name="newsletter"
+            ref={register}
+            size="lg"
+            defaultChecked={data.newsletter}
+          >
             Updates der Inselbühne erhalten
           </Checkbox>
         </FormControl>
         <FormControl mb="4">
-          <Checkbox name="anonymous" ref={register} size="lg" defaultChecked={data.anonymous}>
+          <Checkbox
+            name="anonymous"
+            ref={register}
+            size="lg"
+            defaultChecked={data.anonymous}
+          >
             Meine Spende anonym halten
           </Checkbox>
         </FormControl>
@@ -93,5 +107,5 @@ export const DetailsForm: FC<DetailsForm> = ({ onSubmit, chosenAmount, data }) =
         </Box>
       </form>
     </Box>
-  )
-}
+  );
+};

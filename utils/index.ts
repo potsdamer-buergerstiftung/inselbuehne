@@ -1,1 +1,1 @@
-export * from "./fetching"
+export * from "./fetching";

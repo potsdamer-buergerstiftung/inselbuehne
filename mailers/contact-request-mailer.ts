@@ -1,13 +1,17 @@
-import { sendOfficeMail } from "@integrations/office-mailer"
-import previewEmail from "preview-email"
+import { sendOfficeMail } from "@integrations/office-mailer";
+import previewEmail from "preview-email";
 
 type ContactRequestMailer = {
-  name: string
-  email: string
-  message: string
-}
+  name: string;
+  email: string;
+  message: string;
+};
 
-export function contactRequestMailer({ name, email, message }: ContactRequestMailer) {
+export function contactRequestMailer({
+  name,
+  email,
+  message,
+}: ContactRequestMailer) {
   const msg = {
     from: "hallo@inselbuehne-potsdam.de",
     to: "noel@sigmunczyk.de",
@@ -19,15 +23,15 @@ export function contactRequestMailer({ name, email, message }: ContactRequestMai
       <h3>Nachricht:</h3>
       ${message}
     `,
-  }
+  };
 
   return {
     async send() {
       if (process.env.NODE_ENV === "production") {
-        await sendOfficeMail(msg)
+        await sendOfficeMail(msg);
       } else {
-        await previewEmail(msg)
+        await previewEmail(msg);
       }
     },
-  }
+  };
 }

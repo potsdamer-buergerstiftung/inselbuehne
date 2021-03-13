@@ -1,6 +1,6 @@
-import { FC } from "react"
-import { Box, Heading, Text } from "@chakra-ui/react"
-import { ErrorIcon } from "@components/icons"
+import { FC } from "react";
+import { Box, Heading, Text } from "@chakra-ui/react";
+import { ErrorIcon } from "@components/icons";
 
 const Error: FC = () => {
   return (
@@ -10,11 +10,11 @@ const Error: FC = () => {
       </Heading>
       <ErrorIcon boxSize={24} color="red.500" />
       <Text>
-        Es tut uns leid, aber aktuell können wir keine Spenden verarbeiten. Unsere Techniker beheben
-        das Problem so schnell wie möglich.
+        Es tut uns leid, aber aktuell können wir keine Spenden verarbeiten.
+        Unsere Techniker beheben das Problem so schnell wie möglich.
       </Text>
     </Box>
-  )
-}
+  );
+};
 
-export default Error
+export default Error;

@@ -1,2 +1,2 @@
-import DonationForm from "./DonationForm"
-export default DonationForm
+import DonationForm from "./DonationForm";
+export default DonationForm;

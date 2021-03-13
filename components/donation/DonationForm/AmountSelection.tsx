@@ -1,4 +1,4 @@
-import { useState, FC } from "react"
+import { useState, FC } from "react";
 import {
   Box,
   Button,
@@ -9,26 +9,26 @@ import {
   Stack,
   Heading,
   Text,
-} from "@chakra-ui/react"
-import { useForm } from "react-hook-form"
+} from "@chakra-ui/react";
+import { useForm } from "react-hook-form";
 
 interface AmountSelection {
-  amounts: Array<number>
-  onSubmit: AmountSelectionSubmitHandler
+  amounts: Array<number>;
+  onSubmit: AmountSelectionSubmitHandler;
 }
 
 interface AmountFormInput {
-  amount: string
+  amount: string;
 }
 
-type AmountSelectionSubmitHandler = (amount: number) => void
+type AmountSelectionSubmitHandler = (amount: number) => void;
 
 export const AmountSelection: FC<AmountSelection> = ({ amounts, onSubmit }) => {
-  const formatAmount = (val: string) => "€" + val
-  const parseAmount = (val: string) => val.replace(/^\€/, "") // eslint-disable-line
+  const formatAmount = (val: string) => "€" + val;
+  const parseAmount = (val: string) => val.replace(/^\€/, ""); // eslint-disable-line
 
-  const [amount, setAmount] = useState("40")
-  const { register, handleSubmit } = useForm<AmountFormInput>()
+  const [amount, setAmount] = useState("40");
+  const { register, handleSubmit } = useForm<AmountFormInput>();
 
   return (
     <Box>
@@ -36,11 +36,17 @@ export const AmountSelection: FC<AmountSelection> = ({ amounts, onSubmit }) => {
         Spenden
       </Heading>
       <Text mb="10">
-        Auch ein kleiner Geldbeutel kann zu tollen Kulturerlebnissen auf der Inselbühne beitragen.
+        Auch ein kleiner Geldbeutel kann zu tollen Kulturerlebnissen auf der
+        Inselbühne beitragen.
       </Text>
       <Stack spacing={2} mb="10">
         {amounts.map((amount) => (
-          <Button colorScheme="gray" size="lg" onClick={() => onSubmit(amount)} key={amount}>
+          <Button
+            colorScheme="gray"
+            size="lg"
+            onClick={() => onSubmit(amount)}
+            key={amount}
+          >
             {amount}€
           </Button>
         ))}
@@ -65,5 +71,5 @@ export const AmountSelection: FC<AmountSelection> = ({ amounts, onSubmit }) => {
         </Button>
       </form>
     </Box>
-  )
-}
+  );
+};

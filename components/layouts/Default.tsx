@@ -56,7 +56,7 @@ const DonateHintSection: FC = () => {
 };
 
 const Layout: FC = ({ children }) => {
-  const bg = useColorModeValue("green.100", "purple.800")
+  const bg = useColorModeValue("green.100", "purple.800");
 
   return (
     <>

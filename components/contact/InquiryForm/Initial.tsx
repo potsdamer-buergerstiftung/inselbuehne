@@ -1,24 +1,36 @@
-import { Dispatch, FC } from "react"
-import { useForm } from "react-hook-form"
-import { Grid, GridItem, FormControl, Input, Button, Textarea } from "@chakra-ui/react"
+import { Dispatch, FC } from "react";
+import { useForm } from "react-hook-form";
+import {
+  Grid,
+  GridItem,
+  FormControl,
+  Input,
+  Button,
+  Textarea,
+} from "@chakra-ui/react";
 
 export interface ContactFormInput {
-  name: string
-  email: string
-  message: string
+  name: string;
+  email: string;
+  message: string;
 }
 
 interface ContactFormInitial {
-  onSubmit: Dispatch<ContactFormInput>
-  data?: ContactFormInput
+  onSubmit: Dispatch<ContactFormInput>;
+  data?: ContactFormInput;
 }
 
 const ContactFormInitial: FC<ContactFormInitial> = ({ onSubmit, data }) => {
-  const { register, handleSubmit } = useForm<ContactFormInput>()
+  const { register, handleSubmit } = useForm<ContactFormInput>();
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Grid alignItems="center" templateColumns="repeat(2, 1fr)" columnGap={6} rowGap={6}>
+      <Grid
+        alignItems="center"
+        templateColumns="repeat(2, 1fr)"
+        columnGap={6}
+        rowGap={6}
+      >
         <GridItem colSpan={{ base: 2, md: 1 }}>
           <FormControl>
             <Input
@@ -62,7 +74,7 @@ const ContactFormInitial: FC<ContactFormInitial> = ({ onSubmit, data }) => {
         </GridItem>
       </Grid>
     </form>
-  )
-}
+  );
+};
 
-export default ContactFormInitial
+export default ContactFormInitial;

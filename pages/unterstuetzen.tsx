@@ -9,7 +9,7 @@ import {
 import { PageTitle } from "@components/core";
 import { Default } from "@components/layouts";
 import { MotionPageTransition } from "@components/motion";
-import { DonationForm } from "@components/donation"
+import { DonationForm } from "@components/donation";
 
 const ContributePage = () => {
   const bg = useColorModeValue("white", "purple.800");

@@ -1,0 +1,111 @@
+import { DetailsFormInput, DetailsForm } from "./DetailsForm"
+import { AmountSelection } from "./AmountSelection"
+import { useState, FC, Dispatch, SetStateAction } from "react"
+import { createContext } from "react"
+import { Payment } from "./Payment"
+import { PayPalScriptProvider } from "@paypal/react-paypal-js"
+import Completion from "./Completion"
+import Error from "./Error"
+import Loading from "./Loading"
+import { fetcher } from "@utils"
+import useSWR from "swr"
+
+export enum Steps {
+  Amount,
+  Details,
+  Payment,
+  Failed,
+  Completed,
+}
+
+interface DonationForm {
+}
+
+export interface ProgressContext {
+  progress: Steps
+  setProgress: Dispatch<SetStateAction<Steps>>
+}
+
+export const ProgressContext = createContext<ProgressContext>({
+  progress: Steps.Amount,
+  setProgress: () => { },
+})
+
+const defaultDetailsFormInput: DetailsFormInput = {
+  name: "",
+  email: "",
+  message: "",
+  anonymous: false,
+  newsletter: false,
+  receipt: false,
+}
+
+const DonationFormPayPalProvier: FC = ({ children }) => {
+  const { data, error } = useSWR('/api/paypal_client_id', fetcher)
+
+  if (data) {
+    return (
+      <PayPalScriptProvider
+        options={{
+          "client-id": data || "",
+          currency: "EUR",
+          locale: "de_DE",
+        }}
+      >
+        {children}
+      </PayPalScriptProvider>
+    )
+  }
+  return <Error />
+}
+
+const DonationForm: FC<DonationForm> = () => {
+  const [amount, setAmount] = useState<number>(0)
+  const [details, setDetails] = useState<DetailsFormInput>(defaultDetailsFormInput)
+  const [progress, setProgress] = useState<Steps>(Steps.Amount)
+
+  const PAYMENT_DESCRIPTION = "Inselbühne Potsdam Spende"
+
+  const AMOUNTS = [10, 20, 50, 100];
+
+  function onDetailsFormSubmit(data: DetailsFormInput) {
+    setDetails(data)
+    setProgress(Steps.Payment)
+  }
+
+  function onAmountSelect(amount: number) {
+    setAmount(amount)
+    setProgress(Steps.Details)
+  }
+
+  const FormPages = () => {
+    switch (progress) {
+      case Steps.Details:
+        return <DetailsForm onSubmit={onDetailsFormSubmit} chosenAmount={amount} data={details} />
+      case Steps.Payment:
+        return (
+          <Payment
+            amount={amount}
+            description={PAYMENT_DESCRIPTION}
+            onApprove={async () => {
+              setProgress(Steps.Completed)
+            }}
+          ></Payment>
+        )
+      case Steps.Completed:
+        return <Completion />
+      default:
+        return <AmountSelection amounts={AMOUNTS} onSubmit={onAmountSelect} />
+    }
+  }
+
+  return (
+    <DonationFormPayPalProvier>
+      <ProgressContext.Provider value={{ setProgress, progress }}>
+        <FormPages />
+      </ProgressContext.Provider>
+    </DonationFormPayPalProvier>
+  )
+}
+
+export default DonationForm

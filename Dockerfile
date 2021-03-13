@@ -1,31 +1,19 @@
-FROM mhart/alpine-node:14 as builder
+FROM node:lts-alpine as builder
+
+ENV PAYPAL_CLIENT_ID \
+    SMTP_USER="" \
+    SMTP_PASSWORD=""
+
 WORKDIR /app
 
-RUN apk --update add --no-cache curl git python alpine-sdk \
-  bash autoconf libtool automake
+COPY package.json yarn.lock /app/
 
-COPY package.json yarn.lock ./
-RUN yarn install --pure-lockfile
+RUN yarn 
 
-COPY . .
+COPY ./ /app/
+
 RUN yarn build
 
-FROM mhart/alpine-node:14 as production
-WORKDIR /app
-
-RUN apk --update add --no-cache curl git python alpine-sdk \
-  bash autoconf libtool automake
-
-COPY package.json yarn.lock ./
-RUN yarn install --pure-lockfile --production
-
-FROM mhart/alpine-node:slim-14
-WORKDIR /app
-
-COPY . . 
-COPY --from=production /app/node_modules ./node_modules
-COPY --from=builder /app/.next ./.next
+CMD [ "yarn", "start" ]
 
 EXPOSE 3000
-
-CMD ["./node_modules/.bin/blitz", "start", "--production"]

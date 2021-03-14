@@ -143,7 +143,7 @@ function TeamMemberItem(props: TeamMemberItemProps) {
   return (
     <MotionBox
       _hover={{ cursor: hasDetails ? "pointer" : "auto" }}
-      whileHover={{ scale: hasDetails ? 1.025 : 1 }}
+      whileHover={{ y: hasDetails ? -5 : null }}
       onClick={hasDetails && onOpen}
     >
       <AspectRatio mb="5" ratio={1 / 1} rounded="lg">

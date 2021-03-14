@@ -42,3 +42,35 @@ export async function getAllPosts() {
   );
   return data?.posts;
 }
+
+export async function getPost(slug: string) {
+  const data = await fetchAPI(
+    `
+    query PostBySlug($slug: ID!) {
+      post(idType: SLUG, id: $slug) {
+        title
+        excerpt
+        slug
+        date
+        content
+        featuredImage {
+          node {
+            sourceUrl
+          }
+        }
+        author {
+          node {
+            name
+          }
+        }
+      }
+    }
+  `,
+  { 
+    variables: {
+      slug
+    }
+  }
+  );
+  return data?.post;
+}

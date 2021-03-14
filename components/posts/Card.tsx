@@ -7,6 +7,7 @@ import {
   Wrap,
   WrapItem,
   Avatar,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import Image from "next/image";
@@ -18,6 +19,8 @@ interface PostCardArgs {
 }
 
 const PostCard: FC<PostCardArgs> = ({ post }) => {
+  const bg = useColorModeValue("white", "purple.900")
+
   return (
     <Link href={`/fortschritt/${post.slug}`}>
       <MotionBox
@@ -25,7 +28,7 @@ const PostCard: FC<PostCardArgs> = ({ post }) => {
         rounded="lg"
         position="relative"
         overflow="hidden"
-        bg="white"
+        bg={bg}
         cursor="pointer"
         whileHover={{ y: -5 }}
       >

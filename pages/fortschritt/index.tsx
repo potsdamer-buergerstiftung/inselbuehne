@@ -9,18 +9,14 @@ import {
   useColorModeValue,
   Grid,
   GridItem,
-  AspectRatio,
-  Wrap,
-  WrapItem,
-  Avatar,
 } from "@chakra-ui/react";
-import Image from "next/image";
-import Link from "next/link";
 import { Default } from "@components/layouts";
 import { PageTitle } from "@components/core";
 import { MotionPageTransition } from "@components/motion";
-import { motion } from "framer-motion";
 import { NextSeo } from "next-seo";
+import { PostCard } from "@components/posts";
+import { GetStaticProps } from "next";
+import { getAllPosts } from "@lib/api/posts";
 
 interface Milestone {
   title: string;
@@ -129,21 +125,11 @@ const Section1: FC = () => {
   );
 };
 
-interface Post {
-  title: string;
-  author: {
-    name: string;
-  };
-  date: string;
-  excerpt: string;
-  slug: string;
-}
-
 interface Section2 {
-  posts: Post[];
+  posts: any;
 }
 
-const Section2: FC<Section2> = ({ posts = [] }) => {
+const Section2: FC<Section2> = ({ posts: { nodes } }) => {
   const bg = useColorModeValue("gray.50", "purple.800");
 
   return (
@@ -151,46 +137,9 @@ const Section2: FC<Section2> = ({ posts = [] }) => {
       <Container maxW="6xl">
         <Heading mb={10}>Aktuelles</Heading>
         <Grid columnGap={8} rowGap={16} templateColumns="repeat(6, 1fr)">
-          {posts.map((post, index) => (
+          {nodes.map((post, index) => (
             <GridItem colSpan={{ base: 6, md: 3, lg: 2 }} key={index}>
-              <Link href={`/fortschritt/${post.slug}`}>
-                <Box
-                  shadow="lg"
-                  rounded="lg"
-                  position="relative"
-                  overflow="hidden"
-                  bg="white"
-                  cursor="pointer"
-                >
-                  <AspectRatio ratio={3 / 2}>
-                    <Image
-                      sizes="400px"
-                      src="/Kinder3.JPG"
-                      alt="Band auf der Inselbühne"
-                      layout="fill"
-                      objectFit="cover"
-                      quality={50}
-                    />
-                  </AspectRatio>
-                  <Box p={{ base: 5, md: 8 }}>
-                    <Heading size="lg" mb={3}>
-                      {post.title}
-                    </Heading>
-                    <Text>{post.excerpt}</Text>
-                    <Wrap align="center" mt={5} spacing={3}>
-                      <WrapItem>
-                        <Avatar />
-                      </WrapItem>
-                      <WrapItem>
-                        <Box>
-                          <Text lineHeight="normal">{post.author.name}</Text>
-                          <Text variant="light"></Text>
-                        </Box>
-                      </WrapItem>
-                    </Wrap>
-                  </Box>
-                </Box>
-              </Link>
+              <PostCard post={post} />
             </GridItem>
           ))}
         </Grid>
@@ -222,3 +171,12 @@ const ProgressPage = ({ posts = [] }) => {
 ProgressPage.Layout = Default;
 
 export default ProgressPage;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = await getAllPosts();
+  return {
+    props: {
+      posts,
+    },
+  };
+};

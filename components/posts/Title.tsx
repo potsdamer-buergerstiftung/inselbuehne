@@ -36,8 +36,8 @@ const PostTitle: FC<PostTitleArgs> = ({ post }) => {
                   alt={`Bild von ${post.title}`}
                   objectFit="cover"
                   layout="fill"
-                  quality={50}
-                  sizes="300px"
+                  quality={30}
+                  sizes="1000px"
                 />
               </AspectRatio>
             </MotionBox>

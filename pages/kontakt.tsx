@@ -8,8 +8,9 @@ import {
   Heading,
   Link,
   useColorModeValue,
+  SimpleGrid,
 } from "@chakra-ui/react";
-import { EmailIcon } from "@components/icons";
+import { EmailIcon, InstagramIcon } from "@components/icons";
 import { MotionPageTransition } from "@components/motion";
 import { InquiryForm } from "@components/contact";
 import axios from "axios";
@@ -23,23 +24,40 @@ const ContactPage = () => {
   return (
     <MotionPageTransition>
       <NextSeo title="Kontakt" />
-      <PageTitle title="Wie können wir helfen?" heading="Kontakt" bg={bg}>
+      <PageTitle title="Wie können wir Dir helfen?" heading="Kontakt" bg={bg}>
         Hast Du Fragen bezüglich der Inselbühne? Dann kontaktiere uns doch
         einfach!
       </PageTitle>
       <Box as="section" pb="20" bg={bg}>
-        <Container centerContent>
-          <Box as="div" pb="5">
-            <EmailIcon boxSize={12} color="green.500" />
-          </Box>
-          <Heading as="h6" variant="uppercase" fontSize="sm">
-            E-Mail
-          </Heading>
-          <Text color={color}>
-            <Link href="mailto:hallo@inselbuehne-potsdam.de">
-              hallo@inselbuehne-potsdam.de
-            </Link>
-          </Text>
+        <Container>
+          <SimpleGrid spacing={10} columns={2}>
+            <Box textAlign="center">
+              <Box as="div" pb="5">
+                <EmailIcon boxSize={12} color="green.500" />
+              </Box>
+              <Heading as="h6" variant="uppercase" fontSize="sm">
+                E-Mail
+              </Heading>
+              <Text color={color}>
+                <Link href="mailto:hallo@inselbuehne-potsdam.de">
+                  hallo@inselbuehne-potsdam.de
+                </Link>
+              </Text>
+            </Box>
+            <Box textAlign="center">
+              <Box as="div" pb="5">
+                <InstagramIcon boxSize={12} color="green.500" />
+              </Box>
+              <Heading as="h6" variant="uppercase" fontSize="sm">
+                Instagram
+              </Heading>
+              <Text color={color}>
+                <Link href="https://www.instagram.com/inselbuehne">
+                  @inselbuehne
+                </Link>
+              </Text>
+            </Box>
+          </SimpleGrid>
         </Container>
       </Box>
       <Box as="section" pb="20" bg={bg}>

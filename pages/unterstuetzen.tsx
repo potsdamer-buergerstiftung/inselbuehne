@@ -10,6 +10,7 @@ import { PageTitle } from "@components/core";
 import { Default } from "@components/layouts";
 import { MotionPageTransition } from "@components/motion";
 import { DonationForm } from "@components/donation";
+import { NextSeo } from "next-seo";
 
 const ContributePage = () => {
   const bg = useColorModeValue("white", "purple.800");
@@ -17,6 +18,7 @@ const ContributePage = () => {
 
   return (
     <MotionPageTransition>
+      <NextSeo title="Unterstützen" />
       <PageTitle title="Unterstützen" heading="Das Projekt fördern" bg={bg}>
         Hilf uns, die Inselbühne wieder veranstaltungsfähig zu machen.
       </PageTitle>

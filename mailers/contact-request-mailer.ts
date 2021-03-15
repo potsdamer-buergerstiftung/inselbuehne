@@ -14,12 +14,13 @@ export function contactRequestMailer({
 }: ContactRequestMailer) {
   const msg = {
     from: "hallo@inselbuehne-potsdam.de",
-    to: "noel@sigmunczyk.de",
+    to: "hallo@inselbuehne-potsdam.de",
     subject: "Kontaktanfrage Inselbühne",
     html: `
       <h1>Kontaktanfrage Inselbühne</h1>
+      <p>Bitte nicht direkt auf diese Nachricht antworten, sondern neue E-Mail an Kontaktperson verfassen.</p>
       <h3>Name: ${name}</h3>
-      <h3>E-Mail: ${email}</h3>
+      <h3>E-Mail: <a href="mailto:${email}">${email}</a></h3>
       <h3>Nachricht:</h3>
       ${message}
     `,

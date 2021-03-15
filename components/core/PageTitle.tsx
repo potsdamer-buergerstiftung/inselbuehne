@@ -20,7 +20,13 @@ const PageTitle: FC<Title> = ({ bg, heading, title, children }) => {
   const background = bg || defaultBg;
 
   return (
-    <Box as="section" pt="60" pb="20" textAlign="center" bg={background}>
+    <Box
+      as="section"
+      pt={{ base: 40, lg: 60 }}
+      pb={{ base: 10, md: 20 }}
+      textAlign="center"
+      bg={background}
+    >
       <Container maxW="6xl">
         {heading && (
           <Heading

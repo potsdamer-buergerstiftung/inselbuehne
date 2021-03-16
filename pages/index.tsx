@@ -55,7 +55,7 @@ const Section1: FC = () => {
               unterstützen und wie Du die Bühne nutzen kannst, all das findest
               Du hier.{" "}
             </Text>
-            <Link passHref href="/unterstuetzen">
+            <Link href="/unterstuetzen" passHref>
               <Button colorScheme="green" size="lg" as="a">
                 Jetzt spenden
               </Button>
@@ -150,8 +150,8 @@ const Section3: FC = () => {
           pandemie-taugliche Auftrittsmöglichkeit dringend benötigen. Und wenn
           die Reaktionen positiv genug sind, machen wir auch nach 2021 weiter.{" "}
         </Text>
-        <Link href="/fortschritt">
-          <Button colorScheme="green" size="lg" shadow="base">
+        <Link href="/fortschritt" passHref>
+          <Button colorScheme="green" size="lg" shadow="base" as="a">
             Schau Dir den Fortschritt an
           </Button>
         </Link>

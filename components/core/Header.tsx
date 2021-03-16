@@ -52,7 +52,7 @@ const MenuItem: FC<MenuItem> = ({ children, to = "/", setMenuOpen }) => {
   const bg = useColorModeValue("black", "white");
 
   return (
-    <Link href={to}>
+    <Link href={to} passHref>
       <ChakraLink
         py="5"
         px={{ base: 0, md: 4 }}
@@ -60,6 +60,7 @@ const MenuItem: FC<MenuItem> = ({ children, to = "/", setMenuOpen }) => {
         onClick={() => setMenuOpen(false)}
         position="relative"
         _hover={{ textDecoration: "none" }}
+        _focus={{ boxShadow: "none" }}
       >
         {children}
         {selected && (
@@ -79,7 +80,7 @@ const MenuItem: FC<MenuItem> = ({ children, to = "/", setMenuOpen }) => {
   );
 };
 
-interface Header {}
+interface Header { }
 
 const Header: FC<Header> = () => {
   const [menuOpen, setMenuOpen] = useState(false);

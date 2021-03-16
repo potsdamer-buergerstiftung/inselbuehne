@@ -18,7 +18,7 @@ export enum Steps {
   Completed,
 }
 
-interface DonationForm {}
+interface DonationForm { }
 
 export interface ProgressContext {
   progress: Steps;
@@ -27,7 +27,7 @@ export interface ProgressContext {
 
 export const ProgressContext = createContext<ProgressContext>({
   progress: Steps.Amount,
-  setProgress: () => {},
+  setProgress: () => { },
 });
 
 const defaultDetailsFormInput: DetailsFormInput = {
@@ -40,22 +40,19 @@ const defaultDetailsFormInput: DetailsFormInput = {
 };
 
 const DonationFormPayPalProvier: FC = ({ children }) => {
-  const { data, error } = useSWR("/api/paypal_client_id", fetcher);
+  const clientId = process.env.PAYPAL_CLIENT_ID || ""
 
-  if (data) {
-    return (
-      <PayPalScriptProvider
-        options={{
-          "client-id": data || "",
-          currency: "EUR",
-          locale: "de_DE",
-        }}
-      >
-        {children}
-      </PayPalScriptProvider>
-    );
-  }
-  return <Error />;
+  return (
+    <PayPalScriptProvider
+      options={{
+        "client-id": clientId,
+        currency: "EUR",
+        locale: "de_DE",
+      }}
+    >
+      {children}
+    </PayPalScriptProvider>
+  );
 };
 
 const DonationForm: FC<DonationForm> = () => {

@@ -39,8 +39,8 @@ const DonateHintSection: FC = () => {
             </WrapItem>
             <WrapItem>
               <DarkMode>
-                <Link href="/unterstuetzen">
-                  <Button colorScheme="green" size="lg">
+                <Link href="/unterstuetzen" passHref>
+                  <Button colorScheme="green" size="lg" as="a">
                     Jetzt spenden
                   </Button>
                 </Link>

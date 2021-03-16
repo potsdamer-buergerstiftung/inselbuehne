@@ -5,7 +5,7 @@ import {
   Button,
   useColorModeValue,
 } from "@chakra-ui/react";
-import NextLink from "next/link";
+import Link from "next/link";
 import { PageTitle } from "@components/core";
 import { Default } from "@components/layouts";
 import { MotionPageTransition } from "@components/motion";
@@ -45,11 +45,11 @@ const PerformPage = () => {
             benötigst, desto schneller können wir Dich bei der Umsetzung auf der
             Inselbühne unterstützen.
           </Text>
-          <NextLink passHref href="/kontakt">
+          <Link href="/kontakt" passHref>
             <Button colorScheme="green" size="lg" as="a">
               Anfrage senden
             </Button>
-          </NextLink>
+          </Link>
         </Container>
       </Box>
     </MotionPageTransition>

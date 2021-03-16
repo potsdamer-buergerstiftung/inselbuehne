@@ -6,4 +6,7 @@ module.exports = {
   images: {
     domains: ["cms.potsdamer-buergerstiftung.com"],
   },
+  env: {
+    PAYPAL_CLIENT_ID: process.env.PAYPAL_CLIENT_ID
+  }
 };

@@ -52,7 +52,7 @@ const ContactPage = () => {
                 Instagram
               </Heading>
               <Text color={color}>
-                <Link href="https://www.instagram.com/inselbuehne">
+                <Link href="https://www.instagram.com/inselbuehne" isExternal>
                   @inselbuehne
                 </Link>
               </Text>

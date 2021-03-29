@@ -55,7 +55,7 @@ const Section1: FC = () => {
 
   return (
     <Box as="section" bg={mode("green.100", "purple.800")} pt="48">
-      <Container maxW="6xl" zIndex="1" pos="relative">
+      <Container maxW="6xl" zIndex="0" pos="relative">
         <Box
           bg={mode("white", "purple.900")}
           shadow="lg"

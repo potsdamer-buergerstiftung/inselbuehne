@@ -6,7 +6,7 @@ import {
   Heading,
   Flex,
   Square,
-  useColorModeValue,
+  useColorModeValue as mode,
   Grid,
   GridItem,
 } from "@chakra-ui/react";
@@ -51,16 +51,13 @@ const milestones: Milestone[] = [
 ];
 
 const Section1: FC = () => {
-  const bg = useColorModeValue("green.100", "purple.800");
-  const boxBg = useColorModeValue("white", "purple.900");
-
-  const [selMilestIndex, setSelMilestIndex] = useState<number>(0);
+  const [selMilestIndex, setSelMilestIndex] = useState<number>(1);
 
   return (
-    <Box as="section" bg={bg} pt="48">
+    <Box as="section" bg={mode("green.100", "purple.800")} pt="48">
       <Container maxW="6xl" zIndex="1" pos="relative">
         <Box
-          bg={boxBg}
+          bg={mode("white", "purple.900")}
           shadow="lg"
           rounded="xl"
           p={{ base: 5, md: 20 }}
@@ -130,10 +127,8 @@ interface Section2 {
 }
 
 const Section2: FC<Section2> = ({ posts: { nodes } }) => {
-  const bg = useColorModeValue("gray.50", "purple.800");
-
   return (
-    <Box as="section" bg={bg} pt="14rem" mt="-8rem" pb={20}>
+    <Box as="section" bg={mode("gray.50", "purple.800")} pt="14rem" mt="-8rem" pb={20}>
       <Container maxW="6xl">
         <Heading mb={10}>Aktuelles</Heading>
         <Grid columnGap={8} rowGap={16} templateColumns="repeat(6, 1fr)">
@@ -149,7 +144,6 @@ const Section2: FC<Section2> = ({ posts: { nodes } }) => {
 };
 
 const ProgressPage = ({ posts = [] }) => {
-  const bg = useColorModeValue("green.100", "purple.800");
 
   return (
     <MotionPageTransition>
@@ -157,7 +151,7 @@ const ProgressPage = ({ posts = [] }) => {
       <PageTitle
         title="Fortschritt"
         heading="Ein langer Weg liegt vor uns"
-        bg={bg}
+        bg={mode("green.100", "purple.800")}
       >
         Hier erfährst Du, was wir schon alles geschaft haben und was noch
         gemacht werden muss.

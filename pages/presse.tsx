@@ -27,7 +27,7 @@ const Section2: FC<Section2> = ({ posts }) => {
   return (
     <Box as="section" bg={mode("white", "purple.800")} pb={20}>
       <Container maxW="6xl">
-        <Grid columnGap={8} rowGap={16} templateColumns="repeat(6, 1fr)">
+        <Grid columnGap={8} rowGap={8} templateColumns="repeat(6, 1fr)">
           {posts.map((post, index) => (
             <GridItem colSpan={{ base: 6, md: 3, lg: 2 }} key={index}>
               <PostCard
@@ -35,6 +35,7 @@ const Section2: FC<Section2> = ({ posts }) => {
                 link={post.link}
                 author={post.author}
                 date={parseISO(post.date)}
+                avatar="name"
               />
             </GridItem>
           ))}

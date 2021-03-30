@@ -60,6 +60,7 @@ const ContactFormInitial: FC<ContactFormInitial> = ({ onSubmit, data }) => {
             <Textarea
               variant="filled"
               w="full"
+              size="lg"
               placeholder="Deine Nachricht"
               name="message"
               ref={register}

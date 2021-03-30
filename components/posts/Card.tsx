@@ -22,7 +22,7 @@ const PostCard: FC<PostCardArgs> = ({ post }) => {
   const bg = useColorModeValue("white", "purple.900")
 
   return (
-    <Link href={`/fortschritt/${post.slug}`}>
+    <Link href={`/beitrag/${post.slug}`}>
       <MotionBox
         shadow="lg"
         rounded="lg"

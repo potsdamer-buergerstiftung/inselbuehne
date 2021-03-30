@@ -17,7 +17,6 @@ import { NextSeo } from "next-seo";
 import { PostCard } from "@components/posts";
 import { GetStaticProps } from "next";
 import { getAllPosts } from "@lib/api/posts";
-import { parseISO } from "date-fns";
 
 interface Milestone {
   title: string;
@@ -145,7 +144,7 @@ const Section2: FC<Section2> = ({ posts }) => {
                 imageUrl={post.imageUrl}
                 title={post.title}
                 author={post.author}
-                date={parseISO(post.date)}
+                date={new Date(post.date)}
                 excerpt={post.excerpt}
                 link={`/beitrag/${post.slug}`}
                 avatar="default"

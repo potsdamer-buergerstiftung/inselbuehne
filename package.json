@@ -15,7 +15,6 @@
     "@emotion/styled": "^11.1.5",
     "@paypal/react-paypal-js": "^5.0.0",
     "axios": "^0.21.1",
-    "date-fns": "^2.19.0",
     "framer-motion": "^3.10.2",
     "next": "10.0.8",
     "next-seo": "^4.20.0",

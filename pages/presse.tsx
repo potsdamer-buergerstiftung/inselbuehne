@@ -35,7 +35,6 @@ const Section2: FC<Section2> = ({ posts }) => {
                 link={post.link}
                 author={post.author}
                 date={parseISO(post.date)}
-                avatar="name"
               />
             </GridItem>
           ))}

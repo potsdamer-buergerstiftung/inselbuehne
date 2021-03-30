@@ -17,6 +17,7 @@ import { NextSeo } from "next-seo";
 import { PostCard } from "@components/posts";
 import { GetStaticProps } from "next";
 import { getAllPosts } from "@lib/api/posts";
+import { parseISO } from "date-fns";
 
 interface Milestone {
   title: string;
@@ -126,15 +127,15 @@ interface Section2 {
   posts: any;
 }
 
-const Section2: FC<Section2> = ({ posts: { nodes } }) => {
+const Section2: FC<Section2> = ({ posts }) => {
   return (
     <Box as="section" bg={mode("gray.50", "purple.800")} pt="14rem" mt="-8rem" pb={20}>
       <Container maxW="6xl">
         <Heading mb={10}>Aktuelles</Heading>
         <Grid columnGap={8} rowGap={16} templateColumns="repeat(6, 1fr)">
-          {nodes.map((post, index) => (
+          {posts.map((post, index) => (
             <GridItem colSpan={{ base: 6, md: 3, lg: 2 }} key={index}>
-              <PostCard post={post} />
+              <PostCard imageUrl={post.imageUrl} title={post.title} author={post.author} date={parseISO(post.date)} excerpt={post.excerpt} link={`/beitrag/${post.slug}`} />
             </GridItem>
           ))}
         </Grid>

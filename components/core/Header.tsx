@@ -80,7 +80,7 @@ const MenuItem: FC<MenuItem> = ({ children, to = "/", setMenuOpen }) => {
   );
 };
 
-interface Header { }
+interface Header {}
 
 const Header: FC<Header> = () => {
   const [menuOpen, setMenuOpen] = useState(false);

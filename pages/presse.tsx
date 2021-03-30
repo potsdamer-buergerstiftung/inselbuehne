@@ -46,7 +46,7 @@ const PressPage = ({ posts = [] }) => {
             <NextSeo title="Presse" />
             <PageTitle
                 title="Was andere über uns erzählen"
-                heading="Pressemitteilungen"
+                heading="Presse"
                 bg={mode("white", "purple.900")}
             >
             </PageTitle>

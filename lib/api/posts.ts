@@ -1,7 +1,8 @@
 import { fetchAPI } from "./fetcher";
+import { parseISO } from "date-fns";
 
 export async function getAllPostsWithSlug() {
-  const data = await fetchAPI(`
+    const data = await fetchAPI(`
     {
       posts(first: 10000) {
         edges {
@@ -12,14 +13,23 @@ export async function getAllPostsWithSlug() {
       }
     }
   `);
-  return data?.posts;
+    return data?.posts;
 }
 
-export async function getAllPosts() {
-  const data = await fetchAPI(
-    `
+interface GetAllPostsResult {
+    title: string;
+    excerpt: string;
+    slug: string;
+    date: string;
+    imageUrl: string;
+    author: string;
+}
+
+export async function getAllPosts(): Promise<GetAllPostsResult[]> {
+    const data = await fetchAPI(
+        `
     query AllPosts {
-      posts(first: 20, where: { orderby: { field: DATE, order: DESC }, categoryName: "inselbuehne" }) {
+      posts(first: 20, where: { orderby: { field: DATE, order: DESC }, categoryName: "inselbuehne-aktuelles" }) {
         nodes {
           title
           excerpt
@@ -39,13 +49,21 @@ export async function getAllPosts() {
       }
     }
   `
-  );
-  return data?.posts;
+    );
+
+    return data?.posts.nodes.map((post) => ({
+        title: post.title,
+        excerpt: post.excerpt,
+        slug: post.slug,
+        date: post.date,
+        imageUrl: post.featuredImage.node.sourceUrl,
+        author: post.author.node.name
+    }));
 }
 
 export async function getPost(slug: string) {
-  const data = await fetchAPI(
-    `
+    const data = await fetchAPI(
+        `
     query PostBySlug($slug: ID!) {
       post(idType: SLUG, id: $slug) {
         title
@@ -66,11 +84,11 @@ export async function getPost(slug: string) {
       }
     }
   `,
-  { 
-    variables: {
-      slug
-    }
-  }
-  );
-  return data?.post;
+        {
+            variables: {
+                slug
+            }
+        }
+    );
+    return data?.post;
 }

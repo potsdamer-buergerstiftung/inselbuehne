@@ -3,6 +3,7 @@ import { formatDate } from "@lib/time";
 import { MotionBox } from "@components/motion"
 import { FC } from "react";
 import Image from "next/image"
+import { parseISO } from "date-fns";
 
 interface PostTitleArgs {
   post: any
@@ -23,7 +24,7 @@ const PostTitle: FC<PostTitleArgs> = ({ post }) => {
               mb="5"
               color="green.500"
             >
-              {formatDate(post.date)}
+              {formatDate(parseISO(post.date))}
             </Heading>
             <Heading size="3xl" mb={5}>{post.title}</Heading>
             <Text>Ein Beitrag von {post.author.node.name}</Text>

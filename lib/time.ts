@@ -1,6 +1,5 @@
-import { format, parseISO } from "date-fns";
-import { de } from "date-fns/locale";
-
 export function formatDate(date: Date): string {
-  return format(date, "d. LLLL yyyy", { locale: de });
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+
+  return Intl.DateTimeFormat("de-DE", options).format(date)
 }

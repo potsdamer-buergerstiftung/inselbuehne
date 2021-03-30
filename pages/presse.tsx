@@ -2,10 +2,6 @@ import { FC, useState } from "react";
 import {
   Box,
   Container,
-  Text,
-  Heading,
-  Flex,
-  Square,
   useColorModeValue as mode,
   Grid,
   GridItem,
@@ -17,7 +13,6 @@ import { NextSeo } from "next-seo";
 import { PostCard } from "@components/posts";
 import { GetStaticProps } from "next";
 import { getAllPressPosts } from "@lib/api/press";
-import { parseISO } from "date-fns";
 
 interface Section2 {
   posts: any;
@@ -27,14 +22,14 @@ const Section2: FC<Section2> = ({ posts }) => {
   return (
     <Box as="section" bg={mode("white", "purple.800")} pb={20}>
       <Container maxW="6xl">
-        <Grid columnGap={8} rowGap={8} templateColumns="repeat(6, 1fr)">
+        <Grid columnGap={8} rowGap={8} templateColumns="repeat(6, 1fr)" templateRows="masonry">
           {posts.map((post, index) => (
             <GridItem colSpan={{ base: 6, md: 3, lg: 2 }} key={index}>
               <PostCard
                 title={post.title}
                 link={post.link}
                 author={post.author}
-                date={parseISO(post.date)}
+                date={new Date(post.date)}
               />
             </GridItem>
           ))}

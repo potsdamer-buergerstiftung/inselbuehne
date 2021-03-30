@@ -1,5 +1,4 @@
 import { fetchAPI } from "./fetcher";
-import { parseISO } from "date-fns";
 
 export async function getAllPostsWithSlug() {
   const data = await fetchAPI(`

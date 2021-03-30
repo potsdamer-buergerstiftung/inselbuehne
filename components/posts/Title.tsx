@@ -1,19 +1,35 @@
-import { Box, Heading, SimpleGrid, useColorModeValue, Container, Text, AspectRatio } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  SimpleGrid,
+  useColorModeValue,
+  Container,
+  Text,
+  AspectRatio,
+} from "@chakra-ui/react";
 import { formatDate } from "@lib/time";
-import { MotionBox } from "@components/motion"
+import { MotionBox } from "@components/motion";
 import { FC } from "react";
-import Image from "next/image"
+import Image from "next/image";
 import { parseISO } from "date-fns";
 
 interface PostTitleArgs {
-  post: any
+  post: any;
 }
 
 const PostTitle: FC<PostTitleArgs> = ({ post }) => {
-  const bg = useColorModeValue("green.100", "purple.900")
+  const bg = useColorModeValue("green.100", "purple.900");
 
   return (
-    <Box bg={bg} py={post.featuredImage ? { base: 15, lg: 28 } : { base: "10rem", lg: "20rem" }} mb={-40}>
+    <Box
+      bg={bg}
+      py={
+        post.featuredImage
+          ? { base: 15, lg: 28 }
+          : { base: "10rem", lg: "20rem" }
+      }
+      mb={-40}
+    >
       <Container maxW="6xl">
         <SimpleGrid columns={post.featuredImage ? 2 : 1} alignItems="center">
           <Box mt={-24} textAlign={post.featuredImage ? null : "center"}>
@@ -26,7 +42,9 @@ const PostTitle: FC<PostTitleArgs> = ({ post }) => {
             >
               {formatDate(parseISO(post.date))}
             </Heading>
-            <Heading size="3xl" mb={5}>{post.title}</Heading>
+            <Heading size="3xl" mb={5}>
+              {post.title}
+            </Heading>
             <Text>Ein Beitrag von {post.author.node.name}</Text>
           </Box>
           {post.featuredImage && (
@@ -46,7 +64,7 @@ const PostTitle: FC<PostTitleArgs> = ({ post }) => {
         </SimpleGrid>
       </Container>
     </Box>
-  )
-}
+  );
+};
 
-export default PostTitle
+export default PostTitle;

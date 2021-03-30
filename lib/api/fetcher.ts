@@ -1,6 +1,9 @@
 const API_URL = process.env.WORDPRESS_API_URL;
 
-export async function fetchAPI(query, { variables }: { variables?: Object } = {}) {
+export async function fetchAPI(
+  query,
+  { variables }: { variables?: Object } = {}
+) {
   const headers = { "Content-Type": "application/json" };
 
   if (process.env.WORDPRESS_AUTH_REFRESH_TOKEN) {

@@ -24,10 +24,9 @@ interface PostCardArgs {
 }
 
 const PostCard: FC<PostCardArgs> = (props) => {
+  const { title, author, date, link, excerpt, imageUrl } = props;
 
-    const { title, author, date, link, excerpt, imageUrl } = props
-
-  const bg = useColorModeValue("white", "purple.900")
+  const bg = useColorModeValue("white", "purple.900");
 
   return (
     <Link href={link}>

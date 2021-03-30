@@ -4,14 +4,14 @@ import { MotionPageTransition } from "@components/motion";
 import PostTitle from "@components/posts/Title";
 import { getAllPostsWithSlug, getPost } from "@lib/api/posts";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { useRouter } from "next/router"
+import { useRouter } from "next/router";
 import PageNotFound from "pages/404";
 
 const PostPage = ({ post }) => {
-  const router = useRouter()
+  const router = useRouter();
 
   if (!router.isFallback && !post?.slug) {
-    return <PageNotFound />
+    return <PageNotFound />;
   }
 
   if (router.isFallback) {
@@ -19,14 +19,19 @@ const PostPage = ({ post }) => {
       <Center>
         <Spinner />
       </Center>
-    )
+    );
   }
 
   return (
     <MotionPageTransition>
       <PostTitle post={post} />
       <Box as="section" bg="white">
-        <Container bg="white" dangerouslySetInnerHTML={{ __html: post.content }} pb={20} pt={40}></Container>
+        <Container
+          bg="white"
+          dangerouslySetInnerHTML={{ __html: post.content }}
+          pb={20}
+          pt={40}
+        ></Container>
       </Box>
     </MotionPageTransition>
   );
@@ -37,29 +42,30 @@ PostPage.Layout = Default;
 export default PostPage;
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const post = await getPost(params.slug as string)
-  console.log(post)
+  const post = await getPost(params.slug as string);
+  console.log(post);
 
   return {
     props: {
-      post
+      post,
     },
     revalidate: 300,
-  }
-}
+  };
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const allPosts = await getAllPostsWithSlug()
-  console.log(allPosts)
+  const allPosts = await getAllPostsWithSlug();
+  console.log(allPosts);
 
   return {
-    paths: allPosts.edges.map((edge) => {
-      return {
-        params: {
-          slug: edge.node.slug,
-        },
-      }
-    }) || [],
+    paths:
+      allPosts.edges.map((edge) => {
+        return {
+          params: {
+            slug: edge.node.slug,
+          },
+        };
+      }) || [],
     fallback: true,
-  }
-}
+  };
+};

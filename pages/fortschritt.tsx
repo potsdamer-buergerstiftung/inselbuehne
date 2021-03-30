@@ -129,13 +129,26 @@ interface Section2 {
 
 const Section2: FC<Section2> = ({ posts }) => {
   return (
-    <Box as="section" bg={mode("gray.50", "purple.800")} pt="14rem" mt="-8rem" pb={20}>
+    <Box
+      as="section"
+      bg={mode("gray.50", "purple.800")}
+      pt="14rem"
+      mt="-8rem"
+      pb={20}
+    >
       <Container maxW="6xl">
         <Heading mb={10}>Aktuelles</Heading>
         <Grid columnGap={8} rowGap={16} templateColumns="repeat(6, 1fr)">
           {posts.map((post, index) => (
             <GridItem colSpan={{ base: 6, md: 3, lg: 2 }} key={index}>
-              <PostCard imageUrl={post.imageUrl} title={post.title} author={post.author} date={parseISO(post.date)} excerpt={post.excerpt} link={`/beitrag/${post.slug}`} />
+              <PostCard
+                imageUrl={post.imageUrl}
+                title={post.title}
+                author={post.author}
+                date={parseISO(post.date)}
+                excerpt={post.excerpt}
+                link={`/beitrag/${post.slug}`}
+              />
             </GridItem>
           ))}
         </Grid>
@@ -145,7 +158,6 @@ const Section2: FC<Section2> = ({ posts }) => {
 };
 
 const ProgressPage = ({ posts = [] }) => {
-
   return (
     <MotionPageTransition>
       <NextSeo title="Fortschritt" />

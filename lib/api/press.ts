@@ -2,10 +2,10 @@ import { fetchAPI } from "./fetcher";
 import { parseISO } from "date-fns";
 
 interface PressPost {
-    title: string;
-    link: string;
-    date: string;
-    author: string;
+  title: string;
+  link: string;
+  date: string;
+  author: string;
 }
 
 export async function getAllPressPosts() {
@@ -26,8 +26,8 @@ export async function getAllPressPosts() {
 
   return data?.posts.nodes.map((post) => ({
     title: post.title,
-    link: post.content.replace( /(<([^>]+)>)/ig, ''),
+    link: post.content.replace(/(<([^>]+)>)/gi, ""),
     date: post.date,
-    author: post.excerpt.replace( /(<([^>]+)>)/ig, '')
-  }))
+    author: post.excerpt.replace(/(<([^>]+)>)/gi, ""),
+  }));
 }

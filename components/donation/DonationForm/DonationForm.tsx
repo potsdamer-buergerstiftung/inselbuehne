@@ -18,7 +18,7 @@ export enum Steps {
   Completed,
 }
 
-interface DonationForm { }
+interface DonationForm {}
 
 export interface ProgressContext {
   progress: Steps;
@@ -27,7 +27,7 @@ export interface ProgressContext {
 
 export const ProgressContext = createContext<ProgressContext>({
   progress: Steps.Amount,
-  setProgress: () => { },
+  setProgress: () => {},
 });
 
 const defaultDetailsFormInput: DetailsFormInput = {
@@ -40,7 +40,7 @@ const defaultDetailsFormInput: DetailsFormInput = {
 };
 
 const DonationFormPayPalProvier: FC = ({ children }) => {
-  const clientId = process.env.PAYPAL_CLIENT_ID || ""
+  const clientId = process.env.PAYPAL_CLIENT_ID || "";
 
   return (
     <PayPalScriptProvider

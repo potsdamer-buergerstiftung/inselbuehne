@@ -148,6 +148,7 @@ const Section2: FC<Section2> = ({ posts }) => {
                 date={parseISO(post.date)}
                 excerpt={post.excerpt}
                 link={`/beitrag/${post.slug}`}
+                avatar="default"
               />
             </GridItem>
           ))}

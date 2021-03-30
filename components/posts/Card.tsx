@@ -15,14 +15,22 @@ import { formatDate } from "@lib/time";
 import { MotionBox } from "@components/motion";
 
 interface PostCardArgs {
-  post: any;
+  title: string;
+  author?: string;
+  date: Date;
+  link: string;
+  excerpt?: string;
+  imageUrl?: string;
 }
 
-const PostCard: FC<PostCardArgs> = ({ post }) => {
+const PostCard: FC<PostCardArgs> = (props) => {
+
+    const { title, author, date, link, excerpt, imageUrl } = props
+
   const bg = useColorModeValue("white", "purple.900")
 
   return (
-    <Link href={`/beitrag/${post.slug}`}>
+    <Link href={link}>
       <MotionBox
         shadow="lg"
         rounded="lg"
@@ -32,11 +40,11 @@ const PostCard: FC<PostCardArgs> = ({ post }) => {
         cursor="pointer"
         whileHover={{ y: -5 }}
       >
-        {post.featuredImage && (
+        {imageUrl && (
           <AspectRatio ratio={3 / 2}>
             <Image
               sizes="400px"
-              src={post.featuredImage.node.sourceUrl}
+              src={imageUrl}
               alt="Band auf der Inselbühne"
               layout="fill"
               objectFit="cover"
@@ -46,17 +54,15 @@ const PostCard: FC<PostCardArgs> = ({ post }) => {
         )}
         <Box p={{ base: 5, md: 8 }}>
           <Heading size="lg" mb={3}>
-            {post.title}
+            {title}
           </Heading>
-          <Box dangerouslySetInnerHTML={{ __html: post.excerpt }}></Box>
+          <Box dangerouslySetInnerHTML={{ __html: excerpt }}></Box>
           <Wrap align="center" mt={5} spacing={3}>
-            <WrapItem>
-              <Avatar name={post.author.node.name} />
-            </WrapItem>
+            {}
             <WrapItem>
               <Box>
-                <Text lineHeight="normal">{post.author.node.name}</Text>
-                <Text variant="light">{formatDate(post.date)}</Text>
+                <Text lineHeight="normal">{author}</Text>
+                <Text variant="light">{formatDate(date)}</Text>
               </Box>
             </WrapItem>
           </Wrap>

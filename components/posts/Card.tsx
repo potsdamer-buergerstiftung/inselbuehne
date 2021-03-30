@@ -8,6 +8,8 @@ import {
   WrapItem,
   Avatar,
   useColorModeValue,
+  LinkBox,
+  LinkOverlay,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import Image from "next/image";
@@ -21,22 +23,22 @@ interface PostCardArgs {
   link: string;
   excerpt?: string;
   imageUrl?: string;
+  avatar?: "name" | "default";
 }
 
 const PostCard: FC<PostCardArgs> = (props) => {
-  const { title, author, date, link, excerpt, imageUrl } = props;
+  const { title, author, date, link, excerpt, imageUrl, avatar } = props;
 
   const bg = useColorModeValue("white", "purple.900");
 
   return (
-    <Link href={link}>
+    <LinkBox as="article">
       <MotionBox
         shadow="lg"
         rounded="lg"
         position="relative"
         overflow="hidden"
         bg={bg}
-        cursor="pointer"
         whileHover={{ y: -5 }}
       >
         {imageUrl && (
@@ -52,12 +54,20 @@ const PostCard: FC<PostCardArgs> = (props) => {
           </AspectRatio>
         )}
         <Box p={{ base: 5, md: 8 }}>
-          <Heading size="lg" mb={3}>
-            {title}
-          </Heading>
+          <Link href={link} passHref>
+            <LinkOverlay isExternal={link.includes("http")}>
+              <Heading size="lg" mb={3}>
+                {title}
+              </Heading>
+            </LinkOverlay>
+          </Link>
           <Box dangerouslySetInnerHTML={{ __html: excerpt }}></Box>
           <Wrap align="center" mt={5} spacing={3}>
-            {}
+            {avatar && (
+              <WrapItem>
+                <Avatar name={avatar == "name" && author} />
+              </WrapItem>
+            )}
             <WrapItem>
               <Box>
                 <Text lineHeight="normal">{author}</Text>
@@ -67,7 +77,7 @@ const PostCard: FC<PostCardArgs> = (props) => {
           </Wrap>
         </Box>
       </MotionBox>
-    </Link>
+    </LinkBox>
   );
 };
 

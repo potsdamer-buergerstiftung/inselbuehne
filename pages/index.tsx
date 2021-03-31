@@ -85,7 +85,51 @@ const Section1: FC = () => {
   );
 };
 
-const Section2: FC = () => {
+
+
+const Section2: FC<{ posts }> = ({ posts = [] }) => {
+  const bg = useColorModeValue("gray.50", "purple.800");
+
+  return (
+    <Box as="section" pb={{ base: "20", md: "40" }} pt="28" bg={bg}>
+      <Container maxW="6xl">
+        <Wrap align="center" justify="space-between" mb="16" spacing="16">
+          <Box>
+            <Box w="20" bg="green.500" h="1" mb="6" />
+            <Heading size="xl" mb="1">
+              Was bei uns gerade so los ist
+            </Heading>
+            <Text size="2xl" maxW="25rem" fontSize="xl" variant="light">
+              Und wofür wir Dich brauchen
+            </Text>
+          </Box>
+          <Box>
+            <Link href="/fortschritt" passHref>
+              <Button colorScheme="green" as="a" size="lg">Alle Beiträge</Button>
+            </Link>
+          </Box>
+        </Wrap>
+        <Grid columnGap={8} rowGap={16} templateColumns="repeat(6, 1fr)">
+          {posts.map((post, index) => (
+            <GridItem colSpan={{ base: 6, md: 3, lg: 2 }} key={index}>
+              <PostCard
+                imageUrl={post.imageUrl}
+                title={post.title}
+                author={post.author}
+                date={new Date(post.date)}
+                excerpt={post.excerpt}
+                link={`/beitrag/${post.slug}`}
+                avatar="default"
+              />
+            </GridItem>
+          ))}
+        </Grid>
+      </Container>
+    </Box>
+  );
+};
+
+const Section3: FC = () => {
   const bg = useColorModeValue("gray.50", "purple.800");
 
   return (
@@ -130,7 +174,7 @@ const Section2: FC = () => {
   );
 };
 
-const Section3: FC = () => {
+const Section4: FC = () => {
   const bg = useColorModeValue("gray.50", "purple.800");
 
   return (
@@ -164,55 +208,13 @@ const Section3: FC = () => {
   );
 };
 
-const Section4: FC<{ posts }> = ({ posts = [] }) => {
-  const bg = useColorModeValue("gray.50", "purple.800");
-
-  return (
-    <Box as="section" pb={{ base: "20", md: "40" }} pt="28" bg={bg}>
-      <Container maxW="6xl">
-        <Wrap align="center" justify="space-between" mb="16" spacing="16">
-          <Box>
-            <Box w="20" bg="green.500" h="1" mb="6" />
-            <Heading size="xl" mb="1">
-              Was bei uns gerade so los ist
-            </Heading>
-            <Text size="2xl" maxW="25rem" fontSize="xl" variant="light">
-              Und wofür wir Dich brauchen
-            </Text>
-          </Box>
-          <Box>
-            <Link href="/fortschritt" passHref>
-              <Button colorScheme="green" as="a" size="lg">Alle Beiträge</Button>
-            </Link>
-          </Box>
-        </Wrap>
-        <Grid columnGap={8} rowGap={16} templateColumns="repeat(6, 1fr)">
-          {posts.map((post, index) => (
-            <GridItem colSpan={{ base: 6, md: 3, lg: 2 }} key={index}>
-              <PostCard
-                imageUrl={post.imageUrl}
-                title={post.title}
-                author={post.author}
-                date={new Date(post.date)}
-                excerpt={post.excerpt}
-                link={`/beitrag/${post.slug}`}
-                avatar="default"
-              />
-            </GridItem>
-          ))}
-        </Grid>
-      </Container>
-    </Box>
-  );
-};
-
 const HomePage = ({ posts }) => {
   return (
     <MotionPageTransition>
       <Section1 />
-      <Section4 posts={posts} />
-      <Section2 />
+      <Section2 posts={posts} />
       <Section3 />
+      <Section4 />
     </MotionPageTransition>
   );
 };

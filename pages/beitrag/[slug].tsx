@@ -6,6 +6,7 @@ import { getAllPostsWithSlug, getPost } from "@lib/api/posts";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 import PageNotFound from "pages/404";
+import { NextSeo } from "next-seo";
 
 const PostPage = ({ post }) => {
   const router = useRouter();
@@ -24,6 +25,7 @@ const PostPage = ({ post }) => {
 
   return (
     <MotionPageTransition>
+      <NextSeo title={post.title} />
       <PostTitle post={post} />
       <Box as="section" bg="white">
         <Container

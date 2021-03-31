@@ -61,7 +61,7 @@ const PostCard: FC<PostCardArgs> = (props) => {
               </Heading>
             </LinkOverlay>
           </Link>
-          { excerpt && <Box dangerouslySetInnerHTML={{ __html: excerpt }} />}
+          {excerpt && <Box dangerouslySetInnerHTML={{ __html: excerpt }} />}
           <Wrap align="center" mt={5} spacing={3}>
             {avatar && (
               <WrapItem>

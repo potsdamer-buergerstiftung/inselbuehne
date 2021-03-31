@@ -22,6 +22,7 @@ interface GetAllPostsResult {
   date: string;
   imageUrl: string;
   author: string;
+  isSticky: boolean;
 }
 
 export async function getAllPosts(): Promise<GetAllPostsResult[]> {
@@ -34,6 +35,7 @@ export async function getAllPosts(): Promise<GetAllPostsResult[]> {
           excerpt
           slug
           date
+          isSticky
           featuredImage {
             node {
               sourceUrl
@@ -57,6 +59,7 @@ export async function getAllPosts(): Promise<GetAllPostsResult[]> {
     date: post.date,
     imageUrl: post.featuredImage.node.sourceUrl,
     author: post.author.node.name,
+    isSticky: post.isSticky,
   }));
 }
 

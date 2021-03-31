@@ -61,11 +61,11 @@ const PostCard: FC<PostCardArgs> = (props) => {
               </Heading>
             </LinkOverlay>
           </Link>
-          <Box dangerouslySetInnerHTML={{ __html: excerpt }}></Box>
+          {excerpt && <Box dangerouslySetInnerHTML={{ __html: excerpt }} />}
           <Wrap align="center" mt={5} spacing={3}>
             {avatar && (
               <WrapItem>
-                <Avatar name={avatar == "name" && author} />
+                <Avatar name={avatar == "name" ? author : undefined} />
               </WrapItem>
             )}
             <WrapItem>

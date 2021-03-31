@@ -85,15 +85,13 @@ const Section1: FC = () => {
   );
 };
 
-
-
 const Section2: FC<{ posts }> = ({ posts = [] }) => {
   const bg = useColorModeValue("gray.50", "purple.800");
 
   return (
-    <Box as="section" pb={{ base: "20", md: "40" }} pt="28" bg={bg}>
+    <Box as="section" pb={{ base: "20", md: "40" }} pt="24" bg={bg}>
       <Container maxW="6xl">
-        <Wrap align="center" justify="space-between" mb="16" spacing="16">
+        <Wrap align="center" justify="space-between" mb="12" spacing="16">
           <Box>
             <Box w="20" bg="green.500" h="1" mb="6" />
             <Heading size="xl" mb="1">
@@ -105,7 +103,9 @@ const Section2: FC<{ posts }> = ({ posts = [] }) => {
           </Box>
           <Box>
             <Link href="/fortschritt" passHref>
-              <Button colorScheme="green" as="a" size="lg">Alle Beiträge</Button>
+              <Button colorScheme="green" as="a" size="lg">
+                Alle Beiträge
+              </Button>
             </Link>
           </Box>
         </Wrap>

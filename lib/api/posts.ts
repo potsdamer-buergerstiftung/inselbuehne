@@ -63,6 +63,16 @@ export async function getAllPosts(): Promise<GetAllPostsResult[]> {
   }));
 }
 
+interface GetPostResult {
+  title: string;
+  excerpt: string;
+  slug: string;
+  date: string;
+  imageUrl: string | null;
+  author: string;
+  blocks: any[];
+}
+
 export async function getPost(slug: string) {
   const data = await fetchAPI(
     `
@@ -82,6 +92,16 @@ export async function getPost(slug: string) {
           node {
             name
           }
+        }
+        blocks {
+          type
+          tagName
+          id
+          attributes {
+            name
+            value
+          }
+          innerHtml
         }
       }
     }

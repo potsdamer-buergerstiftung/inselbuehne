@@ -12,6 +12,10 @@ export async function fetchAPI(
     ] = `Bearer ${process.env.WORDPRESS_AUTH_REFRESH_TOKEN}`;
   }
 
+  if (!API_URL) {
+    throw new Error("API_URl was not set as env");
+  }
+
   const res = await fetch(API_URL, {
     method: "POST",
     headers,

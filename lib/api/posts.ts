@@ -57,7 +57,7 @@ export async function getAllPosts(): Promise<GetAllPostsResult[]> {
     excerpt: post.excerpt,
     slug: post.slug,
     date: post.date,
-    imageUrl: post.featuredImage.node.sourceUrl,
+    imageUrl: post.featuredImage?.node.sourceUrl || null,
     author: post.author.node.name,
     isSticky: post.isSticky,
   }));

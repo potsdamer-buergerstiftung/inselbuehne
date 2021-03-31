@@ -143,8 +143,8 @@ function TeamMemberItem(props: TeamMemberItemProps) {
   return (
     <MotionBox
       _hover={{ cursor: hasDetails ? "pointer" : "auto" }}
-      whileHover={{ y: hasDetails ? -5 : null }}
-      onClick={hasDetails && onOpen}
+      whileHover={{ y: hasDetails ? -5 : undefined }}
+      onClick={hasDetails ? onOpen : undefined}
     >
       <AspectRatio mb="5" ratio={1 / 1} rounded="lg">
         {member.image ? (
@@ -159,8 +159,8 @@ function TeamMemberItem(props: TeamMemberItemProps) {
             />
           </Box>
         ) : (
-          <Box bg={bg} rounded="lg"></Box>
-        )}
+            <Box bg={bg} rounded="lg"></Box>
+          )}
       </AspectRatio>
       <Text align="center" fontWeight={500}>
         {member.name}

@@ -13,7 +13,7 @@ export async function fetchAPI(
   }
 
   if (!API_URL) {
-    throw new Error("API_URl was not set as env")
+    throw new Error("API_URl was not set as env");
   }
 
   const res = await fetch(API_URL, {

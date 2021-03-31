@@ -7,6 +7,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 import PageNotFound from "pages/404";
 import { NextSeo } from "next-seo";
+import ContentRenderer from "@components/core/ContentRenderer";
 
 const PostPage = ({ post }) => {
   const router = useRouter();
@@ -28,12 +29,9 @@ const PostPage = ({ post }) => {
       <NextSeo title={post.title} />
       <PostTitle post={post} />
       <Box as="section" bg="white">
-        <Container
-          bg="white"
-          dangerouslySetInnerHTML={{ __html: post.content }}
-          pb={20}
-          pt={40}
-        ></Container>
+        <Container bg="white" pb="20" pt="20">
+          <ContentRenderer blocks={post.blocks} />
+        </Container>
       </Box>
     </MotionPageTransition>
   );
@@ -44,8 +42,7 @@ PostPage.Layout = Default;
 export default PostPage;
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const post = await getPost(params.slug as string);
-  console.log(post);
+  const post = await getPost(params?.slug as string);
 
   return {
     props: {

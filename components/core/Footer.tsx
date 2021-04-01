@@ -90,9 +90,13 @@ const Footer: FC = () => {
                 </Heading>
                 <VStack as="nav" spacing={5} align="left">
                   <MenuItem to="/ueber-uns">Team</MenuItem>
-                  <MenuItem to="https://www.potsdamer-buergerstiftung.com">
+                  <ChakraLink
+                    href="https://www.potsdamer-buergerstiftung.com"
+                    isExternal
+                    variant="light"
+                  >
                     Bürgerstiftung
-                  </MenuItem>
+                  </ChakraLink>
                   <MenuItem to="/presse">Presse</MenuItem>
                 </VStack>
               </GridItem>

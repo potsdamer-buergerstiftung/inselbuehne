@@ -51,7 +51,7 @@ const milestones: Milestone[] = [
 ];
 
 const Section1: FC = () => {
-  const [selMilestIndex, setSelMilestIndex] = useState<number>(1);
+  const [selMilestIndex, setSelMilestIndex] = useState<number>(2);
 
   return (
     <Box as="section" bg={mode("green.100", "purple.800")} pt="48">

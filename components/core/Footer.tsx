@@ -27,7 +27,7 @@ const Footer: FC = () => {
     <DarkMode>
       <Box as="footer" bg="dark.900" pt="16">
         <Box pb="10">
-          <Container maxW="6xl" py="5">
+          <Container maxW="container.xl" py="5">
             <Grid
               columnGap={8}
               rowGap={12}
@@ -120,7 +120,7 @@ const Footer: FC = () => {
           </Container>
         </Box>
         <Box py={16}>
-          <Container maxW="6xl">
+          <Container maxW="container.xl">
             <Text variant="light">
               &copy; {year} Potsdamer Bürgerstiftung & Mitwirkende
             </Text>

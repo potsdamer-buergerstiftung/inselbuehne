@@ -55,7 +55,7 @@ const Section1: FC = () => {
 
   return (
     <Box as="section" bg={mode("green.100", "purple.800")} pt="48">
-      <Container maxW="6xl" zIndex="0" pos="relative">
+      <Container maxW="container.xl" zIndex="0" pos="relative">
         <Box
           bg={mode("white", "purple.900")}
           shadow="lg"
@@ -135,7 +135,7 @@ const Section2: FC<Section2> = ({ posts }) => {
       mt="-8rem"
       pb={20}
     >
-      <Container maxW="6xl">
+      <Container maxW="container.xl">
         <Heading mb={10}>Aktuelles</Heading>
         <Grid columnGap={8} rowGap={16} templateColumns="repeat(6, 1fr)">
           {posts.map((post, index) => (

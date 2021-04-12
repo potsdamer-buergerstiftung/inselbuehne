@@ -195,7 +195,7 @@ const AboutUsPage = () => {
         heading="Unsere Mission"
       ></PageTitle>
       <Box as="section" py="20" bg={bg}>
-        <Container maxW="6xl">
+        <Container maxW="container.xl">
           <Heading as="h1" pb="16">
             Unser Team
           </Heading>

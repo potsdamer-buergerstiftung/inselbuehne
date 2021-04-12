@@ -19,7 +19,7 @@ const DonateHintSection: FC = () => {
   return (
     <DarkMode>
       <Box as="section" bg="purple.900">
-        <Container maxW="6xl">
+        <Container maxW="container.xl">
           <Box h="10" w="100%" />
           <Wrap justify="space-between" spacing={8} align="center">
             <WrapItem>

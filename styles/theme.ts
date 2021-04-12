@@ -92,6 +92,12 @@ const fonts = {
   heading: "'DM Serif Display', serif",
 };
 
+const sizes = {
+  container: {
+    xl: "1220px"
+  }
+};
+
 const overrides = {
   colors,
   fonts,
@@ -99,6 +105,7 @@ const overrides = {
   shadows,
   components,
   styles,
+  sizes,
 };
 
 export default extendTheme({

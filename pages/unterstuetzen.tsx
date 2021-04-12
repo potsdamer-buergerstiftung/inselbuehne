@@ -23,7 +23,7 @@ const ContributePage = () => {
         Hilf uns, die Inselbühne wieder veranstaltungsfähig zu machen.
       </PageTitle>
       <Box as="section" py="20" bg={bg}>
-        <Container centerContent maxW="6xl">
+        <Container centerContent maxW="container.xl">
           <Grid
             templateColumns="repeat(2, 1fr)"
             gap={16}

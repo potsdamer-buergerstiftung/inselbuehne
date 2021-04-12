@@ -27,7 +27,7 @@ const PageTitle: FC<Title> = ({ bg, heading, title, children }) => {
       textAlign="center"
       bg={background}
     >
-      <Container maxW="6xl">
+      <Container maxW="container.xl">
         {heading && (
           <Heading
             as="h6"

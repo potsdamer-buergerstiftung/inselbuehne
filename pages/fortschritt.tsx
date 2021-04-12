@@ -46,7 +46,7 @@ const milestones: Milestone[] = [
   },
   {
     title: "Bühne frei! (Eröffnung)",
-    date: "KV 20",
+    date: "KW 20",
   },
 ];
 

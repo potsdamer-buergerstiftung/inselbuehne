@@ -159,8 +159,8 @@ function TeamMemberItem(props: TeamMemberItemProps) {
             />
           </Box>
         ) : (
-            <Box bg={bg} rounded="lg"></Box>
-          )}
+          <Box bg={bg} rounded="lg"></Box>
+        )}
       </AspectRatio>
       <Text align="center" fontWeight={500}>
         {member.name}
@@ -195,7 +195,7 @@ const AboutUsPage = () => {
         heading="Unsere Mission"
       ></PageTitle>
       <Box as="section" py="20" bg={bg}>
-        <Container maxW="6xl">
+        <Container maxW="container.xl">
           <Heading as="h1" pb="16">
             Unser Team
           </Heading>

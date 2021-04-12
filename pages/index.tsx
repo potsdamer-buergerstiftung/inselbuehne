@@ -29,7 +29,7 @@ const Section1: FC = () => {
       pb={{ base: "20", md: "28" }}
       pt={{ base: "40", md: "60" }}
     >
-      <Container maxW="6xl">
+      <Container maxW="container.xl">
         <Grid
           rowGap={8}
           columnGap={16}
@@ -90,7 +90,7 @@ const Section2: FC<{ posts }> = ({ posts = [] }) => {
 
   return (
     <Box as="section" pb={{ base: "20", md: "40" }} pt="24" bg={bg}>
-      <Container maxW="6xl">
+      <Container maxW="container.xl">
         <Wrap align="center" justify="space-between" mb="12" spacing="16">
           <Box>
             <Box w="20" bg="green.500" h="1" mb="6" />
@@ -134,7 +134,7 @@ const Section3: FC = () => {
 
   return (
     <Box as="section" pb={{ base: "20", md: "40" }} bg={bg}>
-      <Container maxW="6xl" centerContent>
+      <Container maxW="container.xl" centerContent>
         <Grid
           columnGap={16}
           rowGap={8}

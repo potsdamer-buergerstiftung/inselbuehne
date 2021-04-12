@@ -21,7 +21,7 @@ interface Section2 {
 const Section2: FC<Section2> = ({ posts }) => {
   return (
     <Box as="section" bg={mode("white", "purple.800")} pb={20}>
-      <Container maxW="6xl">
+      <Container maxW="container.xl">
         <Grid
           columnGap={8}
           rowGap={8}

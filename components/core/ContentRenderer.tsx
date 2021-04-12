@@ -15,6 +15,7 @@ const BlockAsComponent: FC<{ block: Block }> = ({ block }) => {
         <Text
           fontSize="xl"
           dangerouslySetInnerHTML={{ __html: block.innerHtml }}
+          mb="5"
         />
       );
   }

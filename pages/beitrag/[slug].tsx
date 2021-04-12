@@ -1,4 +1,10 @@
-import { Box, Center, Container, Spinner, useColorModeValue as mode } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Container,
+  Spinner,
+  useColorModeValue as mode,
+} from "@chakra-ui/react";
 import { Default } from "@components/layouts";
 import { MotionPageTransition } from "@components/motion";
 import PostTitle from "@components/posts/Title";

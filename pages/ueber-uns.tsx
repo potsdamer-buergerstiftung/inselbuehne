@@ -159,8 +159,8 @@ function TeamMemberItem(props: TeamMemberItemProps) {
             />
           </Box>
         ) : (
-            <Box bg={bg} rounded="lg"></Box>
-          )}
+          <Box bg={bg} rounded="lg"></Box>
+        )}
       </AspectRatio>
       <Text align="center" fontWeight={500}>
         {member.name}

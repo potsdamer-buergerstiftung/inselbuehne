@@ -1,4 +1,4 @@
-import { Box, Center, Container, Spinner } from "@chakra-ui/react";
+import { Box, Center, Container, Spinner, useColorModeValue as mode } from "@chakra-ui/react";
 import { Default } from "@components/layouts";
 import { MotionPageTransition } from "@components/motion";
 import PostTitle from "@components/posts/Title";
@@ -28,8 +28,8 @@ const PostPage = ({ post }) => {
     <MotionPageTransition>
       <NextSeo title={post.title} />
       <PostTitle post={post} />
-      <Box as="section" bg="white">
-        <Container bg="white" pb="20" pt="20">
+      <Box as="section" bg={mode("white", "purple.900")} py="20">
+        <Container>
           <ContentRenderer blocks={post.blocks} />
         </Container>
       </Box>

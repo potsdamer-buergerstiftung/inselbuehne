@@ -42,16 +42,16 @@ const milestones: Milestone[] = [
   },
   {
     title: "Buchungsstart für das Publikum",
-    date: "KW 16",
+    date: "KW 18",
   },
   {
     title: "Bühne frei! (Eröffnung)",
-    date: "1. Mai",
+    date: "KV 20",
   },
 ];
 
 const Section1: FC = () => {
-  const [selMilestIndex, setSelMilestIndex] = useState<number>(2);
+  const [selMilestIndex, setSelMilestIndex] = useState<number>(3);
 
   return (
     <Box as="section" bg={mode("green.100", "purple.800")} pt="48">

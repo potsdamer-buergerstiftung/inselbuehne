@@ -9,7 +9,7 @@ const transition = {
 
 const backVariants = {
   exit: { x: 25, opacity: 0, transition },
-  enter: { x: 0, opacity: 1, transition: { ...transition, delay: 0 }},
+  enter: { x: 0, opacity: 1, transition: { ...transition, delay: 0 } },
 };
 
 const MotionPageTransition = ({ children }) => (

@@ -37,7 +37,7 @@ const milestones: Milestone[] = [
     date: "KW 14",
   },
   {
-    title: '"Sobotnik" - Aktionstag vor Ort',
+    title: '"Subbotnik" - Aktionstag vor Ort',
     date: "KW 15",
   },
   {

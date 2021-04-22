@@ -19,19 +19,21 @@ interface PostTitleArgs {
 const PostTitle: FC<PostTitleArgs> = ({ post }) => {
   const bg = useColorModeValue("green.100", "purple.900");
 
+  const { featuredImage } = post;
+
   return (
     <Box
       bg={bg}
       py={
-        post.featuredImage
-          ? { base: 15, lg: 28 }
+        featuredImage
+          ? { base: 15, md: 20, lg: 28 }
           : { base: "10rem", lg: "20rem" }
       }
-      mb={-40}
+      mb={{ base: 20, md: -40 }}
     >
       <Container maxW="container.xl">
-        <SimpleGrid columns={post.featuredImage ? 2 : 1} alignItems="center">
-          <Box mt={-24} textAlign={post.featuredImage ? undefined : "center"}>
+        <SimpleGrid columns={featuredImage ? { base: 1, md: 2 } : 1} alignItems="center" columnGap="2">
+          <Box mt={{ base: 20, lg: -24 }} textAlign={featuredImage ? undefined : "center"}>
             <Heading
               as="h6"
               variant="uppercase"
@@ -46,11 +48,11 @@ const PostTitle: FC<PostTitleArgs> = ({ post }) => {
             </Heading>
             <Text>Ein Beitrag von {post.author.node.name}</Text>
           </Box>
-          {post.featuredImage && (
+          {featuredImage && (
             <MotionBox>
               <AspectRatio ratio={1 / 1}>
                 <Image
-                  src={post.featuredImage.node.sourceUrl}
+                  src={featuredImage.node.sourceUrl}
                   alt={`Bild von ${post.title}`}
                   objectFit="cover"
                   layout="fill"

@@ -13,7 +13,7 @@
     "@chakra-ui/react": "^1.5.0",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
-    "@paypal/react-paypal-js": "^5.0.0",
+    "@paypal/react-paypal-js": "^6.0.0",
     "axios": "^0.21.1",
     "framer-motion": "^4",
     "next": "10.0.8",

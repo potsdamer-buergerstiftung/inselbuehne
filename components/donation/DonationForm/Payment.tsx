@@ -14,14 +14,13 @@ import { Steps } from "./DonationForm";
 
 interface Payment {
   amount: number;
-  description: string;
   onApprove?: () => Promise<void>;
   onError?: DispatchWithoutAction;
   onCancel?: DispatchWithoutAction;
 }
 
 export const Payment: FC<Payment> = (props) => {
-  const { amount, description, onApprove, onError, onCancel } = props;
+  const { amount, onApprove, onError, onCancel } = props;
   const [{ isPending }] = usePayPalScriptReducer();
 
   const purchase_units = [
@@ -29,7 +28,7 @@ export const Payment: FC<Payment> = (props) => {
       amount: {
         value: amount.toString(),
       },
-      description,
+      description: "Inselbühne Spende",
     },
   ];
 
@@ -50,10 +49,10 @@ export const Payment: FC<Payment> = (props) => {
         )}
         <PayPalButtons
           style={{ layout: "vertical" }}
-          createOrder={(_, actions) => {
+          createOrder={(data, actions) => {
             return actions.order.create({
               purchase_units,
-            });
+            })
           }}
           onApprove={onApprove}
           onError={() => onError}

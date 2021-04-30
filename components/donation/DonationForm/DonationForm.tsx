@@ -62,8 +62,6 @@ const DonationForm: FC<DonationForm> = () => {
   );
   const [progress, setProgress] = useState<Steps>(Steps.Amount);
 
-  const PAYMENT_DESCRIPTION = "Inselbühne Potsdam Spende";
-
   const AMOUNTS = [10, 20, 50, 100];
 
   function onDetailsFormSubmit(data: DetailsFormInput) {
@@ -90,7 +88,6 @@ const DonationForm: FC<DonationForm> = () => {
         return (
           <Payment
             amount={amount}
-            description={PAYMENT_DESCRIPTION}
             onApprove={async () => {
               setProgress(Steps.Completed);
             }}

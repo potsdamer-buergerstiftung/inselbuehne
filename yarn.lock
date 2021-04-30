@@ -806,25 +806,25 @@
   resolved "https://registry.yarnpkg.com/@opentelemetry/context-base/-/context-base-0.14.0.tgz#c67fc20a4d891447ca1a855d7d70fa79a3533001"
   integrity sha512-sDOAZcYwynHFTbLo6n8kIbLiVF3a3BLkrmehJUyEbT9F+Smbi47kLGS2gG2g0fjBLR/Lr1InPD7kXL7FaTqEkw==
 
-"@paypal/paypal-js@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@paypal/paypal-js/-/paypal-js-3.1.0.tgz#d0941e73034301a9062dc13644db21d10071ef4a"
-  integrity sha512-WfW29JfGPIGeWTKBDuUi6QmCNRk0nswcNXBNTe9D5RAvQMC4OYixwp1mgZt7RQI/XHfxgXC/aQ9UGJ8iUc7ytQ==
+"@paypal/paypal-js@^3.1.7":
+  version "3.1.9"
+  resolved "https://registry.yarnpkg.com/@paypal/paypal-js/-/paypal-js-3.1.9.tgz#229de15f7c08f25652f8506731f7369ef7ed5bad"
+  integrity sha512-evypRmR7LvNcaNhHTKF9z97oHlzgrOGieOYvQgJDDrgh3tWz/MpTm7ymLXDvkpRfltNfh01XglRqlMfYBpY+eQ==
   dependencies:
     promise-polyfill "^8.2.0"
 
-"@paypal/react-paypal-js@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@paypal/react-paypal-js/-/react-paypal-js-5.0.0.tgz#e4e7c4401125313b960c6c9f3dde1abe39747244"
-  integrity sha512-4TaIpTy+6yYs+Z+/BMK5iKeeTVbeZ4xrmWlDzeN/l62yB3wb8XcLnMIA+JjLPlqfGKIJeYZPgKWLhDlrhE+hTA==
+"@paypal/react-paypal-js@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@paypal/react-paypal-js/-/react-paypal-js-6.0.0.tgz#2ac7c33d49e2984e25362bec0c666392da973b79"
+  integrity sha512-oJSr34RYWLQr41lIHba4E61t8J4pUcejKLxwDr1VSg8zkqbz3OeA0ZbvqFsmC0xaOHfDgERYTYQo4G9ZGel62w==
   dependencies:
-    "@paypal/paypal-js" "^3.1.0"
-    "@paypal/sdk-constants" "^1.0.88"
+    "@paypal/paypal-js" "^3.1.7"
+    "@paypal/sdk-constants" "^1.0.100"
 
-"@paypal/sdk-constants@^1.0.88":
-  version "1.0.88"
-  resolved "https://registry.yarnpkg.com/@paypal/sdk-constants/-/sdk-constants-1.0.88.tgz#38c37646bdf2d8f35b7ad93046bc3325904184f6"
-  integrity sha512-NVcHlsjrQhitz+/Cd7kay0tSzrKK/LCKsA8vNMUzkgC2Cs5YeCC9zyw2bRVS2KCjbWe8bCHW7DtGPG2koX7nig==
+"@paypal/sdk-constants@^1.0.100":
+  version "1.0.101"
+  resolved "https://registry.yarnpkg.com/@paypal/sdk-constants/-/sdk-constants-1.0.101.tgz#8a40a4d542eeb5a33fad4d5e89576429785ac797"
+  integrity sha512-yXY7WgweoV6+cdCtEYdg5Yp01N4IDPGZ3Fk2jD62UY4cWiIx1geQyf0kF2o1/YzWylcNaz+bloYa2gQSoOm4Zg==
   dependencies:
     cross-domain-utils "^2.0.10"
     hi-base32 "^0.5.0"

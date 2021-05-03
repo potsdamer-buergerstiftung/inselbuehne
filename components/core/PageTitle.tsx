@@ -57,9 +57,11 @@ const PageTitle: FC<Title> = ({ bg, heading, title, children }) => {
             exit={{ opacity: 0, transition: { duration: 0.15 } }}
             transition={{ duration: 0.5, delay: 1 }}
           >
-            <Text mt="3" fontSize="xl">
-              {children}
-            </Text>
+            <Container maxW="container.md">
+              <Text mt="3" fontSize="xl">
+                {children}
+              </Text>
+            </Container>
           </MotionBox>
         )}
       </Container>

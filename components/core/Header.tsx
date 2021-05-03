@@ -16,16 +16,16 @@ import { AnimateSharedLayout } from "framer-motion";
 
 const menuItems = [
   {
-    label: "Fortschritt",
-    to: "/fortschritt",
+    label: "Veranstaltungen",
+    to: "/veranstaltungen",
   },
   {
     label: "Über uns",
     to: "/ueber-uns",
   },
   {
-    label: "Bühne frei",
-    to: "/buehne-frei",
+    label: "Fortschritt",
+    to: "/fortschritt",
   },
   {
     label: "Unterstützen",

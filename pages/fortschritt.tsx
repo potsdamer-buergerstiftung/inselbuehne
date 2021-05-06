@@ -42,11 +42,11 @@ const milestones: Milestone[] = [
   },
   {
     title: "Buchungsstart für das Publikum",
-    date: "KW 18",
+    date: "KW 20",
   },
   {
     title: "Bühne frei! (Eröffnung)",
-    date: "KW 20",
+    date: "KW 22",
   },
 ];
 

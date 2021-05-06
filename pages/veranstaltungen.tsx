@@ -14,7 +14,7 @@ export default function Events() {
       <PageTitle title="Es geht los" heading="Veranstaltungen" bg={mode("white", "purple.800")}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus, mattis non accumsan in, tempor dictum neque.
       </PageTitle>
-      <Box as="section" pt="10" bg="white">
+      <Box as="section" pt="10" bg={mode("white", "purple.800")}>
         <Container maxW="container.lg">
           <SimpleGrid columns={3} gap="5">
             <Input type="text" placeholder="Suchen..." variant="filled" size="lg" />
@@ -23,7 +23,7 @@ export default function Events() {
           </SimpleGrid>
         </Container>
       </Box>
-      <Box as="section" py="20" bg="white">
+      <Box as="section" py="20" bg={mode("white", "purple.800")}>
         <Container maxW="container.lg">
           
         </Container>

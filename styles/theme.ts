@@ -94,8 +94,8 @@ const fonts = {
 
 const sizes = {
   container: {
-    xl: "1220px"
-  }
+    xl: "1220px",
+  },
 };
 
 const overrides = {

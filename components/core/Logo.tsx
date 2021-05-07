@@ -1,18 +1,16 @@
 import { HTMLChakraProps, Icon, IconProps, useToken } from "@chakra-ui/react";
 import { chakra } from "@chakra-ui/system";
 
-const Logo = (props: HTMLChakraProps<'svg'> & { iconColor?: string, slugColor?: string }) => {
+const Logo = (
+  props: HTMLChakraProps<"svg"> & { iconColor?: string; slugColor?: string }
+) => {
+  const { iconColor = "gray.800", slugColor = "green.500", ...rest } = props;
 
-  const { iconColor = "gray.800", slugColor = "green.500", ...rest } = props
-
-  const iconC = useToken("colors", iconColor)
-  const slugC = useToken("colors", slugColor)
+  const iconC = useToken("colors", iconColor);
+  const slugC = useToken("colors", slugColor);
 
   return (
-    <chakra.svg
-      {...rest}
-      viewBox="0 0 260 115.25"
-    >
+    <chakra.svg {...rest} viewBox="0 0 260 115.25">
       <g id="Gruppe_11" data-name="Gruppe 11">
         <path
           id="Pfad_13"

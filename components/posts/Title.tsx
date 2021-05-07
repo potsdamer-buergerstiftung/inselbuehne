@@ -32,8 +32,15 @@ const PostTitle: FC<PostTitleArgs> = ({ post }) => {
       mb={{ base: 20, md: -40 }}
     >
       <Container maxW="container.xl">
-        <SimpleGrid columns={featuredImage ? { base: 1, md: 2 } : 1} alignItems="center" columnGap="2">
-          <Box mt={{ base: 20, lg: -24 }} textAlign={featuredImage ? undefined : "center"}>
+        <SimpleGrid
+          columns={featuredImage ? { base: 1, md: 2 } : 1}
+          alignItems="center"
+          columnGap="2"
+        >
+          <Box
+            mt={{ base: 20, lg: -24 }}
+            textAlign={featuredImage ? undefined : "center"}
+          >
             <Heading
               as="h6"
               variant="uppercase"

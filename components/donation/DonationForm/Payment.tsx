@@ -14,7 +14,7 @@ import { Steps } from "./DonationForm";
 
 interface Payment {
   amount: number;
-  onApprove?: () =>void;
+  onApprove?: () => void;
   onError?: DispatchWithoutAction;
   onCancel?: DispatchWithoutAction;
 }
@@ -56,8 +56,8 @@ export const Payment: FC<Payment> = (props) => {
           }}
           onApprove={async (_, actions) => {
             return actions.order.capture().then((details) => {
-              if (onApprove) onApprove()
-            })
+              if (onApprove) onApprove();
+            });
           }}
         />
       </Box>

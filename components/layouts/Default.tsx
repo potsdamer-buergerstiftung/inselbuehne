@@ -1,7 +1,6 @@
 import { ReactNode, FC } from "react";
-import Head from "next/head";
 import Link from "next/link";
-import { Header, Footer } from "@components/core";
+import { Header, Footer, Banner } from "@components/core";
 import {
   Box,
   Container,
@@ -60,6 +59,7 @@ const Layout: FC = ({ children }) => {
 
   return (
     <>
+      <Banner />
       <Header />
       <Box as="main" bg={bg}>
         {children}

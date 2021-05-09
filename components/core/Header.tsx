@@ -20,12 +20,16 @@ const menuItems = [
     to: "/veranstaltungen",
   },
   {
-    label: "Über uns",
-    to: "/ueber-uns",
+    label: "Junge Bühne",
+    to: "/junge-buehne",
   },
   {
-    label: "Fortschritt",
-    to: "/fortschritt",
+    label: "Blog",
+    to: "/blog",
+  },
+  {
+    label: "Über uns",
+    to: "/ueber-uns",
   },
   {
     label: "Unterstützen",
@@ -34,10 +38,6 @@ const menuItems = [
   {
     label: "Kontakt",
     to: "/kontakt",
-  },
-  {
-    label: "Presse",
-    to: "/presse",
   },
 ];
 

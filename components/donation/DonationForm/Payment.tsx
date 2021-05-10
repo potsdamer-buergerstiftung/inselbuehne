@@ -52,7 +52,7 @@ export const Payment: FC<Payment> = (props) => {
           createOrder={(data, actions) => {
             return actions.order.create({
               purchase_units,
-            })
+            });
           }}
           onApprove={onApprove}
           onError={() => onError}

@@ -9,7 +9,12 @@ const Head: FC = () => {
       <DefaultSeo {...config} />
       <NextHead>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script async defer data-domain="inselbuehne-potsdam.de" src="https://plausible.io/js/plausible.js" />
+        <script
+          async
+          defer
+          data-domain="inselbuehne-potsdam.de"
+          src="https://plausible.io/js/plausible.js"
+        />
       </NextHead>
     </>
   );

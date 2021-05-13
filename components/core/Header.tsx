@@ -111,8 +111,7 @@ const Header: FC<Header> = () => {
           <Link href="/">
             <ChakraLink
               fontSize={{ base: "xl", sm: "2xl" }}
-              py="3"
-              px="1"
+              py="2"
               fontFamily="heading"
               whiteSpace="nowrap"
             >

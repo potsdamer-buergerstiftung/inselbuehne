@@ -59,7 +59,7 @@ const Layout: FC = ({ children }) => {
 
   return (
     <>
-      <Banner />
+      {/* <Banner /> */}
       <Header />
       <Box as="main" bg={bg}>
         {children}

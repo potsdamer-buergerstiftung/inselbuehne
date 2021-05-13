@@ -13,6 +13,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { MotionBox } from "@components/motion";
 import { AnimateSharedLayout } from "framer-motion";
+import { Logo } from ".";
 
 const menuItems = [
   {
@@ -100,7 +101,7 @@ const Header: FC<Header> = () => {
       }}
       boxShadow={{ base: menuOpen ? "2xl" : "none", md: "none" }}
     >
-      <Container maxW="7xl" py="5">
+      <Container maxW="7xl" py="4">
         <Flex
           as="div"
           justify="space-between"
@@ -110,11 +111,12 @@ const Header: FC<Header> = () => {
           <Link href="/">
             <ChakraLink
               fontSize={{ base: "xl", sm: "2xl" }}
-              py="5"
+              py="3"
+              px="1"
               fontFamily="heading"
               whiteSpace="nowrap"
             >
-              Inselbühne Potsdam
+              <Logo height="16" />
             </ChakraLink>
           </Link>
           <Button onClick={() => setMenuOpen(!menuOpen)} colorScheme="green">
@@ -148,14 +150,14 @@ const Header: FC<Header> = () => {
           <Link href="/">
             <ChakraLink
               fontSize={{ lg: "2xl", xl: "3xl" }}
-              px="6"
-              py="5"
               fontFamily="heading"
               display={{ base: "none", lg: "block" }}
               whiteSpace="nowrap"
+              py="3"
+              px="8"
               _hover={{ textDecoration: "none" }}
             >
-              Inselbühne Potsdam
+              <Logo height="5rem" />
             </ChakraLink>
           </Link>
 

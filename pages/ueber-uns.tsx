@@ -120,6 +120,11 @@ const team: TeamMember[] = [
     role: "Gastrokonzept",
     image: "oliver-paul.jpg",
   },
+  {
+    name: "Martina Laube",
+    role: "Kommunikation",
+    image: "martina-laube.jpg",
+  },
 ];
 
 function sortByName(a: TeamMember, b: TeamMember) {

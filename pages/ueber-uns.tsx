@@ -121,6 +121,11 @@ const team: TeamMember[] = [
     image: "oliver-paul.jpg",
   },
   {
+    name: "Martina Laube",
+    role: "Marketing & Kommunikation",
+    image: "martina-laube.jpg",
+  },
+  {
     name: "Marie Philipp",
     role: "Allgemeiner Support",
     image: "marie-phillipp.jpg",

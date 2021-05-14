@@ -122,7 +122,7 @@ const team: TeamMember[] = [
   },
   {
     name: "Martina Laube",
-    role: "Kommunikation",
+    role: "Marketing & Kommunikation",
     image: "martina-laube.jpg",
   },
 ];

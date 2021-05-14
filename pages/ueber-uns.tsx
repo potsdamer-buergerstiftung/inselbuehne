@@ -169,7 +169,7 @@ function TeamMemberItem(props: TeamMemberItemProps) {
               alt={`Bild von ${member.name}`}
               objectFit="cover"
               layout="fill"
-              quality={50}
+              quality={80}
               sizes="300px"
             />
           </Box>

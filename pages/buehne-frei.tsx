@@ -24,7 +24,7 @@ const PerformPage = () => {
         <Container centerContent textAlign="center">
           <Text mb="8">
             Du bist Kulturschaffende/r in Potsdam und suchst nach einer
-            Auftrittsmöglichkeit in Potsdam zwischen 1. Mai und 31. Oktober
+            Auftrittsmöglichkeit in Potsdam zwischen 1. Juni und 31. Oktober
             2021? Dann melde Dich bei uns und teile uns mit, was Du vorhast! Ob
             Profi oder Amateur, ob Solist*in oder Kollektiv – jede/r ist
             herzlich willkommen, die Inselbühne für seine/ihre Kunst zu nutzen!

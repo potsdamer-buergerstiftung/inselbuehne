@@ -5,16 +5,18 @@ export function createScriptElement(url: string): HTMLScriptElement {
 }
 
 declare global {
-  interface Window { EBWidgets: any; }
+  interface Window {
+    EBWidgets: any;
+  }
 }
 
 window.EBWidgets = window.EBWidgets || {};
 
 export function createWidget(eventId: string) {
   window.EBWidgets.createWidget({
-    widgetType: 'checkout',
-    eventId: '154129717133',
+    widgetType: "checkout",
+    eventId,
     modal: true,
     modalTriggerElementId: `eventbrite-${eventId}`,
-  })
+  });
 }

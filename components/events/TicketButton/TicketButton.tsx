@@ -1,4 +1,5 @@
 import { Button } from "@chakra-ui/button";
+import { Tooltip } from "@chakra-ui/tooltip";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 
@@ -63,15 +64,17 @@ const TicketButton: FC<TicketButtonProps> = ({ eventId, isFullWidth }) => {
   };
 
   return (
-    <Button
-      onClick={handleClick}
-      colorScheme="green"
-      size="lg"
-      id={`eb-${eventId}`}
-      isFullWidth={isFullWidth}
-    >
-      Tickets
-    </Button>
+    <Tooltip label="Bald verfügbar" aria-label="Bald verfügbar">
+      <Button
+        onClick={handleClick}
+        colorScheme="green"
+        size="lg"
+        /* id={`eb-${eventId}`} */
+        isFullWidth={isFullWidth}
+      >
+        Tickets
+      </Button>
+    </Tooltip>
   );
 };
 

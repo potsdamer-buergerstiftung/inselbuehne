@@ -27,6 +27,7 @@ import Image from "next/image";
 import { TicketButton } from "@components/events";
 import Hashids from "hashids";
 import { CheckIcon, LinkIcon } from "@chakra-ui/icons";
+import dayjs from "dayjs";
 
 const hashids = new Hashids();
 
@@ -50,10 +51,18 @@ export default function EventPage({ event }) {
     `inselbuehne-potsdam.de/e/${eventSlug}`
   );
 
+  const start = dayjs(event.start.utc);
+  const end = dayjs(event.end.utc);
+
   return (
     <MotionPageTransition>
       <NextSeo title={event.name.text} />
-      <Box as="section" pb="20" bg={mode("white", "purple.900")} pt={{ base: "32", lg: "48" }}>
+      <Box
+        as="section"
+        pb="20"
+        bg={mode("white", "purple.900")}
+        pt={{ base: "32", lg: "48" }}
+      >
         <Container maxW="container.lg">
           <Box
             rounded="lg"
@@ -63,7 +72,11 @@ export default function EventPage({ event }) {
           >
             <Grid templateColumns="repeat(6, 1fr)">
               <GridItem colSpan={{ base: 6, lg: 3 }}>
-                <Box position="relative" height={{base: "60", lg: "full"}} width="full">
+                <Box
+                  position="relative"
+                  height={{ base: "60", lg: "full" }}
+                  width="full"
+                >
                   <Image
                     src={event.logo.original.url}
                     objectFit="cover"
@@ -84,39 +97,7 @@ export default function EventPage({ event }) {
                   align="start"
                   spacing="12"
                 >
-                  <Stack
-                    direction={{ base: "column", md: "row" }}
-                    spacing="5"
-                    align={{ base: "start", md: "center" }}
-                  >
-                    <Box shadow="xl" p="4" bg={mode("white", "purple.900")}>
-                      <Stack align="center" spacing="0">
-                        <Text variant="light">
-                          {new Date(
-                            event.start.local
-                          ).toLocaleDateString("de-DE", { month: "long" })}
-                        </Text>
-                        <Heading>
-                          {new Date(event.start.local).getDate()}
-                        </Heading>
-                      </Stack>
-                    </Box>
-                    <Stack>
-                      <Heading size="lg">{event.name.text}</Heading>
-                      {event.category && (
-                        <Wrap>
-                          <Tag variant="solid" colorScheme="green">
-                            {event.category.name}
-                          </Tag>
-                          {event.subcategory && (
-                            <Tag colorScheme="green">
-                              {event.subcategory.name}
-                            </Tag>
-                          )}
-                        </Wrap>
-                      )}
-                    </Stack>
-                  </Stack>
+                  <Heading size="lg">{event.name.text}</Heading>
                   <Stack width="full" align="start">
                     {event.is_free && (
                       <Badge colorScheme="green">Kostenlos</Badge>
@@ -129,30 +110,42 @@ export default function EventPage({ event }) {
             <Box
               bg={mode("white", "purple.900")}
               py="4"
-              px={{ base: 3, sm: 5 }}
+              px={{ base: 6, sm: 8 }}
               borderBottomColor={mode("gray.300", "transparent")}
               borderBottomWidth="1px"
             >
-              <Wrap>
+              <Stack
+                direction={{ base: "column", md: "row" }}
+                align={{ base: "start", md: "center" }}
+                justify="space-between"
+              >
                 <Button
                   size="sm"
                   colorScheme="green"
                   variant="ghost"
                   onClick={onCopy}
                   rightIcon={hasCopied ? <CheckIcon /> : <LinkIcon />}
+                  ml="-3"
                 >
                   {hasCopied
                     ? "Link in Zwischenablage kopiert"
                     : "Link zum Teilen aufrufen"}
                 </Button>
-              </Wrap>
+                <Text>
+                  <Text as="b">{start.format("dddd, D. MMMM YYYY")}</Text>{" "}
+                  {start.format("HH:mm")} Uhr - {end.format("HH:mm")} Uhr
+                </Text>
+              </Stack>
             </Box>
             <Box
               px={{ base: 6, sm: 8 }}
               py="8"
               bg={mode("white", "purple.800")}
             >
-              {event.description?.text}
+              <Container
+                maxW="container.md"
+                dangerouslySetInnerHTML={{ __html: event.description }}
+              />
             </Box>
           </Box>
         </Container>

@@ -8,21 +8,11 @@ import { Input } from "@chakra-ui/input";
 import { Select } from "@chakra-ui/select";
 import { GetStaticProps } from "next";
 import { getEventCategories, getEvents } from "@lib/api";
-import { useEffect, useState } from "react";
-import useSWR from "swr";
-import axios from "axios";
-import { TicketButton } from "@components/events";
+import { useState } from "react";
 import EventCard from "@components/events/EventCard";
 
-const fetcher = (url) => axios.get(url).then((res) => res.data);
-
-export default function Events({ categories }) {
+export default function Events({ categories, events }) {
   const [categoryId, setCategoryId] = useState<string>("");
-  const { data, error } = useSWR("/api/events", fetcher);
-
-  useEffect(() => {
-    console.log(data);
-  }, []);
 
   return (
     <MotionPageTransition>
@@ -32,10 +22,9 @@ export default function Events({ categories }) {
         heading="Veranstaltungen"
         bg={mode("white", "purple.800")}
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna lectus,
-        mattis non accumsan in, tempor dictum neque.
+        Hier findet Ihr alle großartigen Veranstaltungen, die demnächst auf der Inselbühne ausgetragen werden.
       </PageTitle>
-      <Box as="section" pt="10" bg={mode("white", "purple.800")}>
+      <Box as="section" bg={mode("white", "purple.800")}>
         <Container maxW="container.lg">
           <SimpleGrid columns={3} gap="5">
             <Input
@@ -43,13 +32,15 @@ export default function Events({ categories }) {
               placeholder="Suchen..."
               variant="filled"
               size="lg"
+              disabled
             />
-            <Select variant="filled" placeholder="Monat" size="lg" />
+            <Select variant="filled" placeholder="Monat" size="lg" disabled />
             <Select
               variant="filled"
               placeholder="Kategorie"
               size="lg"
               onChange={(event) => setCategoryId(event.target.value)}
+              disabled
             >
               {categories.map(({ id, name }) => (
                 <option value={id} key={id}>
@@ -63,22 +54,21 @@ export default function Events({ categories }) {
       <Box as="section" py="20" bg={mode("white", "purple.800")}>
         <Container maxW="container.xl">
           <Stack spacing="10">
-            {data &&
-              data.events.map((event, i) => {
-                return (
-                  <EventCard
-                    title={event.name.text}
-                    imageUrl={event.logo?.url}
-                    description={event.summary}
-                    category={event.category?.name_localized}
-                    subcategory={event.subcategory?.name_localized}
-                    id={event.id}
-                    start={new Date(event.start.utc)}
-                    end={new Date(event.end.utc)}
-                    key={i}
-                  />
-                )
-              })}
+            {events.map((event, i) => {
+              return (
+                <EventCard
+                  title={event.name.text}
+                  imageUrl={event.logo?.url}
+                  description={event.summary}
+                  category={event.category?.name_localized}
+                  subcategory={event.subcategory?.name_localized}
+                  id={event.id}
+                  start={new Date(event.start.utc)}
+                  end={new Date(event.end.utc)}
+                  key={i}
+                />
+              );
+            })}
           </Stack>
         </Container>
       </Box>
@@ -90,10 +80,12 @@ Events.Layout = Default;
 
 export const getStaticProps: GetStaticProps = async () => {
   const categories = await getEventCategories();
+  const events = await getEvents();
 
   return {
     props: {
       categories,
+      events,
     },
     revalidate: 300,
   };

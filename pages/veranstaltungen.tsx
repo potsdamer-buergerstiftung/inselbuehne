@@ -22,7 +22,7 @@ export default function Events({ categories, events }) {
         heading="Veranstaltungen"
         bg={mode("white", "purple.800")}
       >
-        Hier findet Ihr alle großartigen Veranstaltungen, die demnächst auf der Inselbühne ausgetragen werden.
+        Hier findet Ihr alle großartigen Veranstaltungen, die demnächst auf der Inselbühne ausgerichtet werden.
       </PageTitle>
       <Box as="section" bg={mode("white", "purple.800")}>
         <Container maxW="container.lg">

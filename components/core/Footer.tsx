@@ -59,7 +59,7 @@ const Footer: FC = () => {
                   mb={5}
                   color="white"
                 >
-                  Social Media
+                  Folgt uns
                 </Heading>
                 <VStack as="nav" spacing={5} align="left">
                   <ChakraLink
@@ -68,6 +68,13 @@ const Footer: FC = () => {
                     href="https://instagram.com/inselbuehne"
                   >
                     Instagram
+                  </ChakraLink>
+                  <ChakraLink
+                    variant="light"
+                    isExternal
+                    href="https://www.facebook.com/inselbuehne"
+                  >
+                    Facebook
                   </ChakraLink>
                   <ChakraLink
                     variant="light"

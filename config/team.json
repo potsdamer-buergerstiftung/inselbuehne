@@ -1,0 +1,124 @@
+[
+  {
+    "name": "Kaspar von Erffa",
+    "role": "Projektleitung, Finanzierung und Veranstaltungsbetrieb",
+    "details":
+      "Kaspar von Erffa, freier Theaterregisseur, u.a. Leiter des Integrationstheaters „Sanssouci avec Shakespeare“. Er hat die Fäden des Projekts in der Hand und kümmert sich insbesondere um die Planung des zukünftigen Veranstaltungsbetriebs, Programmgestaltung, und die dafür notwendigen Förderanträge/Finanzierung.",
+    "image": "kaspar-von-erffa.jpg"
+  },
+  {
+    "name": "Marie-Luise Glahr",
+    "role": "Projektleitung, Finanzierung, Öffentlichkeitsarbeit",
+    "details":
+      "Marie-Luise Glahr ist Vorsitzende des Vorstands der Potsdamer Bürgerstiftung und schon seit Jahren ein Fan der Freilichtbühne als offene Spielstätte für Potsdams Bürgerinnen und Bürger. Seit 2014 wirbt die Bürgerstiftung beharrlich hinter den Kulissen dafür, zuerst beim KIS und dann bei der Stadt Potsdam, dass die Freilichtbühne als wertvoller Begegnungs- und Traditionsort wiederbelebt werden sollte…",
+    "image": "marie-luise-glahr.jpg"
+  },
+  {
+    "name": "Gert Groppel",
+    "role": "Finanzierung, Rechtliches",
+    "image": "gert-groppel.jpg"
+  },
+  {
+    "name": "Stephan Heinlein",
+    "role": "Bauliche Ertüchtigung",
+    "details":
+      "Stephan Heinlein, Architekt, ist derjenige, der die bauliche Instandsetzung plant. Dabei geht es um die Fragen von baulichen und betrieblichen Genehmigungen, Herstellung der Verkehrssicherheit, konkrete Maßnahmen vor Ort…",
+    "image": "stephan-heinlein.jpg"
+  },
+  {
+    "name": "Steven O’Fearna",
+    "role": "Programmgestaltung",
+    "details":
+      "Steven O’Fearna, organisiert mit seinem Team von „tanguito“ Tangokultur in Potsdam. Seit März 2020 ist  kaum noch was möglich. Die Inselbühne ist eine großartige Chance, einen Ort mit zu schaffen, wo  auch getanzt werden kann. „Tanguito“ bringt eine Tanzfläche mit, Tango-DJs und Erfahrung bei der Organisation von Tanzveranstaltungen. Mit Tango wollen wir gerne dabei sein wenn die Inselbühne zum Leben erwacht.",
+    "image": "steven-ofearna.jpg"
+  },
+  {
+    "name": "Gabi Zimmermann",
+    "role": "Kommunikation & Künstleransprache",
+    "details":
+      "Gabi Zimmermann, hatte viele Jahre eine Musikschule im Holländer Viertel, mit der sie heute in Werder ist. Als Betreiberin einer „Kulturgarage“ mit Live-Auftritten und gut vernetzt in Potsdams Kulturszene, trägt sie dazu bei, in Potsdam wieder einen öffentlichen Ort für Gesang und Musik herzustellen, indem sie für das Projekt wirbt und sowohl Menschen anspricht, die die Bühnen nutzen wollen und solche, die bereit sind, für deren Erhalt zu spenden.",
+    "image": "gabi-zimmermann.jpg"
+  },
+  {
+    "name": "Mareike Schmidt",
+    "role": "Kommunikation & Organisation",
+    "image": "mareike-schmidt.jpg"
+  },
+  {
+    "name": "Johannes Götzke",
+    "role": "Veranstaltungstechnik und Betrieb, Bauliche Ertüchtigung",
+    "details":
+      "Johannes Götzke, Ingenieur für Veranstaltungstechnik, bringt sein geballtes Know-How im Bereich Technik, Sicherheit, Brand- und Lärmschutz, Auflagen, Konzeption von Events und Veranstaltungsorten mit ein.",
+    "image": "johannes-goetzke.jpg"
+  },
+  {
+    "name": "Juliane Prokop",
+    "role": "Kommunikation & Organisation",
+    "image": "juliane-prokop.jpg"
+  },
+  {
+    "name": "Martin Suchanek",
+    "role": "Bauliche Ertüchtigung",
+    "image": "martin-suchanek.jpg"
+  },
+  {
+    "name": "Jonas Neugebauer",
+    "role": "Kommunikation & Organisation",
+    "image": "jonas-neugebauer.jpg"
+  },
+  {
+    "name": "Pawel Prokop",
+    "role": "Junge Bühne",
+    "image": "pawel-prokop.jpg"
+  },
+  {
+    "name": "Felicitas Schober",
+    "role": "Junge Bühne",
+    "image": "felicitas-schober.jpg"
+  },
+  {
+    "name": "Lisa-Marie Riemer",
+    "role": "Projektkoordination",
+    "image": "lisa-marie-riemer.jpg"
+  },
+  {
+    "name": "Oliver Paul",
+    "role": "Gastrokonzept",
+    "image": "oliver-paul.jpg"
+  },
+  {
+    "name": "Martina Laube",
+    "role": "Marketing & Kommunikation",
+    "image": "martina-laube.jpg"
+  },
+  {
+    "name": "Marie Philipp",
+    "role": "Allgemeiner Support",
+    "image": "marie-phillipp.jpg"
+  },
+  {
+    "name": "Antonia Dengel",
+    "role": "Programmplanung & Veranstaltungsbetrieb",
+    "image": "antonia-dengel.jpg"
+  },
+  {
+    "name": "Sophia Schetelich",
+    "role": "Administration",
+    "image": "sophia-schetelich.jpg"
+  },
+  {
+    "name": "Gabriele Ebert",
+    "role": "Allgemeiner Support",
+    "image": "gabriele-ebert.jpg"
+  },
+  {
+    "name": "Marie Philipp",
+    "role": "Allgemeiner Support",
+    "image": "marie-philipp.jpg"
+  },
+  {
+    "name": "Petra Müller",
+    "role": "Allgemeiner Support",
+    "image": "petra-mueller.jpg"
+  }
+]

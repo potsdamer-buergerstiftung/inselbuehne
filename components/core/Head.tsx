@@ -13,7 +13,8 @@ const Head: FC = () => {
           async
           defer
           data-domain="inselbuehne-potsdam.de"
-          src="https://plausible.io/js/plausible.js"
+          data-api="/api/insights/event"
+          src="/js/insights.js"
         />
       </NextHead>
     </>

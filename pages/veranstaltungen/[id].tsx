@@ -63,7 +63,7 @@ export default function EventPage({ event }) {
           >
             <Grid templateColumns="repeat(6, 1fr)">
               <GridItem colSpan={{ base: 6, lg: 3 }}>
-                <Box position="relative" height="full" width="full">
+                <Box position="relative" height={{base: "60", lg: "full"}} width="full">
                   <Image
                     src={event.logo.original.url}
                     objectFit="cover"

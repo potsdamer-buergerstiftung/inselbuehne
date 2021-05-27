@@ -33,7 +33,16 @@ interface EventCardProps {
 }
 
 const EventCard: FC<EventCardProps> = (props) => {
-  const { id, imageUrl, title, description, category, subcategory, start, end } = props;
+  const {
+    id,
+    imageUrl,
+    title,
+    description,
+    category,
+    subcategory,
+    start,
+    end,
+  } = props;
   return (
     <LinkBox as="article">
       <MotionBox
@@ -70,8 +79,10 @@ const EventCard: FC<EventCardProps> = (props) => {
               <Stack direction="row" align="center" spacing="8">
                 <Box shadow="xl" p="4">
                   <Stack align="center">
-                    <Text variant="light">{start.toLocaleDateString("de-DE", { month: "long" })}</Text>
-                    <Heading>{start.getDay()}</Heading>
+                    <Text variant="light">
+                      {start.toLocaleDateString("de-DE", { month: "long" })}
+                    </Text>
+                    <Heading>{start.getDate()}</Heading>
                   </Stack>
                 </Box>
                 <Stack>

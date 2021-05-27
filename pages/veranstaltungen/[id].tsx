@@ -53,7 +53,7 @@ export default function EventPage({ event }) {
   return (
     <MotionPageTransition>
       <NextSeo title={event.name.text} />
-      <Box as="section" pb="20" bg={mode("white", "purple.900")} pt="48">
+      <Box as="section" pb="20" bg={mode("white", "purple.900")} pt={{ base: "32", lg: "48" }}>
         <Container maxW="container.lg">
           <Box
             rounded="lg"

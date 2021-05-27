@@ -35,7 +35,7 @@ export async function getEvents(
 }
 
 export async function getEvent(id: string): Promise<Event> {
-  return axios
+  const event = await axios
     .get(`https://www.eventbriteapi.com/v3/events/${id}`, {
       headers: { Authorization: `Bearer ${token}` },
       params: {
@@ -44,4 +44,18 @@ export async function getEvent(id: string): Promise<Event> {
       },
     })
     .then((res) => res.data);
+
+  const eventDescription = await axios
+    .get(`https://www.eventbriteapi.com/v3/events/${id}/description`, {
+      headers: { Authorization: `Bearer ${token}` },
+      params: {
+        expand: "category,subcategory",
+        locale: "de_DE",
+      },
+    })
+    .then((res) => res.data?.description);
+
+  event.description = eventDescription;
+
+  return event;
 }

@@ -13,11 +13,13 @@ import {
   useColorModeValue,
   Text,
   Wrap,
+  Link as ChakraLink,
 } from "@chakra-ui/react";
 import { MotionPageTransition, MotionHeading } from "@components/motion";
 import { PostCard } from "@components/posts";
 import { getAllPosts } from "@lib/api/posts";
 import { GetStaticProps } from "next";
+import { PBSLogo } from "@components/core";
 
 const Section1: FC = () => {
   const bg = useColorModeValue("green.100", "purple.900");
@@ -40,11 +42,11 @@ const Section1: FC = () => {
             <MotionHeading
               as="h1"
               fontSize="5xl"
-              mb="5"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ opacity: 0, transition: { duration: 0.15 } }}
               transition={{ duration: 0.5, delay: 0.5 }}
+              mb="5"
             >
               Lasst uns{" "}
               <Box as="span" color="green.500">

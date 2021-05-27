@@ -115,6 +115,36 @@ const team: TeamMember[] = [
     role: "Projektkoordination",
     image: "lisa-marie-riemer.jpg",
   },
+  {
+    name: "Oliver Paul",
+    role: "Gastrokonzept",
+    image: "oliver-paul.jpg",
+  },
+  {
+    name: "Martina Laube",
+    role: "Marketing & Kommunikation",
+    image: "martina-laube.jpg",
+  },
+  {
+    name: "Marie Philipp",
+    role: "Allgemeiner Support",
+    image: "marie-phillipp.jpg",
+  },
+  {
+    name: "Antonia Dengel",
+    role: "Programmplanung & Veranstaltungsbetrieb",
+    image: "antonia-dengel.jpg",
+  },
+  {
+    name: "Sophia Schetelich",
+    role: "Administration",
+    image: "sophia-schetelich.jpg",
+  },
+  {
+    name: "Gabriele Ebert",
+    role: "Allgemeiner Support",
+    image: "gabriele-ebert.jpg",
+  },
 ];
 
 function sortByName(a: TeamMember, b: TeamMember) {
@@ -154,7 +184,7 @@ function TeamMemberItem(props: TeamMemberItemProps) {
               alt={`Bild von ${member.name}`}
               objectFit="cover"
               layout="fill"
-              quality={50}
+              quality={80}
               sizes="300px"
             />
           </Box>

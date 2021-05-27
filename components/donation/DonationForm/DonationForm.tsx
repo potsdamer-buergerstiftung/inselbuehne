@@ -91,6 +91,9 @@ const DonationForm: FC<DonationForm> = () => {
             onApprove={async () => {
               setProgress(Steps.Completed);
             }}
+            onError={async () => {
+              setProgress(Steps.Failed);
+            }}
           ></Payment>
         );
       case Steps.Completed:

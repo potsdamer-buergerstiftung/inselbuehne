@@ -17,16 +17,20 @@ import { Logo } from ".";
 
 const menuItems = [
   {
-    label: "Fortschritt",
-    to: "/fortschritt",
+    label: "Veranstaltungen",
+    to: "/veranstaltungen",
+  },
+  {
+    label: "Junge Bühne",
+    to: "/junge-buehne",
+  },
+  {
+    label: "Blog",
+    to: "/blog",
   },
   {
     label: "Über uns",
     to: "/ueber-uns",
-  },
-  {
-    label: "Bühne frei",
-    to: "/buehne-frei",
   },
   {
     label: "Unterstützen",
@@ -35,10 +39,6 @@ const menuItems = [
   {
     label: "Kontakt",
     to: "/kontakt",
-  },
-  {
-    label: "Presse",
-    to: "/presse",
   },
 ];
 

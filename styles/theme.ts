@@ -7,9 +7,6 @@ const styles = {
       color: mode("purple.900", "white")(props),
       background: mode("white", "purple.900")(props),
     },
-    p: {
-      marginBottom: "1.5rem",
-    },
   }),
 };
 

@@ -63,7 +63,7 @@ const EventCard: FC<EventCardProps> = (props) => {
                   alt={title}
                   layout="fill"
                   objectFit="cover"
-                  quality={50}
+                  quality={90}
                 />
               </AspectRatio>
             </GridItem>

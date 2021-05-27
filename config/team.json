@@ -2,15 +2,13 @@
   {
     "name": "Kaspar von Erffa",
     "role": "Projektleitung, Finanzierung und Veranstaltungsbetrieb",
-    "details":
-      "Kaspar von Erffa, freier Theaterregisseur, u.a. Leiter des Integrationstheaters „Sanssouci avec Shakespeare“. Er hat die Fäden des Projekts in der Hand und kümmert sich insbesondere um die Planung des zukünftigen Veranstaltungsbetriebs, Programmgestaltung, und die dafür notwendigen Förderanträge/Finanzierung.",
+    "details": "Kaspar von Erffa, freier Theaterregisseur, u.a. Leiter des Integrationstheaters „Sanssouci avec Shakespeare“. Er hat die Fäden des Projekts in der Hand und kümmert sich insbesondere um die Planung des zukünftigen Veranstaltungsbetriebs, Programmgestaltung, und die dafür notwendigen Förderanträge/Finanzierung.",
     "image": "kaspar-von-erffa.jpg"
   },
   {
     "name": "Marie-Luise Glahr",
     "role": "Projektleitung, Finanzierung, Öffentlichkeitsarbeit",
-    "details":
-      "Marie-Luise Glahr ist Vorsitzende des Vorstands der Potsdamer Bürgerstiftung und schon seit Jahren ein Fan der Freilichtbühne als offene Spielstätte für Potsdams Bürgerinnen und Bürger. Seit 2014 wirbt die Bürgerstiftung beharrlich hinter den Kulissen dafür, zuerst beim KIS und dann bei der Stadt Potsdam, dass die Freilichtbühne als wertvoller Begegnungs- und Traditionsort wiederbelebt werden sollte…",
+    "details": "Marie-Luise Glahr ist Vorsitzende des Vorstands der Potsdamer Bürgerstiftung und schon seit Jahren ein Fan der Freilichtbühne als offene Spielstätte für Potsdams Bürgerinnen und Bürger. Seit 2014 wirbt die Bürgerstiftung beharrlich hinter den Kulissen dafür, zuerst beim KIS und dann bei der Stadt Potsdam, dass die Freilichtbühne als wertvoller Begegnungs- und Traditionsort wiederbelebt werden sollte…",
     "image": "marie-luise-glahr.jpg"
   },
   {
@@ -21,22 +19,19 @@
   {
     "name": "Stephan Heinlein",
     "role": "Bauliche Ertüchtigung",
-    "details":
-      "Stephan Heinlein, Architekt, ist derjenige, der die bauliche Instandsetzung plant. Dabei geht es um die Fragen von baulichen und betrieblichen Genehmigungen, Herstellung der Verkehrssicherheit, konkrete Maßnahmen vor Ort…",
+    "details": "Stephan Heinlein, Architekt, ist derjenige, der die bauliche Instandsetzung plant. Dabei geht es um die Fragen von baulichen und betrieblichen Genehmigungen, Herstellung der Verkehrssicherheit, konkrete Maßnahmen vor Ort…",
     "image": "stephan-heinlein.jpg"
   },
   {
     "name": "Steven O’Fearna",
     "role": "Programmgestaltung",
-    "details":
-      "Steven O’Fearna, organisiert mit seinem Team von „tanguito“ Tangokultur in Potsdam. Seit März 2020 ist  kaum noch was möglich. Die Inselbühne ist eine großartige Chance, einen Ort mit zu schaffen, wo  auch getanzt werden kann. „Tanguito“ bringt eine Tanzfläche mit, Tango-DJs und Erfahrung bei der Organisation von Tanzveranstaltungen. Mit Tango wollen wir gerne dabei sein wenn die Inselbühne zum Leben erwacht.",
+    "details": "Steven O’Fearna, organisiert mit seinem Team von „tanguito“ Tangokultur in Potsdam. Seit März 2020 ist  kaum noch was möglich. Die Inselbühne ist eine großartige Chance, einen Ort mit zu schaffen, wo  auch getanzt werden kann. „Tanguito“ bringt eine Tanzfläche mit, Tango-DJs und Erfahrung bei der Organisation von Tanzveranstaltungen. Mit Tango wollen wir gerne dabei sein wenn die Inselbühne zum Leben erwacht.",
     "image": "steven-ofearna.jpg"
   },
   {
     "name": "Gabi Zimmermann",
     "role": "Kommunikation & Künstleransprache",
-    "details":
-      "Gabi Zimmermann, hatte viele Jahre eine Musikschule im Holländer Viertel, mit der sie heute in Werder ist. Als Betreiberin einer „Kulturgarage“ mit Live-Auftritten und gut vernetzt in Potsdams Kulturszene, trägt sie dazu bei, in Potsdam wieder einen öffentlichen Ort für Gesang und Musik herzustellen, indem sie für das Projekt wirbt und sowohl Menschen anspricht, die die Bühnen nutzen wollen und solche, die bereit sind, für deren Erhalt zu spenden.",
+    "details": "Gabi Zimmermann, hatte viele Jahre eine Musikschule im Holländer Viertel, mit der sie heute in Werder ist. Als Betreiberin einer „Kulturgarage“ mit Live-Auftritten und gut vernetzt in Potsdams Kulturszene, trägt sie dazu bei, in Potsdam wieder einen öffentlichen Ort für Gesang und Musik herzustellen, indem sie für das Projekt wirbt und sowohl Menschen anspricht, die die Bühnen nutzen wollen und solche, die bereit sind, für deren Erhalt zu spenden.",
     "image": "gabi-zimmermann.jpg"
   },
   {
@@ -47,8 +42,7 @@
   {
     "name": "Johannes Götzke",
     "role": "Veranstaltungstechnik und Betrieb, Bauliche Ertüchtigung",
-    "details":
-      "Johannes Götzke, Ingenieur für Veranstaltungstechnik, bringt sein geballtes Know-How im Bereich Technik, Sicherheit, Brand- und Lärmschutz, Auflagen, Konzeption von Events und Veranstaltungsorten mit ein.",
+    "details": "Johannes Götzke, Ingenieur für Veranstaltungstechnik, bringt sein geballtes Know-How im Bereich Technik, Sicherheit, Brand- und Lärmschutz, Auflagen, Konzeption von Events und Veranstaltungsorten mit ein.",
     "image": "johannes-goetzke.jpg"
   },
   {

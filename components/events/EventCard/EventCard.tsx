@@ -82,7 +82,7 @@ const EventCard: FC<EventCardProps> = (props) => {
                 align={{ base: "start", md: "center" }}
                 spacing="8"
               >
-                <Box shadow="xl" p="4">
+                <Box shadow="xl" p="4" bg={mode("white", "purple.800")}>
                   <Stack align="center">
                     <Text variant="light">
                       {start.toLocaleDateString("de-DE", { month: "long" })}

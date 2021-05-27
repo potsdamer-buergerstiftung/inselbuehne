@@ -26,7 +26,7 @@ export default function Events({ categories, events }) {
       </PageTitle>
       <Box as="section" bg={mode("white", "purple.800")}>
         <Container maxW="container.lg">
-          <SimpleGrid columns={3} gap="5">
+          <SimpleGrid columns={{ base: 1, md: 3 }} gap="5">
             <Input
               type="text"
               placeholder="Suchen..."

@@ -55,7 +55,7 @@ const EventCard: FC<EventCardProps> = (props) => {
       >
         <Grid templateColumns="repeat(3, 1fr)" alignItems="center">
           {imageUrl && (
-            <GridItem colSpan={1}>
+            <GridItem colSpan={{ base: 3, lg: 1 }}>
               <AspectRatio ratio={16 / 9}>
                 <Image
                   sizes="400px"
@@ -68,15 +68,16 @@ const EventCard: FC<EventCardProps> = (props) => {
               </AspectRatio>
             </GridItem>
           )}
-          <GridItem colSpan={2}>
+          <GridItem colSpan={{ base: 3, lg: 2 }}>
             <Stack
-              direction="row"
-              align="center"
+              direction={{ base: "column", md: "row" }}
+              align={{ base: "start", md: "center" }}
               px="8"
               py="5"
               justify="space-between"
+              spacing={{base: 5, md: 1}}
             >
-              <Stack direction="row" align="center" spacing="8">
+              <Stack direction={{ base: "column", md: "row" }} align={{ base: "start", md: "center" }} spacing="8">
                 <Box shadow="xl" p="4">
                   <Stack align="center">
                     <Text variant="light">

@@ -62,8 +62,8 @@ export default function EventPage({ event }) {
             shadow="xl"
           >
             <Grid templateColumns="repeat(6, 1fr)">
-              <GridItem colSpan={3}>
-                <Box position="relative" height="full">
+              <GridItem colSpan={{ base: 6, lg: 3 }}>
+                <Box position="relative" height="full" width="full">
                   <Image
                     src={event.logo.original.url}
                     objectFit="cover"
@@ -73,14 +73,14 @@ export default function EventPage({ event }) {
                   />
                 </Box>
               </GridItem>
-              <GridItem colSpan={3} p="8">
+              <GridItem colSpan={{ base: 6, lg: 3 }} p="8">
                 <Stack
                   justify="space-between"
                   height="full"
                   align="start"
                   spacing="12"
                 >
-                  <Stack direction="row" spacing="5" align="center">
+                  <Stack direction={{ base: "column", md: "row" }} spacing="5" align={{ base: "start", md: "center" }}>
                     <Box shadow="xl" p="4" bg={mode("white", "purple.900")}>
                       <Stack align="center" spacing="0">
                         <Text variant="light">

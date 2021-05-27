@@ -4,11 +4,15 @@ import { useRouter } from "next/router";
 import { ChakraProvider } from "@chakra-ui/react";
 import { AnimatePresence } from "framer-motion";
 import { Head } from "@components/core";
+import "dayjs/locale/de";
+
+dayjs.locale("de");
 
 import theme from "../styles/theme";
 
 import "typeface-dm-sans";
 import "typeface-dm-serif-display";
+import dayjs from "dayjs";
 
 function handleExitComplete() {
   if (typeof window !== "undefined") {

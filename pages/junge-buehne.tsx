@@ -11,7 +11,8 @@ export default function JungeBuehne() {
         heading="Junge Bühne"
         bg="blue.100"
       >
-        Auf dieser Seite werden wir demnächst Informationen und Formulare bereitstellen, um Euch die Anmeldung zu erleichtern.
+        Auf dieser Seite werden wir demnächst Informationen und Formulare
+        bereitstellen, um Euch die Anmeldung zu erleichtern.
       </PageTitle>
       <Box as="section" py="20" bg="blue.100"></Box>
     </MotionPageTransition>

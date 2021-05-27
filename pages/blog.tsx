@@ -25,12 +25,7 @@ const Blog = ({ posts }) => {
         Hier erfährst Du, was wir schon alles geschaft haben und was noch
         gemacht werden muss.
       </PageTitle>
-      <Box
-        as="section"
-        bg={mode("white", "purple.800")}
-        pt="10"
-        pb={20}
-      >
+      <Box as="section" bg={mode("white", "purple.800")} pt="10" pb={20}>
         <Container maxW="container.xl">
           <Grid columnGap={8} rowGap={16} templateColumns="repeat(6, 1fr)">
             {posts.map((post, index) => (

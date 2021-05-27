@@ -75,9 +75,13 @@ const EventCard: FC<EventCardProps> = (props) => {
               px="8"
               py="5"
               justify="space-between"
-              spacing={{base: 5, md: 1}}
+              spacing={{ base: 5, md: 1 }}
             >
-              <Stack direction={{ base: "column", md: "row" }} align={{ base: "start", md: "center" }} spacing="8">
+              <Stack
+                direction={{ base: "column", md: "row" }}
+                align={{ base: "start", md: "center" }}
+                spacing="8"
+              >
                 <Box shadow="xl" p="4">
                   <Stack align="center">
                     <Text variant="light">

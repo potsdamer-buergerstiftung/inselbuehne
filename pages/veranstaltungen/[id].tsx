@@ -73,14 +73,22 @@ export default function EventPage({ event }) {
                   />
                 </Box>
               </GridItem>
-              <GridItem colSpan={{ base: 6, lg: 3 }} p="8">
+              <GridItem
+                colSpan={{ base: 6, lg: 3 }}
+                px={{ base: 6, sm: 8 }}
+                py="8"
+              >
                 <Stack
                   justify="space-between"
                   height="full"
                   align="start"
                   spacing="12"
                 >
-                  <Stack direction={{ base: "column", md: "row" }} spacing="5" align={{ base: "start", md: "center" }}>
+                  <Stack
+                    direction={{ base: "column", md: "row" }}
+                    spacing="5"
+                    align={{ base: "start", md: "center" }}
+                  >
                     <Box shadow="xl" p="4" bg={mode("white", "purple.900")}>
                       <Stack align="center" spacing="0">
                         <Text variant="light">
@@ -97,9 +105,13 @@ export default function EventPage({ event }) {
                       <Heading size="lg">{event.name.text}</Heading>
                       {event.category && (
                         <Wrap>
-                          <Tag variant="solid" colorScheme="green">{event.category.name}</Tag>
+                          <Tag variant="solid" colorScheme="green">
+                            {event.category.name}
+                          </Tag>
                           {event.subcategory && (
-                            <Tag colorScheme="green">{event.subcategory.name}</Tag>
+                            <Tag colorScheme="green">
+                              {event.subcategory.name}
+                            </Tag>
                           )}
                         </Wrap>
                       )}
@@ -117,7 +129,7 @@ export default function EventPage({ event }) {
             <Box
               bg={mode("white", "purple.900")}
               py="4"
-              px="5"
+              px={{ base: 3, sm: 5 }}
               borderBottomColor={mode("gray.300", "transparent")}
               borderBottomWidth="1px"
             >
@@ -135,7 +147,11 @@ export default function EventPage({ event }) {
                 </Button>
               </Wrap>
             </Box>
-            <Box p="8" bg={mode("white", "purple.800")}>
+            <Box
+              px={{ base: 6, sm: 8 }}
+              py="8"
+              bg={mode("white", "purple.800")}
+            >
               {event.description?.text}
             </Box>
           </Box>

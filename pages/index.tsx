@@ -104,7 +104,7 @@ const Section2: FC<{ posts }> = ({ posts = [] }) => {
             </Text>
           </Box>
           <Box>
-            <Link href="/fortschritt" passHref>
+            <Link href="/blog" passHref>
               <Button colorScheme="green" as="a" size="lg">
                 Alle Beiträge
               </Button>
@@ -200,9 +200,9 @@ const Section4: FC = () => {
           pandemie-taugliche Auftrittsmöglichkeit dringend benötigen. Und wenn
           die Reaktionen positiv genug sind, machen wir auch nach 2021 weiter.{" "}
         </Text>
-        <Link href="/fortschritt" passHref>
+        <Link href="/veranstaltungen" passHref>
           <Button colorScheme="green" size="lg" shadow="base" as="a">
-            Schau Dir den Fortschritt an
+            Zu den Veranstaltungen
           </Button>
         </Link>
       </Container>

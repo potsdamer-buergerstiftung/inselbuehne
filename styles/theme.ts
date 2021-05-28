@@ -8,7 +8,7 @@ const styles = {
       background: mode("white", "purple.900")(props),
     },
     ".eb": {
-      ":first-child": {
+      ":first-of-type": {
         fontWeight: "bold",
         fontSize: "lg",
       },

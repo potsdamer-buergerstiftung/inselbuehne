@@ -7,6 +7,21 @@ const styles = {
       color: mode("purple.900", "white")(props),
       background: mode("white", "purple.900")(props),
     },
+    ".eb": {
+      ":first-child": {
+        fontWeight: "bold",
+        fontSize: "lg",
+      },
+      div: {
+        marginBottom: 5,
+        marginTop: "0 !important",
+        marginLeft: "0 !important",
+        marginRight: "0 !important",
+      },
+      p: {
+        marginBottom: 5,
+      }
+    }
   }),
 };
 

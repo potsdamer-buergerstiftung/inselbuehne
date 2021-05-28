@@ -144,6 +144,7 @@ export default function EventPage({ event }) {
             >
               <Container
                 maxW="container.md"
+                className="eb"
                 dangerouslySetInnerHTML={{ __html: event.description }}
               />
             </Box>

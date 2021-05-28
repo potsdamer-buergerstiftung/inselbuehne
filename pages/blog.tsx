@@ -16,7 +16,7 @@ import { getAllPosts } from "@lib/api/posts";
 const Blog = ({ posts }) => {
   return (
     <MotionPageTransition>
-      <NextSeo title="Unser Blog" />
+      <NextSeo title="Aktuelles" />
       <PageTitle
         title="Was bei uns so passiert"
         heading="Unser Blog"

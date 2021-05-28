@@ -20,6 +20,7 @@ import Image from "next/image";
 import { TicketButton } from "..";
 import { Tag } from "@chakra-ui/tag";
 import RouterLink from "next/link";
+import dayjs from "dayjs";
 
 interface EventCardProps {
   id: string;
@@ -85,9 +86,9 @@ const EventCard: FC<EventCardProps> = (props) => {
                 <Box shadow="xl" p="4" bg={mode("white", "purple.800")}>
                   <Stack align="center">
                     <Text variant="light">
-                      {start.toLocaleDateString("de-DE", { month: "long" })}
+                      {dayjs(start).format("MMM")}
                     </Text>
-                    <Heading>{start.getDate()}</Heading>
+                    <Heading>{dayjs(start).format("D")}</Heading>
                   </Stack>
                 </Box>
                 <Stack>

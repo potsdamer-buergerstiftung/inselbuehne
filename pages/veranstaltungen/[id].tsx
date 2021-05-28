@@ -137,13 +137,11 @@ export default function EventPage({ event }) {
                 </Text>
               </Stack>
             </Box>
-            <Box
-              px={{ base: 6, sm: 8 }}
-              py="8"
-              bg={mode("white", "purple.800")}
-            >
+            <Box bg={mode("white", "purple.800")}>
               <Container
                 maxW="container.md"
+                px={{ base: 6, sm: 8 }}
+                py="8"
                 className="eb"
                 dangerouslySetInnerHTML={{ __html: event.description }}
               />

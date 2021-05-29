@@ -11,14 +11,14 @@ module.exports = {
   },
   async rewrites() {
     return [
-        {
-            source: '/js/insights.js',
-            destination: 'https://plausible.io/js/plausible.js'
-        },
-        {
-            source: '/api/insights/event',
-            destination: 'https://plausible.io/api/event'
-        }
+      {
+        source: "/js/insights.js",
+        destination: "https://plausible.io/js/plausible.js",
+      },
+      {
+        source: "/api/insights/event",
+        destination: "https://plausible.io/api/event",
+      },
     ];
   },
 };

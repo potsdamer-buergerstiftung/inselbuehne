@@ -1,5 +1,5 @@
 import { ReactNode, FC } from "react";
-import Link from "next/link";
+import RouterLink from "next/link";
 import { Header, Footer, Banner } from "@components/core";
 import {
   Box,
@@ -12,6 +12,7 @@ import {
   WrapItem,
   DarkMode,
   useColorModeValue,
+  Link,
 } from "@chakra-ui/react";
 
 const DonateHintSection: FC = () => {
@@ -24,25 +25,34 @@ const DonateHintSection: FC = () => {
             <WrapItem>
               <Box>
                 <Heading as="h2" mb="2" color="white">
-                  Lasst uns{" "}
-                  <Box color="green.500" as="span">
-                    gemeinsam
-                  </Box>{" "}
-                  die Bühne beleben.
+                  Ein Projekt der{" "}
+                  <Link
+                    color="green.500"
+                    href="https://www.potsdamer-buergerstiftung.com"
+                    isExternal
+                  >
+                    Potsdamer Bürgerstiftung
+                  </Link>
+                  .
                 </Heading>
                 <Text variant="light">
-                  Auch ein kleiner Geldbeutel kann zu tollen Kulturerlebnissen
-                  auf der Inselbühne beitragen.
+                  Wir fördern ehrenamtliches Engagement und gestalten als
+                  Mitmach-Stiftung gemeinsam unsere schöne Stadt noch
+                  l(i)ebenswerter.
                 </Text>
               </Box>
             </WrapItem>
             <WrapItem>
               <DarkMode>
-                <Link href="/unterstuetzen" passHref>
-                  <Button colorScheme="green" size="lg" as="a">
-                    Jetzt spenden
-                  </Button>
-                </Link>
+                <Button
+                  colorScheme="green"
+                  size="lg"
+                  as="a"
+                  href="https://www.potsdamer-buergerstiftung.com"
+                  target="_blank"
+                >
+                  Mehr über uns
+                </Button>
               </DarkMode>
             </WrapItem>
           </Wrap>

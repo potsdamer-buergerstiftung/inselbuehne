@@ -11,6 +11,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import Link from "next/link";
+import { Logo } from "@components/core";
 
 function MenuItem(props) {
   const { children, to = "/" } = props;
@@ -36,20 +37,8 @@ const Footer: FC = () => {
             >
               <GridItem colSpan={{ base: 6, md: 3 }}>
                 <Link href="/">
-                  <Heading fontSize="4xl" mb="2" color="white">
-                    Inselbühne Potsdam
-                  </Heading>
+                  <Logo iconColor="white" slugColor="green.500" height="24" />
                 </Link>
-                <Text variant="light">
-                  Ein Projekt der{" "}
-                  <ChakraLink
-                    href="https://www.potsdamer-buergerstiftung.com"
-                    isExternal
-                    color="green.500"
-                  >
-                    Potsdamer Bürgerstiftung
-                  </ChakraLink>
-                </Text>
               </GridItem>
               <GridItem colSpan={{ base: 6, md: 1 }}>
                 <Heading

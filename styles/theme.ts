@@ -20,8 +20,8 @@ const styles = {
       },
       p: {
         marginBottom: 5,
-      }
-    }
+      },
+    },
   }),
 };
 

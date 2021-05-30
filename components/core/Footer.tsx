@@ -36,9 +36,7 @@ const Footer: FC = () => {
               textAlign={{ base: "center", md: "left" }}
             >
               <GridItem colSpan={{ base: 6, md: 3 }}>
-                <Link href="/">
-                  <Logo iconColor="white" slugColor="green.500" height="24" />
-                </Link>
+                <Logo iconColor="white" slugColor="green.500" height="24" />
               </GridItem>
               <GridItem colSpan={{ base: 6, md: 1 }}>
                 <Heading

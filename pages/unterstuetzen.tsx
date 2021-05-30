@@ -22,7 +22,7 @@ const ContributePage = () => {
       <PageTitle title="Unterstützen" heading="Das Projekt fördern" bg={bg}>
         Hilf uns, die Inselbühne wieder veranstaltungsfähig zu machen.
       </PageTitle>
-      <Box as="section" py="20" bg={bg}>
+      <Box as="section" pb="20" pt="10" bg={bg}>
         <Container centerContent maxW="container.xl">
           <Grid
             templateColumns="repeat(2, 1fr)"

@@ -111,7 +111,7 @@ const AboutUsPage = () => {
         title="Eine pandemie-taugliche, offene Bühne im Herzen Potsdams"
         heading="Unsere Mission"
       ></PageTitle>
-      <Box as="section" py="20" bg={bg}>
+      <Box as="section" pb="20" pt="10" bg={bg}>
         <Container maxW="container.xl">
           <Heading as="h1" pb="16">
             Unser Team

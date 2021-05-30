@@ -9,6 +9,7 @@ import {
   Heading,
   DarkMode,
   VStack,
+  Flex,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { Logo } from "@components/core";
@@ -36,7 +37,9 @@ const Footer: FC = () => {
               textAlign={{ base: "center", md: "left" }}
             >
               <GridItem colSpan={{ base: 6, md: 3 }}>
-                <Logo iconColor="white" slugColor="green.500" height="24" />
+                <Flex justify={{ base: "center", md: "start" }}>
+                  <Logo iconColor="white" slugColor="green.500" height="24" />
+                </Flex>
               </GridItem>
               <GridItem colSpan={{ base: 6, md: 1 }}>
                 <Heading

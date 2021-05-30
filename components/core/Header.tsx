@@ -7,6 +7,7 @@ import {
   Box,
   useColorMode,
   useColorModeValue,
+  IconButton,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
@@ -81,7 +82,7 @@ const MenuItem: FC<MenuItem> = ({ children, to = "/", setMenuOpen }) => {
   );
 };
 
-interface Header {}
+interface Header { }
 
 const Header: FC<Header> = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -174,17 +175,17 @@ const Header: FC<Header> = () => {
                     {item.label}
                   </MenuItem>
                 ))}
-              <Button
+              <IconButton
                 py="5"
                 px={{ base: 0, lg: 2 }}
                 fontSize="lg"
                 onClick={toggleColorMode}
                 variant="link"
-                rounded="none"
                 color={color}
+                aria-label="Color mode toggle"
               >
                 {colorMode == "light" ? <MoonIcon /> : <SunIcon />}
-              </Button>
+              </IconButton>
             </Flex>
           </AnimateSharedLayout>
         </Flex>

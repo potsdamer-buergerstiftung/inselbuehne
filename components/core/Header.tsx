@@ -2,19 +2,21 @@ import { useState, FC, Dispatch, SetStateAction } from "react";
 import {
   Container,
   Flex,
-  Link as ChakraLink,
+  Link,
   Button,
   Box,
   useColorMode,
-  useColorModeValue,
   IconButton,
+  Text,
+  Stack,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
-import Link from "next/link";
+import RouterLink from "next/link";
 import { MotionBox } from "@components/motion";
 import { AnimateSharedLayout } from "framer-motion";
-import { Logo } from ".";
+import { Banner, Logo } from ".";
+import { useColorModeValue as mode } from "@chakra-ui/color-mode";
 
 const menuItems = [
   {
@@ -51,11 +53,11 @@ interface MenuItem {
 const MenuItem: FC<MenuItem> = ({ children, to = "/", setMenuOpen }) => {
   const router = useRouter();
   const selected = router.pathname == to;
-  const bg = useColorModeValue("black", "white");
+  const bg = mode("black", "white");
 
   return (
-    <Link href={to} passHref>
-      <ChakraLink
+    <RouterLink href={to} passHref>
+      <Link
         py="5"
         px={{ base: 0, md: 4 }}
         fontSize="lg"
@@ -77,16 +79,16 @@ const MenuItem: FC<MenuItem> = ({ children, to = "/", setMenuOpen }) => {
             display={{ base: "none", lg: "block" }}
           />
         )}
-      </ChakraLink>
-    </Link>
+      </Link>
+    </RouterLink>
   );
 };
 
 const Header: FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { colorMode, toggleColorMode } = useColorMode();
-  const color = useColorModeValue("black", "white");
-  const bg = useColorModeValue("white", "purple.900");
+  const color = mode("black", "white");
+  const bg = mode("white", "purple.900");
 
   return (
     <Box
@@ -100,6 +102,30 @@ const Header: FC = () => {
       }}
       boxShadow={{ base: menuOpen ? "2xl" : "none", md: "none" }}
     >
+      <Box as="section" position="relative" w="full">
+        <Stack
+          direction={{ base: "column", sm: "row" }}
+          justifyContent="center"
+          alignItems="center"
+          py="2"
+          fontSize="sm"
+          px={{ base: "3", md: "6", lg: "8" }}
+          color={mode("dark", "white")}
+          bg={mode("rgba(0,0,0,.1)", "rgba(255,255,255,.05)")}
+        >
+          <Text marginEnd="2">
+            Ein Projekt der{" "}
+            <Link
+              fontWeight="bold"
+              href="https://www.potsdamer-buergerstiftung.com"
+              isExternal
+            >
+              Potsdamer Bürgerstiftung
+            </Link>
+            .
+          </Text>
+        </Stack>
+      </Box>
       <Container maxW="7xl" py="4">
         <Flex
           as="div"
@@ -107,16 +133,16 @@ const Header: FC = () => {
           align="center"
           display={{ base: "flex", lg: "none" }}
         >
-          <Link href="/">
-            <ChakraLink
+          <RouterLink href="/">
+            <Link
               fontSize={{ base: "xl", sm: "2xl" }}
               py="2"
               fontFamily="heading"
               whiteSpace="nowrap"
             >
               <Logo height="16" />
-            </ChakraLink>
-          </Link>
+            </Link>
+          </RouterLink>
           <Button onClick={() => setMenuOpen(!menuOpen)} colorScheme="green">
             Menü
           </Button>
@@ -145,8 +171,8 @@ const Header: FC = () => {
                 ))}
             </Flex>
           </AnimateSharedLayout>
-          <Link href="/">
-            <ChakraLink
+          <RouterLink href="/">
+            <Link
               fontSize={{ lg: "2xl", xl: "3xl" }}
               fontFamily="heading"
               display={{ base: "none", lg: "block" }}
@@ -156,8 +182,8 @@ const Header: FC = () => {
               _hover={{ textDecoration: "none" }}
             >
               <Logo height="5rem" />
-            </ChakraLink>
-          </Link>
+            </Link>
+          </RouterLink>
 
           <AnimateSharedLayout>
             <Flex

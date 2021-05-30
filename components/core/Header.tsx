@@ -59,7 +59,7 @@ const MenuItem: FC<MenuItem> = ({ children, to = "/", setMenuOpen }) => {
     <RouterLink href={to} passHref>
       <Link
         py="5"
-        px={{ base: 0, md: 4 }}
+        px={{ base: 0, lg: 4 }}
         fontSize="lg"
         onClick={() => setMenuOpen(false)}
         position="relative"
@@ -98,7 +98,7 @@ const Header: FC = () => {
       zIndex="1"
       background={{
         base: menuOpen ? bg : "transparent",
-        md: "transparent",
+        lg: "transparent",
       }}
       boxShadow={{ base: menuOpen ? "2xl" : "none", md: "none" }}
     >

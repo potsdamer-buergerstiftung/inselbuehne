@@ -9,13 +9,15 @@ const Head: FC = () => {
       <DefaultSeo {...config} />
       <NextHead>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script
-          async
-          defer
-          data-domain="inselbuehne-potsdam.de"
-          data-api="/api/insights/event"
-          src="/js/insights.js"
-        />
+        {process.env.NODE_ENV === "production" && (
+          <script
+            async
+            defer
+            data-domain="inselbuehne-potsdam.de"
+            data-api="/api/insights/event"
+            src="/js/insights.js"
+          />
+        )}
       </NextHead>
     </>
   );

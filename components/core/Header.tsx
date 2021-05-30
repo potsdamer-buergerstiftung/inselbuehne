@@ -82,9 +82,7 @@ const MenuItem: FC<MenuItem> = ({ children, to = "/", setMenuOpen }) => {
   );
 };
 
-interface Header { }
-
-const Header: FC<Header> = () => {
+const Header: FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { colorMode, toggleColorMode } = useColorMode();
   const color = useColorModeValue("black", "white");

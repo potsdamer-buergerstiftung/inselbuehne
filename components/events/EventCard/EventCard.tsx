@@ -31,6 +31,7 @@ interface EventCardProps {
   subcategory?: string;
   start: Date;
   end: Date;
+  isSoldOut?: boolean;
 }
 
 const EventCard: FC<EventCardProps> = (props) => {
@@ -43,6 +44,7 @@ const EventCard: FC<EventCardProps> = (props) => {
     subcategory,
     start,
     end,
+    isSoldOut = false,
   } = props;
   return (
     <LinkBox as="article">
@@ -104,7 +106,10 @@ const EventCard: FC<EventCardProps> = (props) => {
                   )}
                 </Stack>
               </Stack>
-              <TicketButton eventId={id} />
+              <TicketButton
+                eventId={id}
+                type={isSoldOut ? "SOLD_OUT" : "TICKET"}
+              />
             </Stack>
           </GridItem>
         </Grid>

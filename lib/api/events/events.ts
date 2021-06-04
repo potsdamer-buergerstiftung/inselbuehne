@@ -24,7 +24,7 @@ export async function getEvents(
       {
         headers: { Authorization: `Bearer ${token}` },
         params: {
-          expand: "category,subcategory",
+          expand: "category,subcategory,ticket_availability",
           locale: "de_DE",
           status: "live,started,canceled",
         },
@@ -39,7 +39,7 @@ export async function getEvent(id: string): Promise<Event> {
     .get(`https://www.eventbriteapi.com/v3/events/${id}`, {
       headers: { Authorization: `Bearer ${token}` },
       params: {
-        expand: "category,subcategory",
+        expand: "category,subcategory,ticket_availability",
         locale: "de_DE",
       },
     })

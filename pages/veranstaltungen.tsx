@@ -14,6 +14,8 @@ import EventCard from "@components/events/EventCard";
 export default function Events({ categories, events }) {
   const [categoryId, setCategoryId] = useState<string>("");
 
+  console.log(JSON.stringify(events));
+
   return (
     <MotionPageTransition>
       <NextSeo title="Veranstaltungen" />
@@ -66,6 +68,7 @@ export default function Events({ categories, events }) {
                   id={event.id}
                   start={new Date(event.start.utc)}
                   end={new Date(event.end.utc)}
+                  isSoldOut={event.ticket_availability.is_sold_out}
                   key={i}
                 />
               );

@@ -54,6 +54,8 @@ export default function EventPage({ event }) {
   const start = dayjs(event.start.utc);
   const end = dayjs(event.end.utc);
 
+  const isSoldOut = event.ticket_availability.is_sold_out;
+
   return (
     <MotionPageTransition>
       <NextSeo title={event.name.text} />
@@ -102,7 +104,11 @@ export default function EventPage({ event }) {
                     {event.is_free && (
                       <Badge colorScheme="green">Kostenlos</Badge>
                     )}
-                    <TicketButton eventId={event.id} isFullWidth />
+                    <TicketButton
+                      eventId={event.id}
+                      isFullWidth
+                      type={isSoldOut ? "SOLD_OUT" : "TICKET"}
+                    />
                   </Stack>
                 </Stack>
               </GridItem>

@@ -31,7 +31,7 @@ const ContactPage = () => {
       </PageTitle>
       <Box as="section" pb="20" bg={bg}>
         <Container maxW="container.md">
-          <SimpleGrid spacing={10} columns={3}>
+          <SimpleGrid spacing={10} columns={{base: 1, md: 3}}>
             <Box textAlign="center">
               <Box as="div" pb="5">
                 <EmailIcon boxSize={12} color="green.500" />

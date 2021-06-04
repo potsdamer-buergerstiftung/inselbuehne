@@ -26,7 +26,7 @@ export async function getEvents(
         params: {
           expand: "category,subcategory",
           locale: "de_DE",
-          status: "live,started,ended,completed,canceled",
+          status: "live,started,canceled",
         },
       }
     )

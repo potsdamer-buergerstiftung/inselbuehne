@@ -163,8 +163,8 @@ const Section3: FC = () => {
             </Heading>
             <Text>
               Inselbühne haben wir die 1974 errichtete Freilichtbühne auf der
-              Freundschaftsinsel neu benannt. Seit 2012 wird sie nicht mehr
-              genutzt und es gibt Pläne, sie abzureißen. Das wollten wir
+              Freundschaftsinsel neu benannt. Seit 2012 wurde sie nicht mehr
+              genutzt und es gab Pläne, sie abzureißen. Das wollten wir
               verhindern, denn es gibt keine geeignetere Open-Air-Bühne in der
               Stadt. Wir meinen, Potsdam braucht eine Freilichtbühne, vor allem
               in Zeiten einer Pandemie.{" "}

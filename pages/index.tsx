@@ -164,7 +164,7 @@ const Section3: FC = () => {
             <Text>
               Inselbühne haben wir die 1974 errichtete Freilichtbühne auf der
               Freundschaftsinsel neu benannt. Seit 2012 wird sie nicht mehr
-              genutzt und es gibt Pläne, sie abzureißen. Das wollen wir
+              genutzt und es gibt Pläne, sie abzureißen. Das wollten wir
               verhindern, denn es gibt keine geeignetere Open-Air-Bühne in der
               Stadt. Wir meinen, Potsdam braucht eine Freilichtbühne, vor allem
               in Zeiten einer Pandemie.{" "}
@@ -192,13 +192,14 @@ const Section4: FC = () => {
           Los geht's
         </Heading>
         <Heading as="h1" fontSize="4xl">
-          Lass uns die Inselbühne gemeinsam wiederbeleben
+          Registriere Dich für unsere Veranstaltungen
         </Heading>
         <Text mt="5" mb="10" variant="light">
-          Zunächst provisorisch im Sommer 2021, als nicht-kommerzielle
-          Spielstätte für Kulturschaffende und Laien aus Potsdam, die eine
-          pandemie-taugliche Auftrittsmöglichkeit dringend benötigen. Und wenn
-          die Reaktionen positiv genug sind, machen wir auch nach 2021 weiter.{" "}
+          Wegen aktueller Verordnungen dürfen wir nur 100 Personen mit
+          entsprechendem Abstand zulassen. Um eine Veranstaltung zu besuchen,
+          sind trotz der überwiegenden Mehrheit kostenloser Veranstaltungen
+          Tickets notwendig, die Du entweder über unsere Website oder über unser
+          Ticket-Telefon bestellen kannst.{" "}
         </Text>
         <Link href="/veranstaltungen" passHref>
           <Button colorScheme="green" size="lg" shadow="base" as="a">

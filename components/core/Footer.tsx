@@ -38,7 +38,7 @@ const Footer: FC = () => {
             >
               <GridItem colSpan={{ base: 6, md: 3 }}>
                 <Flex justify={{ base: "center", md: "start" }}>
-                  <Logo iconColor="white" slugColor="green.500" height="24" />
+                  <Logo iconColor="white" slugColor="green.500" height="20" />
                 </Flex>
               </GridItem>
               <GridItem colSpan={{ base: 6, md: 1 }}>

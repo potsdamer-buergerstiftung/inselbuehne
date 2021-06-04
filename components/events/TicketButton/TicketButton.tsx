@@ -8,11 +8,13 @@ interface TicketButtonProps {
   eventId: string;
   isFullWidth?: boolean;
   type?: "TICKET" | "REGISTER" | "SOLD_OUT";
+  size?: string;
 }
 
 const TicketButton: FC<TicketButtonProps> = ({
   eventId,
   isFullWidth,
+  size = "lg",
   type = "TICKET",
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -71,10 +73,10 @@ const TicketButton: FC<TicketButtonProps> = ({
     <Button
       onClick={handleClick}
       colorScheme="green"
-      size="lg"
       id={`eb-${eventId}`}
       isFullWidth={isFullWidth}
       disabled={type == "SOLD_OUT"}
+      size={size}
     >
       {type == "TICKET" && "Tickets"}
       {type == "REGISTER" && "Registrieren"}

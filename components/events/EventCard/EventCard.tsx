@@ -75,15 +75,15 @@ const EventCard: FC<EventCardProps> = (props) => {
             <Stack
               direction={{ base: "column", md: "row" }}
               align={{ base: "start", md: "center" }}
-              px="8"
+              px="6"
               py="5"
               justify="space-between"
-              spacing={{ base: 5, md: 1 }}
+              spacing={{ base: 5, md: 4 }}
             >
               <Stack
                 direction={{ base: "column", md: "row" }}
                 align={{ base: "start", md: "center" }}
-                spacing="8"
+                spacing="6"
               >
                 <Box shadow="xl" p="4" bg={mode("white", "purple.800")}>
                   <Stack align="center">
@@ -106,10 +106,13 @@ const EventCard: FC<EventCardProps> = (props) => {
                   )}
                 </Stack>
               </Stack>
-              <TicketButton
-                eventId={id}
-                type={isSoldOut ? "SOLD_OUT" : "TICKET"}
-              />
+              <Box>
+                <TicketButton
+                  eventId={id}
+                  type={isSoldOut ? "SOLD_OUT" : "TICKET"}
+                  size="md"
+                />
+              </Box>
             </Stack>
           </GridItem>
         </Grid>

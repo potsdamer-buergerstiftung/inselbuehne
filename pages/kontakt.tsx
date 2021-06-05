@@ -63,7 +63,7 @@ const ContactPage = () => {
                 <PhoneIcon boxSize={12} color="green.500" />
               </Box>
               <Heading as="h6" variant="uppercase" fontSize="sm">
-                Telefon
+                Ticket-Telefon
               </Heading>
               <Text color={color}>
                 <Link href="tel:+4915739618032" isExternal>

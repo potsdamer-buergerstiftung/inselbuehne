@@ -1,4 +1,11 @@
-import { Box, Container, Heading, SimpleGrid, Stack } from "@chakra-ui/layout";
+import {
+  Box,
+  Container,
+  Heading,
+  Link,
+  SimpleGrid,
+  Stack,
+} from "@chakra-ui/layout";
 import { PageTitle } from "@components/core";
 import { Default } from "@components/layouts";
 import { MotionPageTransition } from "@components/motion";
@@ -10,11 +17,10 @@ import { GetStaticProps } from "next";
 import { getEventCategories, getEvents } from "@lib/api";
 import { useState } from "react";
 import EventCard from "@components/events/EventCard";
+import RouterLink from "next/link";
 
 export default function Events({ categories, events }) {
   const [categoryId, setCategoryId] = useState<string>("");
-
-  console.log(JSON.stringify(events));
 
   return (
     <MotionPageTransition>
@@ -24,8 +30,13 @@ export default function Events({ categories, events }) {
         heading="Veranstaltungen"
         bg={mode("white", "purple.800")}
       >
-        Hier findet Ihr alle großartigen Veranstaltungen, die demnächst auf der
-        Inselbühne ausgerichtet werden.
+        Wir bitten um Verständnis, aktuell maximal 100 Teilnehmende zulassen zu
+        können. Informationen zu weiteren Teilnahmebedingungen und aktuellen
+        Eindämmungsmaßnahmen{" "}
+        <RouterLink href="/verordnung">
+          <Link color="green.500">findest Du hier</Link>
+        </RouterLink>
+        .
       </PageTitle>
       <Box as="section" bg={mode("white", "purple.800")}>
         <Container maxW="container.lg">

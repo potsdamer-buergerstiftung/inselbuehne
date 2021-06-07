@@ -63,7 +63,7 @@ export default function EventPage({ event }) {
         as="section"
         pb="20"
         bg={mode("white", "purple.900")}
-        pt={{ base: "32", lg: "48" }}
+        pt={{ base: "40", lg: "48" }}
       >
         <Container maxW="container.lg">
           <Box

@@ -89,6 +89,7 @@ const EventCard: FC<EventCardProps> = (props) => {
                   <Stack align="center">
                     <Text variant="light">{dayjs(start).format("MMM")}</Text>
                     <Heading>{dayjs(start).format("D")}</Heading>
+                    <Text variant="light">{dayjs(start).format("ddd")}</Text>
                   </Stack>
                 </Box>
                 <Stack>

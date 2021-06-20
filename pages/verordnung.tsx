@@ -10,7 +10,7 @@ export default function Verordnung() {
       <NextSeo title="Teilnahmebedinungen" />
       <PageTitle
         title="Aktuelle Teilnahmebedingungen"
-        heading="Aktualisiert am 5. Juni"
+        heading="Aktualisiert am 17. Juni"
       >
         Wegen der aktuellen Eindämmungsverordnung der Landesregierung
         Brandenburgs sind wir verpflichtet, ein individuell entwickeltes
@@ -19,22 +19,14 @@ export default function Verordnung() {
       <Box as="section" pb="10">
         <Container maxW="lg">
           <Heading size="lg" mb="5">
-            Testpflicht
-          </Heading>
-          <Text mb="10" variant="light">
-            Zur Veranstaltung wird aktuell nur zugelassen, wer einen
-            tagesaktuellen Negativtest, eine Genesung oder eine Impfung im Sinne
-            der Schutzmaßnahmen-Ausnahmenverordnung vorweisen kann.
-          </Text>
-          <Heading size="lg" mb="5">
             Teilnehmerzahl
           </Heading>
           <Text mb="10" variant="light">
             Wir müssen sicherstellen, dass zwischen jeder teilnehmenden Gruppe
-            1,5 Meter Abstand eingehalten wird. Dadurch sind wegen der
-            Nichtbesetzung vieler Plätze aktuell nur 100 Teilnehmende möglich.
-            Wegen des Abstandes ist das Tragen einer Maske am Platz nicht
-            notwendig.
+            ein Mindestabstand eingehalten wird. Dadurch sind wegen der
+            Nichtbesetzung vieler Plätze aktuell nur <b>140</b> Teilnehmende
+            möglich. Das Tragen eines Mundnasenschutzes ist auf dem
+            Veranstaltungsgelände nicht notwendig.
           </Text>
           <Heading size="lg" mb="5">
             Tickets
@@ -56,8 +48,21 @@ export default function Verordnung() {
             Luca-App oder Corona-Warn-App an. Wer nicht die Möglichkeit zur
             Nutzung dieser Anwendungen hat, muss seine Kontaktdaten in
             Papierform hinterlegen. Um den Eintrittsprozess zu beschleunigen
-            bitten wir Sie, <Link href="/Kontaktnachverfolgung.pdf" download color="green.500"><ExternalLinkIcon /> dieses Formular</Link> auszudrucken und ausgefüllt zur
-            Veranstaltung mitzubringen.
+            bitten wir Sie,{" "}
+            <Link href="/Kontaktnachverfolgung.pdf" download color="green.500">
+              <ExternalLinkIcon /> dieses Formular
+            </Link>{" "}
+            auszudrucken und ausgefüllt zur Veranstaltung mitzubringen.
+          </Text>
+          <Heading size="lg" mb="5">
+            Testpflicht
+          </Heading>
+          <Text mb="10" variant="light">
+            Kinder unter 6 Jahren brauchen keinen negatvien Covid-Test. Alle
+            Minderjährigen ab 6 Jahren müssen in den letzten 24 Stunden vor
+            Veranstaltungsbeginn negativ getestet worden sein. Hierbei kann es
+            sich auch um einen Schnelltest, der Zuhause oder in der Schule
+            durchgeführt wurde, handeln.
           </Text>
         </Container>
       </Box>

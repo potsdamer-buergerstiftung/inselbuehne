@@ -30,9 +30,9 @@ export default function Events({ categories, events }) {
         heading="Veranstaltungen"
         bg={mode("white", "purple.800")}
       >
-        Wir bitten um Verständnis, aktuell maximal 100 Teilnehmende zulassen zu
-        können. Informationen zu weiteren Teilnahmebedingungen und aktuellen
-        Eindämmungsmaßnahmen{" "}
+        Wir bitten um Verständnis, aktuell maximal <b>140</b> Teilnehmende
+        zulassen zu können. Informationen zu weiteren Teilnahmebedingungen und
+        aktuellen Eindämmungsmaßnahmen{" "}
         <RouterLink href="/verordnung">
           <Link color="green.500">findest Du hier</Link>
         </RouterLink>

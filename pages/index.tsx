@@ -195,7 +195,7 @@ const Section4: FC = () => {
           Registriere Dich für unsere Veranstaltungen
         </Heading>
         <Text mt="5" mb="10" variant="light">
-          Wegen aktueller Verordnungen dürfen wir nur 100 Personen mit
+          Wegen aktueller Verordnungen dürfen wir nur 140 Personen mit
           entsprechendem Abstand zulassen. Um eine Veranstaltung zu besuchen,
           sind trotz der überwiegenden Mehrheit kostenloser Veranstaltungen
           Tickets notwendig, die Du entweder über unsere Website oder über unser

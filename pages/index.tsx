@@ -72,7 +72,7 @@ const Section1: FC = () => {
               <Box shadow="xl">
                 <Image
                   sizes="400px"
-                  src="/Babelsberg+Rock+2.jpg"
+                  src="/eroeffnung.jpg"
                   alt="Band auf der Inselbühne"
                   layout="fill"
                   objectFit="cover"

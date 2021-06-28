@@ -10,7 +10,7 @@ import {
   Container,
   Button,
   AspectRatio,
-  useColorModeValue,
+  useColorModeValue as mode,
   Text,
   Wrap,
   Link as ChakraLink,
@@ -19,15 +19,12 @@ import { MotionPageTransition, MotionHeading } from "@components/motion";
 import { PostCard } from "@components/posts";
 import { getAllPosts } from "@lib/api/posts";
 import { GetStaticProps } from "next";
-import { PBSLogo } from "@components/core";
 
 const Section1: FC = () => {
-  const bg = useColorModeValue("green.100", "purple.900");
-
   return (
     <Box
       as="section"
-      bg={bg}
+      bg={mode("green.100", "purple.900")}
       pb={{ base: "20", md: "28" }}
       pt={{ base: "40", md: "60" }}
     >
@@ -88,7 +85,7 @@ const Section1: FC = () => {
 };
 
 const Section2: FC<{ posts }> = ({ posts = [] }) => {
-  const bg = useColorModeValue("gray.50", "purple.800");
+  const bg = mode("gray.50", "purple.800");
 
   return (
     <Box as="section" pb={{ base: "20", md: "40" }} pt="24" bg={bg}>
@@ -132,7 +129,7 @@ const Section2: FC<{ posts }> = ({ posts = [] }) => {
 };
 
 const Section3: FC = () => {
-  const bg = useColorModeValue("gray.50", "purple.800");
+  const bg = mode("gray.50", "purple.800");
 
   return (
     <Box as="section" pb={{ base: "20", md: "40" }} bg={bg}>
@@ -177,7 +174,7 @@ const Section3: FC = () => {
 };
 
 const Section4: FC = () => {
-  const bg = useColorModeValue("gray.50", "purple.800");
+  const bg = mode("gray.50", "purple.800");
 
   return (
     <Box as="section" pb={{ base: "20", md: "40" }} textAlign="center" bg={bg}>

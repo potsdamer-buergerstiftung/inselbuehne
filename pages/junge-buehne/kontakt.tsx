@@ -17,7 +17,7 @@ import { InquiryForm } from "@components/contact";
 import axios from "axios";
 
 const ContactPage = () => {
-  const bg = useColorModeValue("blue.100", "purple.800");
+  const bg = useColorModeValue("blue.100", "blue.900");
   const color = useColorModeValue("gray.600", "white");
 
   const onSubmit = async (data) => axios.post("/api/contact_inquiry", data);

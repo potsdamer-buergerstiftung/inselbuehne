@@ -1,2 +1,3 @@
 import Default from "./Default";
-export { Default };
+import JungeBuehne from "./JungeBuehne";
+export { Default, JungeBuehne };

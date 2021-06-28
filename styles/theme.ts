@@ -23,7 +23,7 @@ const styles = {
       },
       a: {
         color: "green.500",
-      }
+      },
     },
   }),
 };

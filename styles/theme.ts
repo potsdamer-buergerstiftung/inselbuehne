@@ -21,6 +21,9 @@ const styles = {
       p: {
         marginBottom: 5,
       },
+      a: {
+        color: "green.500",
+      }
     },
   }),
 };

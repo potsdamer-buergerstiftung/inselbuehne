@@ -6,7 +6,7 @@ const Logo = (
 ) => {
   const {
     iconColor = useColorModeValue("gray.900", "white"),
-    slugColor = "green.500",
+    slugColor = "blue.500",
     ...rest
   } = props;
 

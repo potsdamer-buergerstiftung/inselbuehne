@@ -102,7 +102,7 @@ export default function EventPage({ event }) {
                   <Heading size="lg">{event.name.text}</Heading>
                   <Stack width="full" align="start">
                     {event.is_free && (
-                      <Badge colorScheme="green">Eintritt gegen Spende</Badge>
+                      <Badge colorScheme="green">Spende für Eintritt 💚</Badge>
                     )}
                     <TicketButton
                       eventId={event.id}

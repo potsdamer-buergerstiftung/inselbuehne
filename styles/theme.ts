@@ -24,6 +24,11 @@ const styles = {
       a: {
         color: "green.500",
       },
+      "h1,h2,h3,h4,h5,h6": {
+        fontWeight: "bold",
+        marginBottom: "3",
+        fontSize: "lg",
+      }
     },
   }),
 };

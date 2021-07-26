@@ -30,7 +30,7 @@ export default function Events({ categories, events }) {
         heading="Veranstaltungen"
         bg={mode("white", "purple.800")}
       >
-        Wir bitten um Verständnis, aktuell maximal <b>140</b> Teilnehmende
+        Wir bitten um Verständnis, aktuell maximal <b>170</b> Teilnehmende
         zulassen zu können. Informationen zu weiteren Teilnahmebedingungen und
         aktuellen Eindämmungsmaßnahmen{" "}
         <RouterLink href="/verordnung">

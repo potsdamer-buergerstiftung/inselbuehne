@@ -24,7 +24,7 @@ export default function Verordnung() {
           <Text mb="10" variant="light">
             Wir müssen sicherstellen, dass zwischen jeder teilnehmenden Gruppe
             ein Mindestabstand eingehalten wird. Dadurch sind wegen der
-            Nichtbesetzung vieler Plätze aktuell nur <b>140</b> Teilnehmende
+            Nichtbesetzung vieler Plätze aktuell nur <b>170</b> Teilnehmende
             möglich. Das Tragen eines Mundnasenschutzes ist auf dem
             Veranstaltungsgelände nicht notwendig.
           </Text>

@@ -88,9 +88,9 @@ const SponsorsSection: FC = () => {
   return (
     <Box as="section" bg={mode("gray.50", "purple.800")} pt="12">
       <Container maxW="container.xl">
-        <Wrap align="center" justify="start">
-          <Image src="/BKM_Web_de.gif" width="220" height="100" />
-          <Image src="/CDR_BKM_Neustart_Kultur_Wortmarke_neg_RGB_RZ.svg" width="100" height="100" />
+        <Wrap align="center" justify={{base: "center", md: "start"}} spacing="10" direction="row">
+          <div><Image src="/BKM_Web_de.gif" width="220" height="100" /></div>
+          <div><Image src="/CDR_BKM_Neustart_Kultur_Wortmarke_neg_RGB_RZ.svg" width="100" height="100" /></div>
         </Wrap>
       </Container>
     </Box>

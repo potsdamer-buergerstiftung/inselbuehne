@@ -54,16 +54,6 @@ export default function Verordnung() {
             </Link>{" "}
             auszudrucken und ausgefüllt zur Veranstaltung mitzubringen.
           </Text>
-          <Heading size="lg" mb="5">
-            Testpflicht
-          </Heading>
-          <Text mb="10" variant="light">
-            Kinder unter 6 Jahren brauchen keinen negatvien Covid-Test. Alle
-            Minderjährigen ab 6 Jahren müssen in den letzten 24 Stunden vor
-            Veranstaltungsbeginn negativ getestet worden sein. Hierbei kann es
-            sich auch um einen Schnelltest, der Zuhause oder in der Schule
-            durchgeführt wurde, handeln.
-          </Text>
         </Container>
       </Box>
     </>

@@ -8,6 +8,7 @@ import {
   Text,
   Heading,
   DarkMode,
+  Stack,
   VStack,
   Flex,
 } from "@chakra-ui/react";
@@ -38,7 +39,12 @@ const Footer: FC = () => {
             >
               <GridItem colSpan={{ base: 6, md: 3 }}>
                 <Flex justify={{ base: "center", md: "start" }}>
-                  <Logo iconColor="white" slugColor="green.500" height="20" />
+                  <Stack align="start" spacing="10" direction="row" justify="start">
+                    <Logo iconColor="white" slugColor="green.500" width="20rem" pt="2" />
+                    <Text variant="light" maxW="xl">
+                      Die Inselbühne Potsdam wird gefördert mit Mitteln der Landeshauptstadt Potsdam und des Ministeriums für Wissenschaft, Forschung und Kultur (MWFK) des Landes Brandenburg.
+                    </Text>
+                  </Stack>
                 </Flex>
               </GridItem>
               <GridItem colSpan={{ base: 6, md: 1 }}>

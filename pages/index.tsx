@@ -84,24 +84,11 @@ const Section1: FC = () => {
   );
 };
 
-const SponsorsSection: FC = () => {
-  return (
-    <Box as="section" bg={mode("gray.50", "purple.800")} pt="12">
-      <Container maxW="container.xl">
-        <Wrap align="center" justify={{base: "center", md: "start"}} spacing="10" direction="row">
-          <div><Image src="/BKM_Web_de.gif" width="220" height="100" /></div>
-          <div><Image src="/CDR_BKM_Neustart_Kultur_Wortmarke_neg_RGB_RZ.svg" width="100" height="100" /></div>
-        </Wrap>
-      </Container>
-    </Box>
-  )
-}
-
 const Section2: FC<{ posts }> = ({ posts = [] }) => {
   const bg = mode("gray.50", "purple.800");
 
   return (
-    <Box as="section" pb={{ base: "20", md: "40" }} pt="16" bg={bg}>
+    <Box as="section" pb={{ base: "20", md: "40" }} pt="24" bg={bg}>
       <Container maxW="container.xl">
         <Wrap align="center" justify="space-between" mb="12" spacing="16">
           <Box>
@@ -225,7 +212,6 @@ const HomePage = ({ posts }) => {
   return (
     <MotionPageTransition>
       <Section1 />
-      <SponsorsSection />
       <Section2 posts={posts} />
       <Section3 />
       <Section4 />

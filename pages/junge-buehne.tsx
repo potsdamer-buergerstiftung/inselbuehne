@@ -1,3 +1,4 @@
+import { FC } from "react";
 import {
   Box,
   Container,
@@ -7,6 +8,7 @@ import {
   Grid,
   Button,
   Heading,
+  Wrap,
 } from "@chakra-ui/react";
 import { PageTitle } from "@components/core";
 import { useColorModeValue as mode } from "@chakra-ui/color-mode";
@@ -14,6 +16,22 @@ import { JungeBuehne as Layout } from "@components/layouts";
 import { MotionPageTransition, MotionHeading } from "@components/motion";
 import Image from "next/image";
 import RouterLink from "next/link";
+
+
+
+const SponsorsSection: FC = () => {
+  return (
+    <Box as="section" bg={mode("blue.50", "blue.800")} py="12">
+      <Container maxW="container.xl">
+        <Wrap align="center" justify={{base: "center", md: "start"}} spacing="10" direction="row">
+          <div><Image src="/bkm_2017_websvg_de.svg" width="220" height="100" /></div>
+          <div><Image src="/CDR_BKM_Neustart_Kultur_Wortmarke_neg_RGB_RZ.svg" width="100" height="100" /></div>
+          <div><Image src="/fs.svg" width="300" height="100" /></div>
+        </Wrap>
+      </Container>
+    </Box>
+  )
+}
 
 export default function JungeBuehne() {
   return (
@@ -77,9 +95,11 @@ export default function JungeBuehne() {
           </Grid>
         </Container>
       </Box>
+      <SponsorsSection />
       <Box
         as="section"
         pb={{ base: "20", md: "40" }}
+        pt="16"
         bg={mode("blue.100", "blue.900")}
       >
         <Container maxW="container.xl" centerContent>

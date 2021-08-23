@@ -33,8 +33,7 @@ export default function Verordnung() {
             Wir müssen sicherstellen, dass zwischen jeder teilnehmenden Gruppe
             ein Mindestabstand eingehalten wird. Dadurch sind wegen der
             Nichtbesetzung vieler Plätze aktuell nur <b>170</b> Teilnehmende
-            möglich. Das Tragen eines Mundnasenschutzes ist auf dem
-            Veranstaltungsgelände nicht notwendig.
+            möglich.
           </Text>
           <Heading size="lg" mb="5">
             Tickets
@@ -44,6 +43,8 @@ export default function Verordnung() {
             kostenlose Veranstaltungen Tickets notwendig. Diese Tickets können
             über unser Ticket-Telefon oder direkt über die Website gebucht
             werden und sind, falls als E-Ticket gebucht, am Eingang vorzuzeigen.
+            Wir bitten Euch, außerhalb Eures Sitzplatzes den Mindestabstand von
+            1,5 Metern einzuhalten.
           </Text>
           <Heading size="lg" mb="5">
             Kontaktnachverfolgung
@@ -61,6 +62,13 @@ export default function Verordnung() {
               <ExternalLinkIcon /> dieses Formular
             </Link>{" "}
             auszudrucken und ausgefüllt zur Veranstaltung mitzubringen.
+          </Text>
+          <Heading size="lg" mb="5">
+            Maskenpflicht
+          </Heading>
+          <Text mb="10" variant="light">
+            Der medizinische Mundnasenschutz muss auf dem Veranstaltungsgelände
+            getragen werden und darf erst am Platz abgenommen werden.
           </Text>
         </Container>
       </Box>

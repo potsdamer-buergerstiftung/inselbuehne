@@ -10,7 +10,7 @@ export default function Verordnung() {
       <NextSeo title="Teilnahmebedinungen" />
       <PageTitle
         title="Aktuelle Teilnahmebedingungen"
-        heading="Aktualisiert am 17. Juni"
+        heading="Aktualisiert am 23. August"
       >
         Wegen der aktuellen Eindämmungsverordnung der Landesregierung
         Brandenburgs sind wir verpflichtet, ein individuell entwickeltes
@@ -18,6 +18,14 @@ export default function Verordnung() {
       </PageTitle>
       <Box as="section" pb="10">
         <Container maxW="lg">
+          <Heading size="lg" mb="5">
+            3G-Regel
+          </Heading>
+          <Text mb="10" variant="light">
+            Für das Besuchen der Veranstaltungen auf der Inselbühne ist das
+            Vorlegen eines Impf- oder Genesenenausweises oder eines
+            tagesaktuellen negativen Tests notwendig.
+          </Text>
           <Heading size="lg" mb="5">
             Teilnehmerzahl
           </Heading>

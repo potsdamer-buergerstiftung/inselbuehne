@@ -28,7 +28,7 @@ const styles = {
         fontWeight: "bold",
         marginBottom: "3",
         fontSize: "lg",
-      }
+      },
     },
   }),
 };

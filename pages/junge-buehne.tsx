@@ -17,21 +17,34 @@ import { MotionPageTransition, MotionHeading } from "@components/motion";
 import Image from "next/image";
 import RouterLink from "next/link";
 
-
-
 const SponsorsSection: FC = () => {
   return (
     <Box as="section" bg={mode("blue.50", "blue.800")} py="12">
       <Container maxW="container.xl">
-        <Wrap align="center" justify={{base: "center", md: "start"}} spacing="10" direction="row">
-          <div><Image src="/bkm_2017_websvg_de.svg" width="220" height="100" /></div>
-          <div><Image src="/CDR_BKM_Neustart_Kultur_Wortmarke_neg_RGB_RZ.svg" width="100" height="100" /></div>
-          <div><Image src="/fs.svg" width="300" height="100" /></div>
+        <Wrap
+          align="center"
+          justify={{ base: "center", md: "start" }}
+          spacing="10"
+          direction="row"
+        >
+          <div>
+            <Image src="/bkm_2017_websvg_de.svg" width="220" height="100" />
+          </div>
+          <div>
+            <Image
+              src="/CDR_BKM_Neustart_Kultur_Wortmarke_neg_RGB_RZ.svg"
+              width="100"
+              height="100"
+            />
+          </div>
+          <div>
+            <Image src="/fs.svg" width="300" height="100" />
+          </div>
         </Wrap>
       </Container>
     </Box>
-  )
-}
+  );
+};
 
 export default function JungeBuehne() {
   return (

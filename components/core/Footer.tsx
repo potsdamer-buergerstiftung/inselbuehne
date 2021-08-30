@@ -40,15 +40,15 @@ const Footer: FC = () => {
               <GridItem colSpan={{ base: 6, md: 3 }}>
                 <Flex justify={{ base: "center", md: "start" }}>
                   <Stack
-                    align="start"
+                    align={{ base: "center", md: "start" }}
                     spacing="10"
-                    direction="row"
+                    direction={{ base: "column", md: "row" }}
                     justify="start"
                   >
                     <Logo
                       iconColor="white"
                       slugColor="green.500"
-                      width="20rem"
+                      width={{ base: "10rem", md: "20rem" }}
                       pt="2"
                     />
                     <Text variant="light" maxW="xl">

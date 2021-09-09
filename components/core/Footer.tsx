@@ -11,8 +11,10 @@ import {
   Stack,
   VStack,
   Flex,
+  Wrap,
 } from "@chakra-ui/react";
 import Link from "next/link";
+import Image from "next/image";
 import { Logo } from "@components/core";
 
 function MenuItem(props) {
@@ -135,6 +137,30 @@ const Footer: FC = () => {
             </Grid>
           </Container>
         </Box>
+        <Box as="section" py="12">
+      <Container maxW="container.xl">
+        <Wrap
+          align="center"
+          justify={{ base: "center", md: "start" }}
+          spacing="10"
+          direction="row"
+        >
+          <div>
+            <Image src="/bkm_2017_websvg_de.svg" width="220" height="100" />
+          </div>
+          <Box>
+            <Image src="/MWFK.jpg" width="100" height="100" />
+          </Box>
+          <Box bg="white" px="2">
+            <Image
+              src="/potsdam.svg"
+              width="190"
+              height="100"
+            />
+          </Box>
+        </Wrap>
+      </Container>
+    </Box>
         <Box py={16}>
           <Container maxW="container.xl">
             <Text variant="light">

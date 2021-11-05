@@ -7,7 +7,7 @@ const url = "https://www.eventbrite.de/static/widgets/eb_widgets.js";
 interface TicketButtonProps {
   eventId: string;
   isFullWidth?: boolean;
-  type?: "TICKET" | "REGISTER" | "SOLD_OUT";
+  type?: "TICKET" | "REGISTER" | "SOLD_OUT" | "ENDED";
   size?: string;
 }
 
@@ -75,12 +75,13 @@ const TicketButton: FC<TicketButtonProps> = ({
       colorScheme="green"
       id={`eb-${eventId}`}
       isFullWidth={isFullWidth}
-      disabled={type == "SOLD_OUT"}
+      disabled={type == "SOLD_OUT" || type == "ENDED"}
       size={size}
     >
       {type == "TICKET" && "Tickets"}
       {type == "REGISTER" && "Registrieren"}
       {type == "SOLD_OUT" && "Ausverkauft"}
+      {type == "ENDED" && "Beendet"}
     </Button>
   );
 };

@@ -110,7 +110,7 @@ const EventCard: FC<EventCardProps> = (props) => {
               <Box>
                 <TicketButton
                   eventId={id}
-                  type={isSoldOut ? "SOLD_OUT" : "TICKET"}
+                  type="ENDED"
                   size="md"
                 />
               </Box>

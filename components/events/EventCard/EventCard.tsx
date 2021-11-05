@@ -108,11 +108,7 @@ const EventCard: FC<EventCardProps> = (props) => {
                 </Stack>
               </Stack>
               <Box>
-                <TicketButton
-                  eventId={id}
-                  type="ENDED"
-                  size="md"
-                />
+                <TicketButton eventId={id} type="ENDED" size="md" />
               </Box>
             </Stack>
           </GridItem>

@@ -73,21 +73,23 @@ export default function EventPage({ event }) {
             shadow="xl"
           >
             <Grid templateColumns="repeat(6, 1fr)">
-              <GridItem colSpan={{ base: 6, lg: 3 }}>
-                <Box
-                  position="relative"
-                  height={{ base: "60", lg: "full" }}
-                  width="full"
-                >
-                  <Image
-                    src={event.logo.original.url}
-                    objectFit="cover"
-                    layout="fill"
-                    sizes="400px"
-                    quality="90"
-                  />
-                </Box>
-              </GridItem>
+              {event.logo && (
+                <GridItem colSpan={{ base: 6, lg: 3 }}>
+                  <Box
+                    position="relative"
+                    height={{ base: "60", lg: "full" }}
+                    width="full"
+                  >
+                    <Image
+                      src={event.logo.original.url}
+                      objectFit="cover"
+                      layout="fill"
+                      sizes="400px"
+                      quality="90"
+                    />
+                  </Box>
+                </GridItem>
+              )}
               <GridItem
                 colSpan={{ base: 6, lg: 3 }}
                 px={{ base: 6, sm: 8 }}

@@ -26,7 +26,8 @@ export async function getEvents(
         params: {
           expand: "category,subcategory,ticket_availability",
           locale: "de_DE",
-          status: "all",
+          status: "ended,completed",
+          page_size: "150"
         },
       }
     )

@@ -8,6 +8,7 @@ interface PressPost {
 }
 
 export async function getAllPressPosts() {
+  return []
   const data = await fetchAPI(
     `
     query AllPressPosts {

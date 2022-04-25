@@ -47,7 +47,7 @@ PostPage.Layout = Default;
 
 export default PostPage;
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+/* export const getStaticProps: GetStaticProps = async ({ params }) => {
   const post = await getPost(params?.slug as string);
 
   return {
@@ -56,9 +56,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     },
     revalidate: 300,
   };
-};
+}; */
 
-export const getStaticPaths: GetStaticPaths = async () => {
+/* export const getStaticPaths: GetStaticPaths = async () => {
   const allPosts = await getAllPostsWithSlug();
 
   return {
@@ -72,4 +72,4 @@ export const getStaticPaths: GetStaticPaths = async () => {
       }) || [],
     fallback: true,
   };
-};
+}; */

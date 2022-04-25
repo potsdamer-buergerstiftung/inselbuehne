@@ -1,6 +1,7 @@
 import { fetchAPI } from "./fetcher";
 
 export async function getAllPostsWithSlug() {
+  return []
   const data = await fetchAPI(`
     {
       posts(first: 10000) {
@@ -26,6 +27,7 @@ interface GetAllPostsResult {
 }
 
 export async function getAllPosts(): Promise<GetAllPostsResult[]> {
+  return []
   const data = await fetchAPI(
     `
     query AllPosts {
@@ -74,6 +76,7 @@ interface GetPostResult {
 }
 
 export async function getPost(slug: string) {
+  return null
   const data = await fetchAPI(
     `
     query PostBySlug($slug: ID!) {
